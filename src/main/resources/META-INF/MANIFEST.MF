@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+FMLCorePlugin: Reika.DragonAPI.Auxiliary.DragonAPIASMHandler
+FMLAT: DragonAPI_at.cfg
+FMLCorePluginContainsFMLMod: false
+

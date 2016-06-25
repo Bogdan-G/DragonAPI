@@ -35,7 +35,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.IO.ReikaImageLoader;
 import Reika.DragonAPI.IO.ReikaImageLoader.ImageEditor;
 import Reika.DragonAPI.IO.ReikaTextureBinder;
@@ -80,7 +80,7 @@ public class ReikaTextureHelper {
 		}
 		else {
 			if (root == null) {
-				throw new MisuseException("You cannot fetch a render texture with reference to a null class!");
+				cpw.mods.fml.common.FMLLog.warning("You cannot fetch a render texture with reference to a null class!");
 			}
 			String oldtex = tex;
 			//String parent = root.getPackage().getName().replaceAll("\\.", "/")+"/";

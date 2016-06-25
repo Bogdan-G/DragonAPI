@@ -56,7 +56,7 @@ import Reika.DragonAPI.APIPacketHandler;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Extras.BlockProperties;
 import Reika.DragonAPI.Instantiable.Data.Collections.RelativePositionList;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
@@ -1895,7 +1895,7 @@ public final class ReikaWorldHelper extends DragonAPICore {
 
 	public static boolean isWorldLoaded(int dim) {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
-			throw new MisuseException("This cannot be called clientside!");
+			cpw.mods.fml.common.FMLLog.warning("This cannot be called clientside!");
 		return DimensionManager.getWorld(dim) != null;
 	}
 

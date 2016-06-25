@@ -72,8 +72,8 @@ public class ReikaFileReader extends DragonAPICore {
 		}
 	}
 
-	public static BufferedReader getReader(URL url, int timeout, ConnectionErrorHandler ch, DataFetcher f) {
-		if (!isInternetAccessible(timeout)) {
+	public static BufferedReader getReader(URL url, int timeout,/* ConnectionErrorHandler ch,*/ DataFetcher f) {
+		/*if (!isInternetAccessible(timeout)) {
 			if (ch != null)
 				ch.onNoInternet();
 			return null;
@@ -106,11 +106,11 @@ public class ReikaFileReader extends DragonAPICore {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		return null;
 	}
 
-	private static boolean isInternetAccessible(int timeout) {
+	/*private static boolean isInternetAccessible(int timeout) {
 		try {
 			URLConnection c = new URL("http://www.google.com").openConnection();
 			c.setConnectTimeout(timeout);
@@ -120,10 +120,10 @@ public class ReikaFileReader extends DragonAPICore {
 		catch (IOException ex) {
 			return false;
 		}
-	}
+	}*/
 
 	/** Gets all files with the given extension in a directory and any subdirectories. */
-	public static ArrayList<File> getAllFilesInFolder(File f, String... ext) {
+	/*public static ArrayList<File> getAllFilesInFolder(File f, String... ext) {
 		ArrayList<File> li = new ArrayList();
 		if (f.isDirectory()) {
 			File[] files = f.listFiles();
@@ -147,12 +147,12 @@ public class ReikaFileReader extends DragonAPICore {
 			}
 		}
 		return li;
-	}
+	}*/
 
 	/** Gets all files in a directory and any subdirectories. */
-	public static ArrayList<File> getAllFilesInFolder(File f) {
+	/*public static ArrayList<File> getAllFilesInFolder(File f) {
 		return getAllFilesInFolder(f, null);
-	}
+	}*/
 
 	public static String readTextFile(Class root, String path) {
 		InputStream in = root.getResourceAsStream(path);
@@ -187,12 +187,12 @@ public class ReikaFileReader extends DragonAPICore {
 		return getFileAsLines(getReader(path), printStackTrace);
 	}
 
-	public static ArrayList<String> getFileAsLines(URL url, int timeout, boolean printStackTrace, ConnectionErrorHandler ch) {
-		return getFileAsLines(url, timeout, printStackTrace, ch, null);
+	public static ArrayList<String> getFileAsLines(URL url, int timeout, boolean printStackTrace/*, ConnectionErrorHandler ch*/) {
+		return getFileAsLines(url, timeout, printStackTrace,/* ch,*/ null);
 	}
 
-	public static ArrayList<String> getFileAsLines(URL url, int timeout, boolean printStackTrace, ConnectionErrorHandler ch, DataFetcher f) {
-		BufferedReader r = getReader(url, timeout, ch, f);
+	public static ArrayList<String> getFileAsLines(URL url, int timeout, boolean printStackTrace,/* ConnectionErrorHandler ch,*/ DataFetcher f) {
+		BufferedReader r = getReader(url, timeout,/* ch,*/ f);
 		return r != null ? getFileAsLines(r, printStackTrace) : null;
 	}
 
@@ -250,11 +250,11 @@ public class ReikaFileReader extends DragonAPICore {
 		}
 	}
 
-	public static String getHash(String path, HashType type) {
+	/*public static String getHash(String path, HashType type) {
 		return getHash(new File(path), type);
-	}
+	}*/
 
-	public static String getHash(File file, HashType type) {
+	/*public static String getHash(File file, HashType type) {
 		try {
 			return getHash(new FileInputStream(file), type);
 		}
@@ -262,9 +262,9 @@ public class ReikaFileReader extends DragonAPICore {
 			e.printStackTrace();
 			return "";
 		}
-	}
+	}*/
 
-	public static String getHash(InputStream is, HashType type) {
+	/*public static String getHash(InputStream is, HashType type) {
 		StringBuffer sb = new StringBuffer();
 		try {
 			byte[] buffer = new byte[1024];
@@ -291,7 +291,7 @@ public class ReikaFileReader extends DragonAPICore {
 			sb.append(e.toString());
 		}
 		return sb.toString();
-	}
+	}*/
 
 	public static interface ConnectionErrorHandler {
 
@@ -321,15 +321,15 @@ public class ReikaFileReader extends DragonAPICore {
 	}
 
 	/** Edits individual lines matching in a file if they match a given criterion. */
-	public static abstract class LineEditor {
+	/*public static abstract class LineEditor {*/
 
 		/** Attempt line editing? */
-		public abstract boolean editLine(String s);
+		/*public abstract boolean editLine(String s);*/
 
 		/** The line used to replace strings that match the criteria. Args: Original line, newline separator */
-		protected abstract String getReplacementLine(String s, String newline);
+		/*protected abstract String getReplacementLine(String s, String newline);*/
 
-		public final boolean performChanges(File f) {
+		/*public final boolean performChanges(File f) {
 			try {
 				BufferedReader r = new BufferedReader(new FileReader(f));
 				String sep = System.getProperty("line.separator");
@@ -355,11 +355,11 @@ public class ReikaFileReader extends DragonAPICore {
 				e.printStackTrace();
 				return false;
 			}
-		}
+		}*/
 
-	}
+	//}
 
-	public static InputStream getFileInsideJar(File f, String name) {
+	/*public static InputStream getFileInsideJar(File f, String name) {
 		try {
 			return getFileInsideJar(new JarFile(f), name);
 		}
@@ -367,9 +367,9 @@ public class ReikaFileReader extends DragonAPICore {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 
-	public static InputStream getFileInsideJar(JarFile jar, String name) {
+	/*public static InputStream getFileInsideJar(JarFile jar, String name) {
 		try {
 			return jar.getInputStream(jar.getEntry(name));
 		}
@@ -377,13 +377,13 @@ public class ReikaFileReader extends DragonAPICore {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 
-	public static boolean deleteFolderWithContents(File f) {
+	/*public static boolean deleteFolderWithContents(File f) {
 		return deleteFolderWithContents(f, 10);
-	}
+	}*/
 
-	public static boolean deleteFolderWithContents(File f, int tries) {
+	/*public static boolean deleteFolderWithContents(File f, int tries) {
 		Exception e = null;
 		for (int i = 0; i < tries; i++) {
 			try {
@@ -398,7 +398,7 @@ public class ReikaFileReader extends DragonAPICore {
 			e.printStackTrace();
 		}
 		return false;
-	}
+	}*/
 
 	public static void copyFile(InputStream in, OutputStream out, int size) throws FileReadException, FileWriteException {
 		copyFile(in, out, size, null);

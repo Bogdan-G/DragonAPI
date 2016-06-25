@@ -150,7 +150,7 @@ public class DependentMethodStripper implements IClassTransformer {
 			annotation = ann;
 		}
 
-		@Override
+		//@//Override
 		public final String getMessage() {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.getMessage());

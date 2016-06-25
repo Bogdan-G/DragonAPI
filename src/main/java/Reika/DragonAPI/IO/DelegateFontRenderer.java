@@ -14,7 +14,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraftforge.common.MinecraftForge;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Rendering.BasicFontRenderer;
 import Reika.DragonAPI.Libraries.IO.ReikaTextureHelper;
 
@@ -56,7 +56,7 @@ public final class DelegateFontRenderer extends FontRenderer {
 
 	public String addRenderer(BasicFontRenderer f) {
 		if (currentID >= maxID) {
-			throw new MisuseException("Delegate Font Renderer has run out of IDs! All "+maxID+" IDs occupied!");
+			cpw.mods.fml.common.FMLLog.warning("Delegate Font Renderer has run out of IDs! All "+maxID+" IDs occupied!");
 		}
 		String id = keyChar+String.valueOf((char)currentID);
 		renderers.put(id, f);
@@ -127,7 +127,7 @@ public final class DelegateFontRenderer extends FontRenderer {
 
 	public static DelegateFontRenderer getRegisteredInstance() {
 		if (!Loader.instance().hasReachedState(LoaderState.LOADING))
-			throw new MisuseException("Tried to access the delegate font renderer too early!");
+			cpw.mods.fml.common.FMLLog.warning("Tried to access the delegate font renderer too early!");
 		return (DelegateFontRenderer)Minecraft.getMinecraft().fontRenderer;
 	}
 

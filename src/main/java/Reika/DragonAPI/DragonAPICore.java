@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import net.minecraftforge.common.ForgeVersion;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Event.Client.GameFinishedLoadingEvent;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 import Reika.DragonAPI.Libraries.Java.ReikaObfuscationHelper;
@@ -28,7 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DragonAPICore {
 
-	protected DragonAPICore() {throw new MisuseException("The class "+this.getClass()+" cannot be instantiated!");}
+	protected DragonAPICore() {cpw.mods.fml.common.FMLLog.warning("The class "+this.getClass()+" cannot be instantiated!");}
 
 	public static final Random rand = new Random();
 

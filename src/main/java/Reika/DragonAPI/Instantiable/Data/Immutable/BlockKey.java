@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Interfaces.BlockCheck;
 
 public final class BlockKey implements BlockCheck {
@@ -34,10 +34,10 @@ public final class BlockKey implements BlockCheck {
 	public BlockKey(ItemStack is) {
 		this(Block.getBlockFromItem(is.getItem()), is.getItemDamage());
 		if (is.getItem() == null)
-			throw new MisuseException("Cannot create a BlockKey from a null item!");
+			cpw.mods.fml.common.FMLLog.warning("Cannot create a BlockKey from a null item!");
 		Block b = Block.getBlockFromItem(is.getItem());
 		if (b == null)
-			throw new MisuseException("Cannot create a BlockKey with an item with no block!");
+			cpw.mods.fml.common.FMLLog.warning("Cannot create a BlockKey with an item with no block!");
 	}
 
 	public static BlockKey getAt(IBlockAccess world, int x, int y, int z) {

@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 //import Reika.ChromatiCraft.API.TreeGetter;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 import Reika.DragonAPI.Libraries.Registry.ReikaDyeHelper;
@@ -204,7 +204,7 @@ public final class TreeReader extends BlockArray {
 			return;
 		}
 		if (wood == null) {
-			throw new MisuseException("You must set the mod tree type!");
+			cpw.mods.fml.common.FMLLog.warning("You must set the mod tree type!");
 		}
 		this.addModTree(world, x, y, z, x, y, z, 0);
 	}
@@ -248,7 +248,7 @@ public final class TreeReader extends BlockArray {
 
 	private void addTree(World world, int x, int y, int z, int x0, int y0, int z0, int depth) {
 		if (vanilla == null) {
-			throw new MisuseException("You must set the tree type!");
+			cpw.mods.fml.common.FMLLog.warning("You must set the tree type!");
 		}
 		if (Math.abs(x-x0) > 24) //For magic forests
 			return;

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -52,9 +52,9 @@ public final class SimpleConfig {
 
 	public final void loadDataFromFile(FMLPreInitializationEvent event) {
 		if (isReading)
-			throw new MisuseException("Already reading!");
+			cpw.mods.fml.common.FMLLog.warning("Already reading!");
 		if (configFile == null)
-			throw new MisuseException("Error loading "+configMod.getDisplayName()+": You must load a config file before reading it!");
+			cpw.mods.fml.common.FMLLog.warning("Error loading "+configMod.getDisplayName()+": You must load a config file before reading it!");
 		config = new Configuration(configFile);
 
 		config.load();
@@ -63,7 +63,7 @@ public final class SimpleConfig {
 
 	public final void finishReading() {
 		if (!isReading)
-			throw new MisuseException("You cannot stop reading before you start!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot stop reading before you start!");
 		config.save();
 		isReading = false;
 	}

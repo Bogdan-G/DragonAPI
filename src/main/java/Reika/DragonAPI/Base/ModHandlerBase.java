@@ -12,9 +12,11 @@ package Reika.DragonAPI.Base;
 import java.lang.reflect.Modifier;
 import java.util.Random;
 
+import cpw.mods.fml.common.FMLLog;
+
 import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Auxiliary.Trackers.ReflectiveFailureTracker;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Libraries.Java.ReikaReflectionHelper;
 import Reika.DragonAPI.Libraries.Java.SemanticVersionParser;
 
@@ -29,9 +31,9 @@ public abstract class ModHandlerBase {
 
 	private void verifyInstanceField() {
 		if (!ReikaReflectionHelper.checkForField(this.getClass(), "instance", Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL))
-			throw new MisuseException("A mod handler must have a private static final 'instance' field!");
+			FMLLog.warning("A mod handler must have a private static final 'instance' field!");
 		if (!ReikaReflectionHelper.checkForMethod(this.getClass(), "getInstance", new Class[0], Modifier.PUBLIC, Modifier.STATIC))
-			throw new MisuseException("A mod handler must have a public static 'getInstance()' method!");
+			FMLLog.warning("A mod handler must have a public static 'getInstance()' method!");
 	}
 
 	public abstract boolean initializedProperly();

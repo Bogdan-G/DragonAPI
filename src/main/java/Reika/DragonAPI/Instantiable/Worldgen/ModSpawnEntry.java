@@ -11,7 +11,7 @@ package Reika.DragonAPI.Instantiable.Worldgen;
 
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public class ModSpawnEntry {
 
@@ -33,7 +33,7 @@ public class ModSpawnEntry {
 
 	public SpawnListEntry getEntry() {
 		if (!this.isLoadable())
-			throw new MisuseException("You cannot load a spawn entry for a mod that is not loaded!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot load a spawn entry for a mod that is not loaded!");
 		try {
 			SpawnListEntry entry = new SpawnListEntry(Class.forName(mc.className), weight, minsize, maxsize);
 			return entry;

@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
 
 
@@ -35,7 +35,7 @@ public class EdgeDetectionRenderer {
 
 	public EdgeDetectionRenderer(BlockKey bk) {
 		if (bk == null || bk.blockID == null)
-			throw new MisuseException("You cannot use a null block in the edge detection renderer!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot use a null block in the edge detection renderer!");
 		block = bk;
 	}
 

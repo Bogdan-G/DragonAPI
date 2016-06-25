@@ -43,8 +43,8 @@ import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.Auxiliary.PacketTypes;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Exception.IDConflictException;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.IDConflictException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.HybridTank;
 import Reika.DragonAPI.Instantiable.IO.PacketPipeline;
 import Reika.DragonAPI.Instantiable.IO.PacketTarget;
@@ -85,7 +85,7 @@ public final class ReikaPacketHelper extends DragonAPICore {
 	public static void registerPacketClass(String channel, Class<? extends PacketObj> c) {
 		PacketPipeline pipe = pipelines.get(channel);
 		if (pipe == null)
-			throw new MisuseException("Cannot register a packet class to a null pipeline!");
+			cpw.mods.fml.common.FMLLog.warning("Cannot register a packet class to a null pipeline!");
 		pipe.registerPacket(c);
 	}
 
@@ -1675,12 +1675,12 @@ public final class ReikaPacketHelper extends DragonAPICore {
 		switch(s) {
 			case CLIENT:
 				if (state.func_150753_a().containsKey(id))
-					throw new IDConflictException(mod, "Packet "+c+" ID "+id+" is already occupied by "+state.func_150753_a().get(id)+"!");
+					cpw.mods.fml.common.FMLLog.warning(mod+"Packet "+c+" ID "+id+" is already occupied by "+state.func_150753_a().get(id)+"!");
 				state.func_150753_a().put(Integer.valueOf(id), c);
 				break;
 			case SERVER:
 				if (state.func_150755_b().containsKey(id))
-					throw new IDConflictException(mod, "Packet "+c+" ID "+id+" is already occupied by "+state.func_150755_b().get(id)+"!");
+					cpw.mods.fml.common.FMLLog.warning(mod+"Packet "+c+" ID "+id+" is already occupied by "+state.func_150755_b().get(id)+"!");
 				state.func_150755_b().put(Integer.valueOf(id), c);
 				break;
 		}

@@ -18,7 +18,7 @@ import net.minecraftforge.common.MinecraftForge;
 import Reika.DragonAPI.APIPacketHandler.PacketIDs;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
+//import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
 import Reika.DragonAPI.Auxiliary.Trackers.PlayerFirstTimeTracker;
 import Reika.DragonAPI.Auxiliary.Trackers.PlayerHandler.PlayerTracker;
 import Reika.DragonAPI.Libraries.ReikaPlayerAPI;
@@ -72,7 +72,7 @@ public final class LoginHandler implements PlayerTracker {
 		}
 
 		PlayerFirstTimeTracker.checkPlayer(ep);
-		CommandableUpdateChecker.instance.notifyPlayer(ep);
+		//CommandableUpdateChecker.instance.notifyPlayer(ep);
 		if (ep instanceof EntityPlayerMP) {
 			EntityPlayerMP emp = (EntityPlayerMP)ep;
 			ReikaPacketHelper.sendDataPacket(DragonAPIInit.packetChannel, PacketIDs.LOGIN.ordinal(), emp);

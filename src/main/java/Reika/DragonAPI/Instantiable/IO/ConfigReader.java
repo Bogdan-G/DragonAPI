@@ -13,7 +13,7 @@ import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public class ConfigReader {
 
@@ -37,7 +37,7 @@ public class ConfigReader {
 	private void setFile() {
 		configFile = new File(filepath);
 		if (!configFile.exists()) {
-			//throw new MisuseException("Config for "+modName+" does not exist at "+filepath+"!\nThis reader is only designed for force-reading of existing data!");
+			//cpw.mods.fml.common.FMLLog.warning("Config for "+modName+" does not exist at "+filepath+"!\nThis reader is only designed for force-reading of existing data!");
 			DragonAPICore.logError("Config for "+modName+" does not exist at "+filepath+"!\nThis reader is only designed for force-reading of existing data!");
 			return;
 		}
@@ -46,13 +46,13 @@ public class ConfigReader {
 
 	public int getConfigInt(String cat, String key) {
 		if (!config.hasKey(cat, key))
-			throw new MisuseException("Config for "+modName+" at "+filepath+" does not contain category "+cat+" and key "+key+"\nThis reader is only designed for force-reading of existing data!");
+			cpw.mods.fml.common.FMLLog.warning("Config for "+modName+" at "+filepath+" does not contain category "+cat+" and key "+key+"\nThis reader is only designed for force-reading of existing data!");
 		return config.get(cat, key, 0).getInt();
 	}
 
 	public boolean getConfigBoolean(String cat, String key) {
 		if (!config.hasKey(cat, key))
-			throw new MisuseException("Config for "+modName+" at "+filepath+" does not contain category "+cat+" and key "+key+"\nThis reader is only designed for force-reading of existing data!");
+			cpw.mods.fml.common.FMLLog.warning("Config for "+modName+" at "+filepath+" does not contain category "+cat+" and key "+key+"\nThis reader is only designed for force-reading of existing data!");
 		return config.get(cat, key, false).getBoolean(false);
 	}
 

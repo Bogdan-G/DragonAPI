@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.common.FMLLog;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -31,7 +33,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.Auxiliary.BlockArrayComputer;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockBox;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
 import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
@@ -620,12 +622,12 @@ public class BlockArray implements Iterable<Coordinate> {
 
 	public void addLineOfClear(World world, int x, int y, int z, int range, int stepx, int stepy, int stepz) {
 		if (stepx == 0 && stepy == 0 && stepz == 0)
-			throw new MisuseException("The addLineOfClear() method requires a specified direction!");
+			FMLLog.warning("The addLineOfClear() method requires a specified direction!");
 		if (stepx != 0) {
 			if (stepy != 0 || stepz != 0)
-				throw new MisuseException("The addLineOfClear() method is only designed for 1D lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for 1D lines!");
 			if (stepx != -1 && stepx != 1)
-				throw new MisuseException("The addLineOfClear() method is only designed for solid lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for solid lines!");
 			if (stepx == 1) {
 				for (int i = x+1; i <= x+range; i++) {
 					if (!this.addIfClear(world, i, y, z))
@@ -641,9 +643,9 @@ public class BlockArray implements Iterable<Coordinate> {
 		}
 		else if (stepy != 0) {
 			if (stepx != 0 || stepz != 0)
-				throw new MisuseException("The addLineOfClear() method is only designed for 1D lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for 1D lines!");
 			if (stepy != -1 && stepy != 1)
-				throw new MisuseException("The addLineOfClear() method is only designed for solid lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for solid lines!");
 			if (stepy == 1) {
 				for (int i = y+1; i <= y+range; i++) {
 					if (!this.addIfClear(world, x, i, z))
@@ -659,9 +661,9 @@ public class BlockArray implements Iterable<Coordinate> {
 		}
 		else if (stepz != 0) {
 			if (stepy != 0 || stepx != 0)
-				throw new MisuseException("The addLineOfClear() method is only designed for 1D lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for 1D lines!");
 			if (stepz != -1 && stepz != 1)
-				throw new MisuseException("The addLineOfClear() method is only designed for solid lines!");
+				FMLLog.warning("The addLineOfClear() method is only designed for solid lines!");
 			if (stepz == 1) {
 				for (int i = z+1; i <= z+range; i++) {
 					if (!this.addIfClear(world, x, y, i))
@@ -943,7 +945,7 @@ public class BlockArray implements Iterable<Coordinate> {
 			}
 		}
 		else {
-			throw new MisuseException("Cannot apply operations to a null world!");
+			FMLLog.warning("Cannot apply operations to a null world!");
 		}
 	}
 

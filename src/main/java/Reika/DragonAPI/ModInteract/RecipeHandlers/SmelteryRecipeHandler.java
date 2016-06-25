@@ -21,7 +21,7 @@ import net.minecraftforge.fluids.FluidStack;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Auxiliary.Trackers.ReflectiveFailureTracker;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.ModInteract.ItemHandlers.TinkerToolHandler;
 
 public class SmelteryRecipeHandler {
@@ -49,14 +49,14 @@ public class SmelteryRecipeHandler {
 
 	public static void addMelting(ItemStack is, ItemStack render, int temp, int fluidAmount, Fluid fluid) {
 		if (fluid == null)
-			throw new MisuseException("You cannot melt items into a null fluid!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot melt items into a null fluid!");
 		addMelting(is, render, temp, new FluidStack(fluid, fluidAmount));
 	}
 
 	public static void addMelting(ItemStack is, ItemStack render, int temp, FluidStack fluid) {
 		Block b = Block.getBlockFromItem(render.getItem());
 		if (!(render.getItem() instanceof ItemBlock) || b == null)
-			throw new MisuseException("The render block must be a non-null block!");
+			cpw.mods.fml.common.FMLLog.warning("The render block must be a non-null block!");
 		try {
 			addMelting.invoke(smelteryInstance, is, b, render.getItemDamage(), temp, fluid);
 			DragonAPICore.log("Adding smeltery melting of "+is+" into "+fluidToString(fluid)+".");
@@ -81,7 +81,7 @@ public class SmelteryRecipeHandler {
 
 	public static void addCasting(ItemStack cast, ItemStack out, Fluid fluid, int fluidAmount, int delay) {
 		if (fluid == null)
-			throw new MisuseException("You cannot cast items from a null fluid!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot cast items from a null fluid!");
 		addCasting(cast, out, new FluidStack(fluid, fluidAmount), delay);
 	}
 
@@ -123,13 +123,13 @@ public class SmelteryRecipeHandler {
 
 	public static void addBlockCasting(ItemStack block, int fluidAmount, Fluid fluid, int delay) {
 		if (fluid == null)
-			throw new MisuseException("You cannot cast blocks from a null fluid!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot cast blocks from a null fluid!");
 		addBlockCasting(block, new FluidStack(fluid, fluidAmount), delay);
 	}
 
 	public static void addBlockCasting(ItemStack block, FluidStack fluid, int delay) {
 		if (!(block.getItem() instanceof ItemBlock))
-			throw new MisuseException("You cannot cast a non-block as a block!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot cast a non-block as a block!");
 		try {
 			addBlockCasting.invoke(castingBasinInstance, block, fluid, delay);
 			DragonAPICore.log("Adding block casting of "+fluidToString(fluid)+" to "+block+".");

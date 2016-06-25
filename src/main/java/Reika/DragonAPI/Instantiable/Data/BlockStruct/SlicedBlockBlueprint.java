@@ -16,7 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
 import Reika.DragonAPI.Libraries.ReikaDirectionHelper;
 
@@ -54,9 +54,9 @@ public class SlicedBlockBlueprint {
 
 	private void verifyArg(char c) {
 		if (c == 'x')
-			throw new MisuseException("Character 'x' is reserved for \"don't care\"!");
+			cpw.mods.fml.common.FMLLog.warning("Character 'x' is reserved for \"don't care\"!");
 		if (c == '-')
-			throw new MisuseException("Character '-' is reserved for empty space!");
+			cpw.mods.fml.common.FMLLog.warning("Character '-' is reserved for empty space!");
 	}
 
 	public void addSlice(String... array) {
@@ -64,7 +64,7 @@ public class SlicedBlockBlueprint {
 		for (int i = 0; i < l; i++) {
 			if (i > 0)
 				if (array[i].length() != array[i-1].length())
-					throw new MisuseException("You must only register properly shaped slices!");
+					cpw.mods.fml.common.FMLLog.warning("You must only register properly shaped slices!");
 		}
 		int w = array[0].length();
 
@@ -99,7 +99,7 @@ public class SlicedBlockBlueprint {
 				else {
 					if (!this.mapBlock(c, ids, metas, antiids, antimetas, i, k)) {
 						if (!this.antimapBlock(c, ids, metas, antiids, antimetas, i, k)) {
-							throw new MisuseException("Unspecified mapping '"+c+"'!");
+							cpw.mods.fml.common.FMLLog.warning("Unspecified mapping '"+c+"'!");
 						}
 					}
 				}

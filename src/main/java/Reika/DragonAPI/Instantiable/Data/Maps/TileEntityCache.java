@@ -20,7 +20,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.WorldLocation;
 import Reika.DragonAPI.Instantiable.Data.Maps.MultiMap.CollectionFactory;
 import Reika.DragonAPI.Libraries.ReikaNBTHelper.NBTTypes;
@@ -47,7 +47,7 @@ public final class TileEntityCache<V> {
 
 	public V put(V tile) {
 		if (!(tile instanceof TileEntity))
-			throw new MisuseException("You cannot self-put an entry if it is not a TileEntity!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot self-put an entry if it is not a TileEntity!");
 		TileEntity te = (TileEntity)tile;
 		return this.put(te.worldObj, te.xCoord, te.yCoord, te.zCoord, tile);
 	}
@@ -94,7 +94,7 @@ public final class TileEntityCache<V> {
 
 	public V remove(V tile) {
 		if (!(tile instanceof TileEntity))
-			throw new MisuseException("You cannot self-remove an entry if it is not a TileEntity!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot self-remove an entry if it is not a TileEntity!");
 		TileEntity te = (TileEntity)tile;
 		return this.remove(te.worldObj, te.xCoord, te.yCoord, te.zCoord);
 	}

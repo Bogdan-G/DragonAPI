@@ -26,7 +26,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
 import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
 import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
@@ -283,7 +283,7 @@ public class FilledBlockArray extends StructuredBlockArray {
 
 		private FluidCheck(Fluid f) {
 			if (!f.canBePlacedInWorld())
-				throw new MisuseException("You cannot require non-placeable fluids!");
+				cpw.mods.fml.common.FMLLog.warning("You cannot require non-placeable fluids!");
 			fluid = f;
 		}
 

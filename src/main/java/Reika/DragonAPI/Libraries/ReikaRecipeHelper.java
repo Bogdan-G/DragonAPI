@@ -31,7 +31,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
 import Reika.DragonAPI.Instantiable.Recipe.ExpandedOreRecipe;
 import Reika.DragonAPI.Instantiable.Recipe.RecipePattern;
@@ -481,7 +481,7 @@ public class ReikaRecipeHelper extends DragonAPICore {
 
 	public static void replaceIngredientInAllRecipes(ItemStack ingredient, ItemStack replacement, boolean makeCopy) {
 		if (ingredient == null)
-			throw new MisuseException("You cannot replace null in recipes!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot replace null in recipes!");
 		ArrayList<IRecipe> copies = new ArrayList();
 		List<IRecipe> li = CraftingManager.getInstance().getRecipeList();
 		for (IRecipe ir : li) {

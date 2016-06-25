@@ -20,7 +20,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.ImmutableItemStack;
 import Reika.DragonAPI.Interfaces.Matcher;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
@@ -199,9 +199,9 @@ public final class ItemHashMap<V> {
 
 		private ItemKey(ItemStack is) {
 			if (is == null)
-				throw new MisuseException("You cannot add a null itemstack to the map!");
+				cpw.mods.fml.common.FMLLog.warning("You cannot add a null itemstack to the map!");
 			if (is.getItem() == null)
-				throw new MisuseException("You cannot add a null-item itemstack to the map!");
+				cpw.mods.fml.common.FMLLog.warning("You cannot add a null-item itemstack to the map!");
 			this.itemID = is.getItem();
 			this.metadata = is.getItemDamage();
 		}

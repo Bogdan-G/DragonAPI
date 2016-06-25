@@ -22,7 +22,7 @@ import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Base.CropHandlerBase;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Maps.BlockMap;
 import Reika.DragonAPI.Interfaces.CustomCropHandler;
 import Reika.DragonAPI.Interfaces.Registry.CropHandler;
@@ -177,7 +177,7 @@ public enum ModCropList implements ModCrop {
 
 	private ModCropList(ModList api, int color, String blockVar, String itemVar, int seedItem, int metamin, int metafresh, int metaripe, VarType blockType, VarType itemType) {
 		if (!DragonAPIInit.canLoadHandlers())
-			throw new MisuseException("Accessed registry enum too early! Wait until postInit!");
+			cpw.mods.fml.common.FMLLog.warning("Accessed registry enum too early! Wait until postInit!");
 		mod = api;
 		harvestedMeta = metafresh;
 		ripeMeta = metaripe;

@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.BlockStruct.BlockArray;
 import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
 import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
@@ -62,7 +62,7 @@ public class MENetwork {
 	private MENetwork(World world) {
 		this.world = world;
 		if (!ModList.APPENG.isLoaded()) {
-			throw new MisuseException("How do you plan to create an ME network object without AE installed?!");
+			cpw.mods.fml.common.FMLLog.warning("How do you plan to create an ME network object without AE installed?!");
 		}
 	}
 

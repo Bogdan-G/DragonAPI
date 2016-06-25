@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import cpw.mods.fml.common.FMLLog;
+
 /*import li.cil.oc.api.Network;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Context;
@@ -49,7 +51,7 @@ import Reika.DragonAPI.DragonOptions;
 import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.ASM.DependentMethodStripper.ModDependent;
 import Reika.DragonAPI.ASM.InterfaceInjector.Injectable;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.IO.CompoundSyncPacket;
 import Reika.DragonAPI.IO.CompoundSyncPacket.CompoundSyncPacketHandler;
 import Reika.DragonAPI.Instantiable.HybridTank;
@@ -351,15 +353,15 @@ public abstract class TileEntityBase extends TileEntity implements CompoundSyncP
 	}
 
 	public final EntityPlayerMP getServerPlacer() {
-		if (worldObj.isRemote)
-			throw new MisuseException("Cannot get the serverside player on the client!");
+		if (worldObj.isRemote) {
+			FMLLog.warning("Cannot get the serverside player on the client!");return null;}
 		EntityPlayer ep = this.getPlacer();
-		if (ep instanceof EntityPlayerMP)
+		if (ep instanceof EntityPlayerMP) {
 			return (EntityPlayerMP)ep;
-		else if (!(ReikaPlayerAPI.isFake(ep)))
-			throw new MisuseException("Cannot get the serverside player on the client!");
-		else
-			return null;
+		} else if (!(ReikaPlayerAPI.isFake(ep))) {
+			FMLLog.warning("Cannot get the serverside player on the client!");return null;
+		} else {
+			return null;}
 	}
 
 	public final EntityPlayer getFakePlacer() {

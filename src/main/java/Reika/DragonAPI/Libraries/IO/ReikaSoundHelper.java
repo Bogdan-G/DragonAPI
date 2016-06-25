@@ -32,7 +32,7 @@ import Reika.DragonAPI.APIPacketHandler.PacketIDs;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.Auxiliary.Trackers.CustomSoundHandler;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.DecimalPosition;
 import Reika.DragonAPI.Instantiable.Data.Maps.MultiMap;
 import Reika.DragonAPI.Instantiable.IO.EnumSound;
@@ -188,7 +188,7 @@ public class ReikaSoundHelper {
 
 	public static void broadcastSound(SoundEnum s, String ch, float vol, float pitch) {
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
-			throw new MisuseException("You cannot call this from the client!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot call this from the client!");
 		World[] worlds = DimensionManager.getWorlds();
 		for (World world : worlds) {
 			for (EntityPlayer ep : (List<EntityPlayer>)world.playerEntities) {

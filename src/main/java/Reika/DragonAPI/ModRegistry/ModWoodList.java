@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Maps.BlockMap;
 import Reika.DragonAPI.Instantiable.Data.Maps.MultiMap;
 import Reika.DragonAPI.Interfaces.Registry.TreeType;
@@ -141,7 +141,7 @@ public enum ModWoodList implements TreeType {
 
 	private ModWoodList(ModList req, int color, int leafcolor, String blockVar, String leafVar, String saplingVar, int[] meta, int[] metaleaf, int metasapling, VarType type) {
 		if (!DragonAPIInit.canLoadHandlers())
-			throw new MisuseException("Accessed registry enum too early! Wait until postInit!");
+			cpw.mods.fml.common.FMLLog.warning("Accessed registry enum too early! Wait until postInit!");
 		mod = req;
 		leafColor = leafcolor;
 		logColor = color;

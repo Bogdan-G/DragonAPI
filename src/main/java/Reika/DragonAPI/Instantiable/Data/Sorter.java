@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 
 
@@ -29,7 +29,7 @@ public class Sorter<O> {
 		for (int i = 0; i < elements.length; i++) {
 			O o = objects[i];
 			if (indexes.containsKey(o))
-				throw new MisuseException("You cannot have duplicate objects!");
+				cpw.mods.fml.common.FMLLog.warning("You cannot have duplicate objects!");
 			elements[i] = new Element(o);
 			indexes.put(o, i);
 		}

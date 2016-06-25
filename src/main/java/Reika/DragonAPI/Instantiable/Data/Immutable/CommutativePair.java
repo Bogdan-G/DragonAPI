@@ -9,7 +9,7 @@
  ******************************************************************************/
 package Reika.DragonAPI.Instantiable.Data.Immutable;
 
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public final class CommutativePair<V> {
 
@@ -18,7 +18,7 @@ public final class CommutativePair<V> {
 
 	public CommutativePair(V o1, V o2) {
 		if (o1 == null || o2 == null)
-			throw new MisuseException("You cannot create a pair with null!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot create a pair with null!");
 		this.o1 = o1;
 		this.o2 = o2;
 	}

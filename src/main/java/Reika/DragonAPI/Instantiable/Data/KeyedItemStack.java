@@ -13,7 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public final class KeyedItemStack {
 
@@ -36,7 +36,7 @@ public final class KeyedItemStack {
 
 	public KeyedItemStack(ItemStack is) {
 		if (is == null || is.getItem() == null)
-			throw new MisuseException("You cannot key a null itemstack!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot key a null itemstack!");
 		item = is.copy();
 		for (int i = 0; i < enabledCriteria.length; i++)
 			enabledCriteria[i] = Criteria.list[i].defaultState;

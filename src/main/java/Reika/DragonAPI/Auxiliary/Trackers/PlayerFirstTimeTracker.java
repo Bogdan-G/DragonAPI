@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Libraries.ReikaPlayerAPI;
 
 public class PlayerFirstTimeTracker {
@@ -26,7 +26,7 @@ public class PlayerFirstTimeTracker {
 	public static void addTracker(PlayerTracker pt) {
 		String s = pt.getID();
 		if (tags.contains(s))
-			throw new MisuseException("Duplicate PlayerTracker ID: "+s);
+			cpw.mods.fml.common.FMLLog.warning("Duplicate PlayerTracker ID: "+s);
 		DragonAPICore.log("Creating player tracker "+s);
 		list.add(pt);
 		tags.add(s);

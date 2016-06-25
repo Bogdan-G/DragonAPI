@@ -43,7 +43,7 @@ import org.lwjgl.util.Rectangle;
 
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.IO.DelegateFontRenderer;
 import Reika.DragonAPI.Instantiable.Data.Maps.RectangleMap;
 import Reika.DragonAPI.Instantiable.Data.Maps.RegionMap;
@@ -378,7 +378,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 	 * Input items MUST be a size-9 array! */
 	private void drawRecipe(RenderItem render, FontRenderer f, int x, int y, ItemStack[] in, int x2, int y2, ItemStack out, boolean shapeless) {
 		if (in.length != 9)
-			throw new MisuseException("DrawRecipe() requires 9 input items!");
+			cpw.mods.fml.common.FMLLog.warning("DrawRecipe() requires 9 input items!");
 		int j = this.getScreenXInset();
 		int k = this.getScreenYInset();
 		for (int ii = 0; ii < 3; ii++) {

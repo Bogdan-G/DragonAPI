@@ -24,7 +24,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
 import Reika.DragonAPI.ModList;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
 import Reika.DragonAPI.Instantiable.Data.Maps.MultiMap;
 import Reika.DragonAPI.Interfaces.Registry.OreType;
@@ -146,7 +146,7 @@ public enum ModOreList implements OreType {
 
 	private ModOreList(String n, int color, OreRarity r, String prod, int count, String... ore) {
 		//if (!DragonAPIInit.canLoadHandlers())
-		//	throw new MisuseException("Accessed registry enum too early! Wait until postInit!");
+		//	cpw.mods.fml.common.FMLLog.warning("Accessed registry enum too early! Wait until postInit!");
 		dropCount = count;
 		oreColor = color;
 		displayName = n;
@@ -166,7 +166,7 @@ public enum ModOreList implements OreType {
 
 	public static void initializeAll() {
 		if (!DragonAPIInit.canLoadHandlers())
-			throw new MisuseException("Initialized registry enum too early! Wait until postInit!");
+			cpw.mods.fml.common.FMLLog.warning("Initialized registry enum too early! Wait until postInit!");
 		for (int i = 0; i < oreList.length; i++) {
 			oreList[i].initialize();
 		}

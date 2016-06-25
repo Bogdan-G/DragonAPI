@@ -50,23 +50,23 @@ import Reika.DragonAPI.Auxiliary.FindTilesCommand;
 import Reika.DragonAPI.Auxiliary.LoggingFilters;
 import Reika.DragonAPI.Auxiliary.NEI_DragonAPI_Config;
 import Reika.DragonAPI.Auxiliary.ProgressiveRecursiveBreaker;
-import Reika.DragonAPI.Auxiliary.Trackers.BiomeCollisionTracker;
-import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
-import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker.CheckerDisableCommand;
-import Reika.DragonAPI.Auxiliary.Trackers.CompatibilityTracker;
+//import Reika.DragonAPI.Auxiliary.Trackers.BiomeCollisionTracker;
+//import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
+//import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker.CheckerDisableCommand;
+//import Reika.DragonAPI.Auxiliary.Trackers.CompatibilityTracker;
 import Reika.DragonAPI.Auxiliary.Trackers.FurnaceFuelRegistry;
-import Reika.DragonAPI.Auxiliary.Trackers.IntegrityChecker;
+//import Reika.DragonAPI.Auxiliary.Trackers.IntegrityChecker;
 import Reika.DragonAPI.Auxiliary.Trackers.KeyWatcher.KeyTicker;
-import Reika.DragonAPI.Auxiliary.Trackers.PackModificationTracker;
-import Reika.DragonAPI.Auxiliary.Trackers.PatreonController;
+//import Reika.DragonAPI.Auxiliary.Trackers.PackModificationTracker;
+//import Reika.DragonAPI.Auxiliary.Trackers.PatreonController;
 import Reika.DragonAPI.Auxiliary.Trackers.PlayerHandler;
-import Reika.DragonAPI.Auxiliary.Trackers.PotionCollisionTracker;
+//import Reika.DragonAPI.Auxiliary.Trackers.PotionCollisionTracker;
 import Reika.DragonAPI.Auxiliary.Trackers.ReflectiveFailureTracker;
 import Reika.DragonAPI.Auxiliary.Trackers.RemoteAssetLoader;
 import Reika.DragonAPI.Auxiliary.Trackers.SuggestedModsTracker;
 import Reika.DragonAPI.Auxiliary.Trackers.TickRegistry;
 import Reika.DragonAPI.Auxiliary.Trackers.TickScheduler;
-import Reika.DragonAPI.Auxiliary.Trackers.VanillaIntegrityTracker;
+//import Reika.DragonAPI.Auxiliary.Trackers.VanillaIntegrityTracker;
 import Reika.DragonAPI.Base.DragonAPIMod;
 import Reika.DragonAPI.Base.DragonAPIMod.LoadProfiler.LoadPhase;
 import Reika.DragonAPI.Base.ModHandlerBase;
@@ -75,7 +75,7 @@ import Reika.DragonAPI.Base.ModHandlerBase.VersionHandler;
 import Reika.DragonAPI.Base.ModHandlerBase.VersionIgnore;
 import Reika.DragonAPI.Command.BlockReplaceCommand;
 import Reika.DragonAPI.Command.ClearItemsCommand;
-import Reika.DragonAPI.Command.DonatorCommand;
+//import Reika.DragonAPI.Command.DonatorCommand;
 import Reika.DragonAPI.Command.EditNearbyInventoryCommand;
 import Reika.DragonAPI.Command.EntityListCommand;
 import Reika.DragonAPI.Command.GuideCommand;
@@ -84,8 +84,8 @@ import Reika.DragonAPI.Command.LogControlCommand;
 import Reika.DragonAPI.Command.SelectiveKillCommand;
 import Reika.DragonAPI.Command.TestControlCommand;
 import Reika.DragonAPI.Command.TileSyncCommand;
-import Reika.DragonAPI.Exception.InvalidBuildException;
-import Reika.DragonAPI.Exception.WTFException;
+//import Reika.DragonAPI.Exception.InvalidBuildException;
+//import Reika.DragonAPI.Exception.WTFException;
 import Reika.DragonAPI.Extras.LoginHandler;
 import Reika.DragonAPI.Extras.TemporaryCodeCalls;
 import Reika.DragonAPI.Instantiable.Event.ItemUpdateEvent;
@@ -105,11 +105,11 @@ import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 import Reika.DragonAPI.Libraries.Java.ReikaObfuscationHelper;
 import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
 import Reika.DragonAPI.Libraries.Registry.ReikaOreHelper;
-import Reika.DragonAPI.ModInteract.BannedItemReader;
-import Reika.DragonAPI.ModInteract.MinetweakerHooks;
+//import Reika.DragonAPI.ModInteract.BannedItemReader;
+//import Reika.DragonAPI.ModInteract.MinetweakerHooks;
 import Reika.DragonAPI.ModInteract.WailaTechnicalOverride;
 //import Reika.DragonAPI.ModInteract.DeepInteract.FrameBlacklist;
-import Reika.DragonAPI.ModInteract.DeepInteract.MTInteractionManager;
+//import Reika.DragonAPI.ModInteract.DeepInteract.MTInteractionManager;
 import Reika.DragonAPI.ModInteract.DeepInteract.NEIIntercept;
 //import Reika.DragonAPI.ModInteract.DeepInteract.ReikaMystcraftHelper;
 //import Reika.DragonAPI.ModInteract.DeepInteract.ReikaThaumHelper;
@@ -151,7 +151,7 @@ import Reika.DragonAPI.ModInteract.ItemHandlers.TinkerToolHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.TransitionalOreHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.TwilightForestHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.VeryLegacyMagicCropHandler;
-import Reika.DragonAPI.ModInteract.RecipeHandlers.ForestryRecipeHelper;
+//import Reika.DragonAPI.ModInteract.RecipeHandlers.ForestryRecipeHelper;
 import Reika.DragonAPI.ModInteract.RecipeHandlers.SmelteryRecipeHandler;
 import Reika.DragonAPI.ModRegistry.InterfaceCache;
 import Reika.DragonAPI.ModRegistry.ModCropList;
@@ -204,7 +204,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	public void invalidSignature(FMLFingerprintViolationEvent evt) {
 		if (!ReikaObfuscationHelper.isDeObfEnvironment()) {
 			if (!evt.fingerprints.contains(evt.expectedFingerprint.toLowerCase().replaceAll(":", ""))) {
-				throw new InvalidBuildException(this, evt.source);
+				cpw.mods.fml.common.FMLLog.warning(String.valueOf(this)+String.valueOf(evt.source));
 			}
 		}
 	}
@@ -213,7 +213,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	@EventHandler
 	public void preload(FMLPreInitializationEvent evt) {
 		this.startTiming(LoadPhase.PRELOAD);
-		this.verifyInstallation();
+		//this.verifyInstallation();
 		config.loadSubfolderedConfigFile(evt);
 		config.initProps(evt);
 
@@ -244,10 +244,10 @@ public class DragonAPIInit extends DragonAPIMod {
 		if (ReikaObfuscationHelper.isDeObfEnvironment())
 			TemporaryCodeCalls.preload(evt);
 
-		BannedItemReader.instance.initWith("BanItem");
-		BannedItemReader.instance.initWith("ItemBan");
-		BannedItemReader.instance.initWith("TekkitCustomizerData");
-		BannedItemReader.instance.initWith("TekkitCustomizer");
+		//BannedItemReader.instance.initWith("BanItem");
+		//BannedItemReader.instance.initWith("ItemBan");
+		//BannedItemReader.instance.initWith("TekkitCustomizerData");
+		//BannedItemReader.instance.initWith("TekkitCustomizer");
 
 		this.basicSetup(evt);
 
@@ -389,7 +389,7 @@ public class DragonAPIInit extends DragonAPIMod {
 		FMLInterModComms.sendMessage("Waila", "register", "Reika.DragonAPI.ModInteract.WailaTechnicalOverride.registerOverride");
 
 		if (DragonOptions.UNNERFOBSIDIAN.getState())
-			Blocks.obsidian.setResistance(2000);
+			//Blocks.obsidian.setResistance(2000);
 
 		if (ModList.COMPUTERCRAFT.isLoaded()) {
 			try {
@@ -406,7 +406,7 @@ public class DragonAPIInit extends DragonAPIMod {
 			}
 		}
 
-		PatreonController.instance.addPatron(this, "Dale Mahalko / Plawerth", 1);
+		/*PatreonController.instance.addPatron(this, "Dale Mahalko / Plawerth", 1);
 		PatreonController.instance.addPatron(this, "Lasse Knudsen", 40);
 		PatreonController.instance.addPatron(this, "Jason Watson", 10);
 		PatreonController.instance.addPatron(this, "frogfigther the derp", "a52abe43-ee2a-482a-a99c-51d8203e49d3", 10);
@@ -451,7 +451,7 @@ public class DragonAPIInit extends DragonAPIMod {
 
 		logger.log("Credit to Techjar for hosting the version file and remote asset server.");
 
-		CommandableUpdateChecker.instance.checkAll();
+		CommandableUpdateChecker.instance.checkAll();*/
 
 		this.finishTiming();
 	}
@@ -461,7 +461,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	public void postload(FMLPostInitializationEvent evt) {
 		this.startTiming(LoadPhase.POSTLOAD);
 
-		PackModificationTracker.instance.loadAll();
+		//PackModificationTracker.instance.loadAll();
 
 		this.loadHandlers();
 
@@ -474,15 +474,15 @@ public class DragonAPIInit extends DragonAPIMod {
 
 		//ReikaPacketHelper.postInitPipelines();
 
-		BiomeCollisionTracker.instance.check();
-		PotionCollisionTracker.instance.check();
-		VanillaIntegrityTracker.instance.check();
+		//BiomeCollisionTracker.instance.check();
+		//PotionCollisionTracker.instance.check();
+		//VanillaIntegrityTracker.instance.check();
 
-		CompatibilityTracker.instance.test();
+		//CompatibilityTracker.instance.test();
 
 		ReikaPotionHelper.loadBadPotions();
 
-		IntegrityChecker.instance.testIntegrity();
+		//IntegrityChecker.instance.testIntegrity();
 
 		ReikaOreHelper.refreshAll();
 		ModOreList.initializeAll();
@@ -499,9 +499,9 @@ public class DragonAPIInit extends DragonAPIMod {
 		ReikaJavaLibrary.initClass(SmelteryRecipeHandler.class);
 		ReikaJavaLibrary.initClass(TwilightForestLootHooks.class);
 
-		if (MTInteractionManager.isMTLoaded()) {
-			MinetweakerHooks.instance.registerAll();
-		}
+		//if (MTInteractionManager.isMTLoaded()) {
+			//MinetweakerHooks.instance.registerAll();
+		//}
 
 		this.finishTiming();
 	}
@@ -514,10 +514,10 @@ public class DragonAPIInit extends DragonAPIMod {
 	public void registerCommands(FMLServerStartingEvent evt) {
 		DragonAPICore.log("Server Starting...");
 		evt.registerServerCommand(new GuideCommand());
-		evt.registerServerCommand(new DonatorCommand());
+		/*evt.registerServerCommand(new DonatorCommand());*/
 		evt.registerServerCommand(new LogControlCommand());
 		evt.registerServerCommand(new TestControlCommand());
-		evt.registerServerCommand(new CheckerDisableCommand());
+		/*evt.registerServerCommand(new CheckerDisableCommand());*/
 		evt.registerServerCommand(new SelectiveKillCommand());
 		evt.registerServerCommand(new BlockReplaceCommand());
 		evt.registerServerCommand(new EditNearbyInventoryCommand());
@@ -527,8 +527,8 @@ public class DragonAPIInit extends DragonAPIMod {
 		evt.registerServerCommand(new FindTilesCommand());
 		evt.registerServerCommand(new ClearItemsCommand());
 
-		if (MTInteractionManager.isMTLoaded() && !DragonAPICore.isSinglePlayer())
-			MTInteractionManager.instance.scanAndRevert();
+		//if (MTInteractionManager.isMTLoaded() && !DragonAPICore.isSinglePlayer())
+			//MTInteractionManager.instance.scanAndRevert();
 	}
 
 	@EventHandler
@@ -545,7 +545,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	@SubscribeEvent
 	public void catchNullOreDict(OreRegisterEvent evt) {
 		if (evt.Ore == null || evt.Ore.getItem() == null)
-			throw new WTFException("Someone registered null to the OreDictionary under the name '"+evt.Name+"'!", true);
+			cpw.mods.fml.common.FMLLog.warning("Someone registered null to the OreDictionary under the name '"+evt.Name+"'!", true);
 		else {
 			logger.log("Logged OreDict registration of "+evt.Ore+" as '"+evt.Name+"'.");
 		}
@@ -693,7 +693,7 @@ public class DragonAPIInit extends DragonAPIMod {
 		this.registerHandler(ModList.ARSMAGICA, MagicaOreHandler.class, "Ore Handler");
 		this.registerHandler(ModList.APPENG, AppEngHandler.class, "Handler");
 		this.registerHandler(ModList.FORESTRY, ForestryHandler.class, "Item Handler");
-		this.registerHandler(ModList.FORESTRY, ForestryRecipeHelper.class, "Recipe Handler");
+		//this.registerHandler(ModList.FORESTRY, ForestryRecipeHelper.class, "Recipe Handler");
 		this.registerHandler(ModList.THERMALFOUNDATION, ThermalHandler.class, "Handler");
 		this.registerHandler(ModList.MIMICRY, MimicryHandler.class, "Handler");
 		this.registerHandler(ModList.MAGICCROPS, MagicCropHandler.class, "Handler", new SearchVersionHandler("4.0.0_PUBLIC_BETA")); //Newest
@@ -792,7 +792,7 @@ public class DragonAPIInit extends DragonAPIMod {
 
 	@Override
 	public String getUpdateCheckURL() {
-		return CommandableUpdateChecker.reikaURL;
+		return "http://127.0.0.1";//CommandableUpdateChecker.reikaURL;
 	}
 
 	@Override

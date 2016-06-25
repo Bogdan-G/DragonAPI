@@ -27,7 +27,7 @@ import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.Auxiliary.PopupWriter;
 import Reika.DragonAPI.Base.DragonAPIMod;
 import Reika.DragonAPI.IO.ReikaFileReader;
-import Reika.DragonAPI.IO.ReikaFileReader.ConnectionErrorHandler;
+//import Reika.DragonAPI.IO.ReikaFileReader.ConnectionErrorHandler;
 import Reika.DragonAPI.IO.ReikaFileReader.FileReadException;
 import Reika.DragonAPI.IO.ReikaFileReader.FileWriteException;
 import Reika.DragonAPI.IO.ReikaFileReader.HashType;
@@ -219,7 +219,7 @@ public class RemoteAssetLoader {
 
 		private String getLocalHash() {
 			File f = new File(asset.getLocalPath());
-			return f.exists() ? ReikaFileReader.getHash(f, HashType.MD5) : "";
+			return /*f.exists() ? ReikaFileReader.getHash(f, HashType.MD5) : */"";
 		}
 
 		private boolean match() {
@@ -232,7 +232,7 @@ public class RemoteAssetLoader {
 
 	}
 
-	public static abstract class RemoteAssetRepository implements ConnectionErrorHandler {
+	public static abstract class RemoteAssetRepository/* implements ConnectionErrorHandler*/ {
 
 		private boolean nonAccessible;
 
@@ -254,7 +254,7 @@ public class RemoteAssetLoader {
 				e.printStackTrace();
 				return;
 			}
-			ArrayList<String> li = ReikaFileReader.getFileAsLines(url, 10000, true, this, null);
+			ArrayList<String> li = ReikaFileReader.getFileAsLines(url, 10000, true,/* this,*/ null);
 			if (li == null) {
 				if (!nonAccessible)
 					this.logError("Could not load asset repository", true);
@@ -328,22 +328,22 @@ public class RemoteAssetLoader {
 		public abstract String getRepositoryURL();
 		public abstract String getLocalPath();
 
-		@Override
+		//@//Override
 		public final void onServerRedirected() {
 			this.logError("Asset Server access redirected!?", true);
 		}
 
-		@Override
+		//@//Override
 		public final void onNoInternet() {
 			this.logError("Is your internet disconnected?", false);
 		}
 
-		@Override
+		//@//Override
 		public final void onServerNotFound() {
 			this.logError("Asset Server not found!", true);
 		}
 
-		@Override
+		//@//Override
 		public final void onTimedOut() {
 			this.logError("Timed Out", false);
 		}

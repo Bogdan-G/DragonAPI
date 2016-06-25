@@ -22,10 +22,10 @@ import java.util.jar.Manifest;
 import net.minecraftforge.common.MinecraftForge;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.DragonAPIInit;
-import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
+//import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
 import Reika.DragonAPI.Base.DragonAPIMod.LoadProfiler.LoadPhase;
 import Reika.DragonAPI.Exception.InstallationException;
-import Reika.DragonAPI.Exception.InvalidBuildException;
+//import Reika.DragonAPI.Exception.InvalidBuildException;
 import Reika.DragonAPI.Exception.JarZipException;
 import Reika.DragonAPI.Exception.MissingDependencyException;
 import Reika.DragonAPI.Exception.RegistrationException;
@@ -99,17 +99,17 @@ public abstract class DragonAPIMod {
 	protected final void basicSetup(FMLPreInitializationEvent evt) {
 		MinecraftForge.EVENT_BUS.register(this);
 		ReikaRegistryHelper.setupModData(this, evt);
-		CommandableUpdateChecker.instance.registerMod(this);
+		//CommandableUpdateChecker.instance.registerMod(this);
 	}
 
-	protected final void verifyInstallation() {
+	/*protected final void verifyInstallation() {
 		this.verifyVersions();
 		if (this.getModFile().getName().endsWith(".jar.zip"))
 			throw new JarZipException(this);
 		this.verifyHash();
-	}
+	}*/
 
-	private void verifyHash() {
+	/*private void verifyHash() {
 		if (this.getModVersion().isCompiled()) {
 			try {
 				JarFile jf = new JarFile(this.getModFile());
@@ -126,7 +126,7 @@ public abstract class DragonAPIMod {
 				throw new InvalidBuildException(this, this.getModFile());
 			}
 		}
-	}
+	}*/
 
 	protected final URL getClassFile() {
 		return this.getClass().getProtectionDomain().getCodeSource().getLocation();
@@ -140,7 +140,7 @@ public abstract class DragonAPIMod {
 		return this.getModContainer().getSource();
 	}
 
-	private final void verifyVersions() {
+	/*private final void verifyVersions() {
 		ModVersion mod = this.getModVersion();
 		if (mod.verify()) {
 			if (mod.majorVersion != apiVersion.majorVersion || mod.isNewerMinorVersion(apiVersion)) {
@@ -163,7 +163,7 @@ public abstract class DragonAPIMod {
 				}
 			}
 		}
-	}
+	}*/
 
 	protected HashMap<String, String> getDependencies() {
 		return null;

@@ -10,7 +10,7 @@
 package Reika.DragonAPI.Instantiable.Data.BlockStruct;
 
 import net.minecraftforge.common.util.ForgeDirection;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
 import Reika.DragonAPI.Libraries.ReikaDirectionHelper;
 
@@ -49,7 +49,7 @@ public class BlockSpiral {
 
 	public BlockSpiral setInitialDirection(ForgeDirection dir) {
 		if (dir.offsetY != 0)
-			throw new MisuseException("Spirals are not designed for vertical directions!");
+			cpw.mods.fml.common.FMLLog.warning("Spirals are not designed for vertical directions!");
 		step = dir;
 		return this;
 	}

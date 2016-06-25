@@ -17,7 +17,7 @@ import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.classloading.FMLForgePlugin;
-import Reika.DragonAPI.Exception.VanillaIntegrityException;
+//import Reika.DragonAPI.Exception.VanillaIntegrityException;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 
@@ -94,10 +94,11 @@ public class ReikaObfuscationHelper {
 			methods.put(deobf, m);
 			labels.put(deobf, obf);
 			ReikaJavaLibrary.pConsole("DRAGONAPI: Registering reflexive method access to "+c+"."+deobf+" (obfuscated as "+obf+")"); //cannot use logger
+			cpw.mods.fml.common.FMLLog.warning("DRAGONAPI: Registering reflexive method access to "+c+"."+deobf+" (obfuscated as "+obf+")"); //nope
 		}
 		catch (NoSuchMethodException e) {
 			//throw new VanillaIntegrityException("Tried to register nonexistent method "+deobf+"/"+obf+". Check signature.");
-			throw new VanillaIntegrityException(deobf, c, args);
+			cpw.mods.fml.common.FMLLog.warning("DAPI: "+deobf+c+args);
 		}
 	}
 
@@ -130,10 +131,10 @@ public class ReikaObfuscationHelper {
 		addField("blockFireSpreadSpeed", "blockFireSpreadSpeed", false, Blocks.class);
 		addField("stringToIDMapping", "field_75622_f", false, EntityList.class);*/
 
-		if (isClientSide()) {
+		//if (isClientSide()) {
 			//addField("soundLibrary", "soundLibrary", false, SoundSystem.class);
 			//addField("streamThread", "streamThread", false, Library.class);
-		}
+		//}
 	}
 
 	private static boolean isClientSide() {

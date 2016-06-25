@@ -26,7 +26,7 @@ import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Auxiliary.NEI_DragonAPI_Config;
 import Reika.DragonAPI.Auxiliary.Trackers.ReflectiveFailureTracker;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Exception.IDConflictException;
+//import Reika.DragonAPI.Exception.IDConflictException;
 import Reika.DragonAPI.Libraries.IO.ReikaSoundHelper;
 import Reika.DragonAPI.ModInteract.ItemHandlers.TinkerToolHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.TinkerToolHandler.ToolPartType;
@@ -223,7 +223,7 @@ public class TinkerMaterialHelper {
 	public CustomTinkerMaterial createMaterial(int id, DragonAPIMod mod, String name) {
 		AbstractMaterial prev = materialIDs.get(id);
 		if (prev != null)
-			throw new IDConflictException(mod, "Tool material ID "+id+" is already occupied by '"+prev.materialName+"'!");
+			cpw.mods.fml.common.FMLLog.warning(mod+"Tool material ID "+id+" is already occupied by '"+prev.materialName+"'!");
 		CustomTinkerMaterial mat = new CustomTinkerMaterial(id, mod, name);
 		materialIDs.put(id, mat);
 		materialNames.put(name, mat);

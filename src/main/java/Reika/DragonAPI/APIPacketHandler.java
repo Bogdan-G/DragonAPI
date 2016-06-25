@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import Reika.DragonAPI.Auxiliary.PacketTypes;
-import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
+//import Reika.DragonAPI.Auxiliary.Trackers.CommandableUpdateChecker;
 import Reika.DragonAPI.Auxiliary.Trackers.KeyWatcher;
 import Reika.DragonAPI.Auxiliary.Trackers.KeyWatcher.Key;
 import Reika.DragonAPI.Base.TileEntityBase;
@@ -268,7 +268,7 @@ public class APIPacketHandler implements PacketHandler {
 				ReikaParticleHelper.EXPLODE.spawnAroundBlock(world, x, y, z, 1);
 				break;
 			case OLDMODS:
-				CommandableUpdateChecker.instance.onClientReceiveOldModID(sg);
+				//CommandableUpdateChecker.instance.onClientReceiveOldModID(sg);
 				break;
 			case LOGIN:
 				MinecraftForge.EVENT_BUS.post(new ClientLoginEvent(player));

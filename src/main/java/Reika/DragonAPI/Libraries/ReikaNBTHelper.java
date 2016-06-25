@@ -30,7 +30,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public final class ReikaNBTHelper extends DragonAPICore {
 
@@ -130,7 +130,7 @@ public final class ReikaNBTHelper extends DragonAPICore {
 
 	public static NBTBase compressNumber(NBTBase tag) {
 		if (!isIntNumberTag(tag))
-			throw new MisuseException("Only integer-type numbers (byte, short, int, and long) can be compressed!");
+			cpw.mods.fml.common.FMLLog.warning("Only integer-type numbers (byte, short, int, and long) can be compressed!");
 		long value = (Long)getValue(tag);
 		if (value > Integer.MAX_VALUE) {
 			return new NBTTagLong(value);

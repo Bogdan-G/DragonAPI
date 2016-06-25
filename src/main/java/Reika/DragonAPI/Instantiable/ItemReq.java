@@ -15,7 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 
 public class ItemReq {
 
@@ -49,7 +49,7 @@ public class ItemReq {
 
 	public ItemReq(Item id, int meta, int number) {
 		if (number < 1) {
-			throw new MisuseException("You must specify a valid number of items required!");
+			cpw.mods.fml.common.FMLLog.warning("You must specify a valid number of items required!");
 		}
 		itemID = id;
 		metadata = meta;

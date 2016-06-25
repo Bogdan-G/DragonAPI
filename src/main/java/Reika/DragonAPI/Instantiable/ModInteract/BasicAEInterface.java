@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import Reika.DragonAPI.ASM.APIStripper.Strippable;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import appeng.api.networking.GridFlags;
 import appeng.api.networking.GridNotification;
 import appeng.api.networking.IGrid;
@@ -32,7 +32,7 @@ public class BasicAEInterface implements IGridBlock {
 
 	public BasicAEInterface(TileEntity te, ItemStack is) {
 		if (!(te instanceof IGridHost))
-			throw new MisuseException("You cannot use a non-AE-gridHost block!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot use a non-AE-gridHost block!");
 		tile = te;
 		item = is;
 	}

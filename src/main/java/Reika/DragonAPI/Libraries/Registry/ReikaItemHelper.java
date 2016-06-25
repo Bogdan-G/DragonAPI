@@ -35,7 +35,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.Exception.MisuseException;
+//import Reika.DragonAPI.Exception.MisuseException;
 import Reika.DragonAPI.Instantiable.Data.Immutable.ImmutableItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.GameRegistry.UniqueIdentifier;
@@ -385,7 +385,7 @@ public final class ReikaItemHelper extends DragonAPICore {
 	@SideOnly(Side.CLIENT)
 	public static List<ItemStack> getAllMetadataPermutations(Item item) {
 		if (item == null)
-			throw new MisuseException("You cannot get the permutations of null!");
+			cpw.mods.fml.common.FMLLog.warning("You cannot get the permutations of null!");
 		ArrayList<ItemStack> li = permutations.get(item);
 		if (li == null) {
 			li = new ArrayList();

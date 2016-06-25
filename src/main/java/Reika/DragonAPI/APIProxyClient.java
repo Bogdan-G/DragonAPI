@@ -15,7 +15,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import Reika.DragonAPI.Auxiliary.DebugOverlay;
-import Reika.DragonAPI.Auxiliary.Trackers.PlayerSpecificRenderer;
+//import Reika.DragonAPI.Auxiliary.Trackers.PlayerSpecificRenderer;
 import Reika.DragonAPI.IO.DelegateFontRenderer;
 import Reika.DragonAPI.IO.DirectResourceManager;
 import Reika.DragonAPI.Instantiable.Event.Client.ResourceReloadEvent;
@@ -61,7 +61,7 @@ public class APIProxyClient extends APIProxy {
 
 	@Override
 	public void registerSidedHandlersGameLoaded() {
-		PlayerSpecificRenderer.instance.registerIntercept();
+		//PlayerSpecificRenderer.instance.registerIntercept();
 	}
 
 	@Override

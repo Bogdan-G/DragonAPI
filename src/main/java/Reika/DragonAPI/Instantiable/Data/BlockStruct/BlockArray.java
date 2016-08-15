@@ -64,7 +64,7 @@ public class BlockArray implements Iterable<Coordinate> {
 
 	private final BlockArrayComputer computer;
 
-	protected static final Random rand = new Random();
+	protected static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public BlockArray() {
 		computer = new BlockArrayComputer(this);

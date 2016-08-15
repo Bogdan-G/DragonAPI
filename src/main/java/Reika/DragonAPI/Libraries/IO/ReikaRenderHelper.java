@@ -95,7 +95,7 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		var5.startDrawing(GL11.GL_LINE_LOOP);
 		var5.setColorRGBA_I(rgba, rgba >> 24 & 255);
 		for (int i = 0; i < 360; i += step) {
-			var5.addVertex(x+r*Math.cos(Math.toRadians(i)), y, z+r*Math.sin(Math.toRadians(i)));
+			var5.addVertex(x+r*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(i)), y, z+r*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(i)));
 		}
 		var5.draw();
 		//GL11.glDisable(GL12.GL_RESCALE_NORMAL);
@@ -112,10 +112,10 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		var5.setColorRGBA_I(rgba, rgba >> 24 & 255);
 		for (int i = 0; i < 360; i += step) {
 			int sign = 1;
-			double h = r*Math.cos(ReikaPhysicsHelper.degToRad(i));
+			double h = r*org.bogdang.modifications.math.MathHelperLite.cos(ReikaPhysicsHelper.degToRad(i));
 			if (i >= 180)
 				sign = -1;
-			var5.addVertex(x-Math.sin(Math.toRadians(phi))*(sign)*(Math.sqrt(r*r-h*h)), y+r*Math.cos(Math.toRadians(i)), z+r*Math.sin(Math.toRadians(i))*Math.cos(Math.toRadians(phi)));
+			var5.addVertex(x-org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(phi))*(sign)*(Math.sqrt(r*r-h*h)), y+r*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(i)), z+r*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(i))*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(phi)));
 		}
 		var5.draw();
 		//GL11.glDisable(GL12.GL_RESCALE_NORMAL);
@@ -163,10 +163,10 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		v5.startDrawing(GL11.GL_TRIANGLE_STRIP);
 		v5.setBrightness(240);
 		for (int i = 0; i <= sides; i++) {
-			double f11a = r1*Math.sin(i % sides * Math.PI * 2 / sides) * 0.75;
-			double f12a = r1*Math.cos(i % sides * Math.PI * 2 / sides) * 0.75;
-			double f11b = r2*Math.sin(i % sides * Math.PI * 2 / sides) * 0.75;
-			double f12b = r2*Math.cos(i % sides * Math.PI * 2 / sides) * 0.75;
+			double f11a = r1*org.bogdang.modifications.math.MathHelperLite.sin(i % sides * Math.PI * 2 / sides) * 0.75;
+			double f12a = r1*org.bogdang.modifications.math.MathHelperLite.cos(i % sides * Math.PI * 2 / sides) * 0.75;
+			double f11b = r2*org.bogdang.modifications.math.MathHelperLite.sin(i % sides * Math.PI * 2 / sides) * 0.75;
+			double f12b = r2*org.bogdang.modifications.math.MathHelperLite.cos(i % sides * Math.PI * 2 / sides) * 0.75;
 			double f13 = i % sides * 1 / sides;
 			v5.setColorRGBA_I(c1 & 0xffffff, c1 >> 24 & 255);
 			v5.addVertex(f11a, f12a, 0);

@@ -48,7 +48,7 @@ public class WailaTechnicalOverride implements IWailaDataProvider {
 		else if (b == Blocks.skull) {
 			return null;
 		}
-		return new ItemStack(b.getItemDropped(meta, new Random(), 0));
+		return new ItemStack(b.getItemDropped(meta, new org.bogdang.modifications.random.XSTR(), 0));
 	}
 
 	@Override

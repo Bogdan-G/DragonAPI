@@ -30,7 +30,7 @@ public class MultiBlockBlueprint {
 
 	private final List<Integer> overrides = new ArrayList();
 
-	protected static final Random rand = new Random();
+	protected static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public MultiBlockBlueprint(int x, int y, int z) {
 		xSize = x;

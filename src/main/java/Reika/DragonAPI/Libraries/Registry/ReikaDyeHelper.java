@@ -48,7 +48,7 @@ public enum ReikaDyeHelper {
 	public final int color;
 	public final String colorName;
 	public final String colorNameNoSpaces;
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public static final ReikaDyeHelper[] dyes = ReikaDyeHelper.values();
 	private static final HashMap<ReikaDyeHelper, ArrayList<ItemStack>> oreDict = new HashMap();

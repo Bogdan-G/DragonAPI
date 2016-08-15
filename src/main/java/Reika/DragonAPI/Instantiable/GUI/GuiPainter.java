@@ -43,7 +43,7 @@ public class GuiPainter {
 
 	private boolean init;
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public GuiPainter(int x, int y, int w, int h, int s) {
 		data = new PaintElement[w][h];

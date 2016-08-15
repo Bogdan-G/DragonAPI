@@ -21,7 +21,7 @@ import Reika.DragonAPI.Base.CropHandlerBase;
 
 public class HarvestCraftHandler extends CropHandlerBase {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	//private final Field cropType;
 	//private final Field cropGrowth;

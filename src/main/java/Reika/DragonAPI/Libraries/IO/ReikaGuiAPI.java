@@ -254,7 +254,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 		GL11.glBegin(GL11.GL_LINE_LOOP);
 		GL11.glColor4f(red/255F, green/255F, blue/255F, alpha/255F);
 		for (int i = 0; i < 360; i++) {
-			GL11.glVertex2i(x+(int)(radius*Math.cos(ReikaPhysicsHelper.degToRad(i))), y+(int)(radius*Math.sin(ReikaPhysicsHelper.degToRad(i))));
+			GL11.glVertex2i(x+(int)(radius*org.bogdang.modifications.math.MathHelperLite.cos(ReikaPhysicsHelper.degToRad(i))), y+(int)(radius*org.bogdang.modifications.math.MathHelperLite.sin(ReikaPhysicsHelper.degToRad(i))));
 		}
 		GL11.glEnd();
 		if (light)

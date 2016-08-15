@@ -83,7 +83,7 @@ public final class ColumnArray {
 	}
 
 	public int[] getRandomColumn() {
-		Random r = new Random();
+		Random r = new org.bogdang.modifications.random.XSTR();
 		int s = this.getSize();
 		return this.getNthColumn(r.nextInt(s));
 	}

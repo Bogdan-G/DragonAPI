@@ -1536,7 +1536,7 @@ public final class ReikaWorldHelper extends DragonAPICore {
 	/** Returns the sun's declination, clamped to 0-90. Args: World */
 	public static float getSunAngle(World world) {
 		int time = (int)(world.getWorldTime()%12000);
-		float suntheta = 0.5F*(float)(90*Math.sin(Math.toRadians(time*90D/6000D)));
+		float suntheta = 0.5F*(float)(90*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(time*90D/6000D)));
 		return suntheta;
 	}
 

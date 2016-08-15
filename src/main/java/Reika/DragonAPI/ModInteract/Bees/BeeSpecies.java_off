@@ -46,7 +46,7 @@ import forestry.api.genetics.IIndividual;*/
 
 /*public abstract class BeeSpecies implements IAlleleBeeSpecies, IIconProvider {
 
-	protected final Random rand = new Random();
+	protected final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private final IBeeRoot beeRoot;
 	private final IIcon[][] icons = new IIcon[EnumBeeType.VALUES.length][3];

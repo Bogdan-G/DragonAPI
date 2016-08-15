@@ -36,7 +36,7 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class ReikaMystcraftHelper {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private static final HashMap<Integer, InstabilityInterface> ageData = new HashMap();
 

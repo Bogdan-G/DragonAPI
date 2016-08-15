@@ -30,7 +30,7 @@ public class ItemDrop {
 
 	private final ItemStack item;
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public ItemDrop(Block b) {
 		this(b, 1, 1);

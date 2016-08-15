@@ -360,7 +360,7 @@ public enum ModOreList implements OreType {
 		if (!this.existsInGame())
 			return null;
 		int s = ores.size();
-		int index = new Random().nextInt(s);
+		int index = new org.bogdang.modifications.random.XSTR().nextInt(s);
 		return ores.get(index);
 	}
 

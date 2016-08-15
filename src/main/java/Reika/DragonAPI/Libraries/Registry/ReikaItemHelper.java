@@ -267,7 +267,7 @@ public final class ReikaItemHelper extends DragonAPICore {
 	public static void dropInventory(World world, int x, int y, int z)
 	{
 		IInventory ii = (IInventory)world.getTileEntity(x, y, z);
-		Random par5Random = new Random();
+		Random par5Random = new org.bogdang.modifications.random.XSTR();
 		if (ii != null) {
 			label0:
 				for (int i = 0; i < ii.getSizeInventory(); i++){

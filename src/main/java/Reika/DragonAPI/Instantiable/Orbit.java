@@ -38,10 +38,10 @@ public class Orbit {
 
 	public DecimalPosition getPosition(double x0, double y0, double z0, double dtheta) {
 		double theta = zeroAng+dtheta;
-		double dd = semimajorAxis * (1 - eccentricity*eccentricity) / (1 + eccentricity * Math.cos(Math.toRadians(theta)));
-		double x = dd * (Math.cos(RAAN) * Math.cos(Math.toRadians(theta) + argumentOfPerigee) - Math.sin(RAAN) * Math.sin(Math.toRadians(theta)+argumentOfPerigee)*Math.cos(inclination));
-		double y = dd * (Math.sin(RAAN) * Math.cos(Math.toRadians(theta)+argumentOfPerigee) + Math.cos(RAAN) * Math.sin(Math.toRadians(theta)+argumentOfPerigee)) * Math.cos(inclination);
-		double z = dd * Math.sin(Math.toRadians(theta)+argumentOfPerigee) * Math.sin(inclination);
+		double dd = semimajorAxis * (1 - eccentricity*eccentricity) / (1 + eccentricity * org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(theta)));
+		double x = dd * (org.bogdang.modifications.math.MathHelperLite.cos(RAAN) * org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(theta) + argumentOfPerigee) - org.bogdang.modifications.math.MathHelperLite.sin(RAAN) * org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(theta)+argumentOfPerigee)*org.bogdang.modifications.math.MathHelperLite.cos(inclination));
+		double y = dd * (org.bogdang.modifications.math.MathHelperLite.sin(RAAN) * org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(theta)+argumentOfPerigee) + org.bogdang.modifications.math.MathHelperLite.cos(RAAN) * org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(theta)+argumentOfPerigee)) * org.bogdang.modifications.math.MathHelperLite.cos(inclination);
+		double z = dd * org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(theta)+argumentOfPerigee) * org.bogdang.modifications.math.MathHelperLite.sin(inclination);
 
 		return new DecimalPosition(x+x0, y+y0, z+z0);
 	}

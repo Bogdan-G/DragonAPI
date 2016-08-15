@@ -30,7 +30,7 @@ public class DragonAPICore {
 
 	protected DragonAPICore() {cpw.mods.fml.common.FMLLog.warning("The class "+this.getClass()+" cannot be instantiated!");}
 
-	public static final Random rand = new Random();
+	public static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private static final boolean reika = calculateReikasComputer();
 

@@ -167,8 +167,8 @@ public class PianoWheel {
 		v5.setColorOpaque_I(this.getColor(root));
 		v5.addVertex(originX, originY, 0);
 		for (int i = 0; i <= 360; i += 2) {
-			double dx = innerRadius*Math.sin(Math.toRadians(i));
-			double dy = innerRadius*Math.cos(Math.toRadians(i));
+			double dx = innerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(i));
+			double dy = innerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(i));
 
 			v5.addVertex(originX+dx, originY+dy, 0);
 		}
@@ -198,10 +198,10 @@ public class PianoWheel {
 				v5.startDrawing(GL11.GL_TRIANGLE_STRIP);
 				v5.setColorOpaque_I(this.getColor(key));
 				for (int a = a1; a <= a2; a += 2) {
-					double dx1 = r.innerRadius*Math.sin(Math.toRadians(180-a-15));
-					double dy1 = r.innerRadius*Math.cos(Math.toRadians(180-a-15));
-					double dx2 = r.outerRadius*Math.sin(Math.toRadians(180-a-15));
-					double dy2 = r.outerRadius*Math.cos(Math.toRadians(180-a-15));
+					double dx1 = r.innerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(180-a-15));
+					double dy1 = r.innerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(180-a-15));
+					double dx2 = r.outerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(180-a-15));
+					double dy2 = r.outerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(180-a-15));
 					v5.addVertex(originX+dx2, originY+dy2, 0);
 					v5.addVertex(originX+dx1, originY+dy1, 0);
 				}
@@ -212,8 +212,8 @@ public class PianoWheel {
 					int mida = k*30+15;
 					double midr = r.innerRadius+(r.outerRadius-r.innerRadius)/2D;
 					String s = key.displayName();
-					double px = originX+midr*Math.sin(Math.toRadians(180-mida-15))-fr.getStringWidth(s)/2D;
-					double py = originY+midr*Math.cos(Math.toRadians(180-mida-15))-fr.FONT_HEIGHT/2D;
+					double px = originX+midr*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(180-mida-15))-fr.getStringWidth(s)/2D;
+					double py = originY+midr*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(180-mida-15))-fr.FONT_HEIGHT/2D;
 					fr.drawString(s, (int)px, (int)py, key.getNote().isPure() ? 0x000000 : 0xffffff);
 					GL11.glDisable(GL11.GL_TEXTURE_2D);
 				}
@@ -224,8 +224,8 @@ public class PianoWheel {
 				v5.startDrawing(GL11.GL_LINE_STRIP);
 				v5.setColorOpaque_I(0x000000);
 				for (int k = 0; k <= 360; k += 2) {
-					double dx = r.innerRadius*Math.sin(Math.toRadians(k));
-					double dy = r.innerRadius*Math.cos(Math.toRadians(k));
+					double dx = r.innerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(k));
+					double dy = r.innerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(k));
 					v5.addVertex(originX+dx, originY+dy, 0);
 				}
 				v5.draw();
@@ -233,8 +233,8 @@ public class PianoWheel {
 				v5.startDrawing(GL11.GL_LINE_STRIP);
 				v5.setColorOpaque_I(0x000000);
 				for (int k = 0; k <= 360; k += 2) {
-					double dx = r.outerRadius*Math.sin(Math.toRadians(k));
-					double dy = r.outerRadius*Math.cos(Math.toRadians(k));
+					double dx = r.outerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(k));
+					double dy = r.outerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(k));
 					v5.addVertex(originX+dx, originY+dy, 0);
 				}
 				v5.draw();
@@ -248,17 +248,17 @@ public class PianoWheel {
 				int a1 = k*30;
 				int a2 = (k+1)*30;
 
-				double dx1 = innerRadius*Math.sin(Math.toRadians(a1-15));
-				double dy1 = innerRadius*Math.cos(Math.toRadians(a1-15));
-				double dx2 = radius*Math.sin(Math.toRadians(a1-15));
-				double dy2 = radius*Math.cos(Math.toRadians(a1-15));
+				double dx1 = innerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(a1-15));
+				double dy1 = innerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(a1-15));
+				double dx2 = radius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(a1-15));
+				double dy2 = radius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(a1-15));
 				v5.addVertex(originX+dx1, originY+dy1, 0);
 				v5.addVertex(originX+dx2, originY+dy2, 0);
 
-				dx1 = innerRadius*Math.sin(Math.toRadians(a2-15));
-				dy1 = innerRadius*Math.cos(Math.toRadians(a2-15));
-				dx2 = radius*Math.sin(Math.toRadians(a2-15));
-				dy2 = radius*Math.cos(Math.toRadians(a2-15));
+				dx1 = innerRadius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(a2-15));
+				dy1 = innerRadius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(a2-15));
+				dx2 = radius*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(a2-15));
+				dy2 = radius*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(a2-15));
 				v5.addVertex(originX+dx1, originY+dy1, 0);
 				v5.addVertex(originX+dx2, originY+dy2, 0);
 			}

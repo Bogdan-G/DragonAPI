@@ -31,9 +31,9 @@ public class ReikaMathCacher {
 
 		for (int i = 0; i < 360; i++) {
 			double rad = Math.toRadians(i);
-			sinCache.put(i, Math.sin(rad));
-			cosCache.put(i, Math.cos(rad));
-			tanCache.put(i, Math.tan(rad));
+			sinCache.put(i, org.bogdang.modifications.math.MathHelperLite.sin(rad));
+			cosCache.put(i, org.bogdang.modifications.math.MathHelperLite.cos(rad));
+			tanCache.put(i, org.bogdang.modifications.math.MathHelperLite.tan(rad));
 		}
 
 		for (double d = -1; d <= 1; d += 0.03125) {

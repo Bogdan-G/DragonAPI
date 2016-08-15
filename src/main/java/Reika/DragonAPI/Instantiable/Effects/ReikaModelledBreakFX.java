@@ -27,7 +27,7 @@ public class ReikaModelledBreakFX extends EntityDiggingFX {
 
 	public static final double pw = 0.03125;
 
-	private Random r = new Random();
+	private Random r = new org.bogdang.modifications.random.XSTR();
 
 	private final Class modClass;
 

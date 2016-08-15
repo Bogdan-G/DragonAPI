@@ -78,7 +78,7 @@ public class ItemReq {
 		if (numberNeeded > 0)
 			numberNeeded--;
 		int chance = (int)(1F/chanceToUse);
-		Random r = new Random();
+		Random r = new org.bogdang.modifications.random.XSTR();
 		if (r.nextInt(chance) > 0)
 			return false;
 		else

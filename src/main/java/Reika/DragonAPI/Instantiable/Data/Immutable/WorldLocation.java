@@ -29,7 +29,7 @@ import Reika.DragonAPI.Libraries.World.ReikaWorldHelper;
 
 public class WorldLocation {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public final int xCoord;
 	public final int yCoord;

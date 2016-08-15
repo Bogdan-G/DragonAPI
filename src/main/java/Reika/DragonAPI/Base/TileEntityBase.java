@@ -83,7 +83,7 @@ import dan200.computercraft.api.peripheral.IPeripheral;*/
 "li.cil.oc.api.network.ManagedPeripheral"})
 public abstract class TileEntityBase extends TileEntity implements CompoundSyncPacketHandler {
 
-	protected static final Random rand = new Random();
+	protected static final Random rand = new org.bogdang.modifications.random.XSTR();
 	private int pseudometa;
 	protected boolean shutDown;
 	protected String placer;

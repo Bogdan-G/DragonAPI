@@ -16,7 +16,7 @@ import Reika.DragonAPI.Instantiable.Data.Immutable.RGB;
 
 public class ColorDistributor {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private final ArrayList<RGB> colors = new ArrayList();
 

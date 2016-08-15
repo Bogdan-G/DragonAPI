@@ -44,7 +44,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class APIPacketHandler implements PacketHandler {
 
-	private final Random rand = new Random();
+	private final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	protected PacketIDs pack;
 

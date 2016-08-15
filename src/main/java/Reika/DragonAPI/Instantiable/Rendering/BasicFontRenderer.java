@@ -52,7 +52,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 	protected int[] charWidth = new int[256];
 	/** the height in pixels of default text */
 	public final int FONT_HEIGHT = 9;
-	public Random fontRandom = new Random();
+	public Random fontRandom = new org.bogdang.modifications.random.XSTR();
 	/** Array of the start/end column (in upper/lower nibble) for every glyph in the /font directory. */
 	protected final byte[] glyphWidth = new byte[65536];
 	/**

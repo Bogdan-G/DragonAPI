@@ -30,7 +30,7 @@ public abstract class BlockCustomLeaf extends BlockLeaves {
 	/** For fast/fancy graphics */
 	protected IIcon[][] icon = new IIcon[16][2];
 
-	protected final Random rand = new Random();
+	protected final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	protected BlockCustomLeaf() {
 		this(false);

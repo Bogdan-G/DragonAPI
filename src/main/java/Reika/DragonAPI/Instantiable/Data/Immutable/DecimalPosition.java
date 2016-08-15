@@ -26,7 +26,7 @@ import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
 
 public final class DecimalPosition {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public final double xCoord;
 	public final double yCoord;

@@ -23,7 +23,7 @@ import Reika.DragonAPI.Libraries.Java.SemanticVersionParser;
 /** Reflection tools to read other mods. */
 public abstract class ModHandlerBase {
 
-	protected final Random rand = new Random();
+	protected final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	protected ModHandlerBase() {
 		this.verifyInstanceField();

@@ -18,7 +18,7 @@ public class OreDistributor {
 
 	public final int blockID;
 	public final int blockMetadata;
-	private static final Random r = new Random();
+	private static final Random r = new org.bogdang.modifications.random.XSTR();
 
 	private ArrayList<int[]> ranges = new ArrayList<int[]>();
 

@@ -232,7 +232,7 @@ public class MiningExplosion extends Explosion {
 				l = world.getBlock(i, j, k);
 				Block i1 = world.getBlock(i, j - 1, k);
 
-				if (l == Blocks.air && i1.isOpaqueCube() && new Random().nextInt(3) == 0)
+				if (l == Blocks.air && i1.isOpaqueCube() && new org.bogdang.modifications.random.XSTR().nextInt(3) == 0)
 				{
 					world.setBlock(i, j, k, Blocks.fire);
 				}

@@ -46,7 +46,7 @@ public class ReikaRecipeHelper extends DragonAPICore {
 	private static final CraftingManager cr = CraftingManager.getInstance();
 	private static final List<IRecipe> recipes = cr.getRecipeList();
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private static final int[] permuOffsets = new int[9];
 

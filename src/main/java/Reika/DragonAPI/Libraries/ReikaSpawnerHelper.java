@@ -88,7 +88,7 @@ public class ReikaSpawnerHelper {
 		World world = spw.worldObj;
 		if (world.isRemote)
 			return;
-		Random r = new Random();
+		Random r = new org.bogdang.modifications.random.XSTR();
 		String name = getMobSpawnerMobName(spw);
 		for (int i = 0; i < num; i++) {
 			Entity e = EntityList.createEntityByName(name, world);

@@ -532,8 +532,8 @@ public class DoubleMatrix implements Serializable {
 	public static DoubleMatrix rotate(double angle, Vec3 axis, DoubleMatrix src, DoubleMatrix dest) {
 		if (dest == null)
 			dest = new DoubleMatrix();
-		double c = Math.cos(angle);
-		double s = Math.sin(angle);
+		double c = org.bogdang.modifications.math.MathHelperLite.cos(angle);
+		double s = org.bogdang.modifications.math.MathHelperLite.sin(angle);
 		double oneminusc = 1.0f - c;
 		double xy = axis.xCoord*axis.yCoord;
 		double yz = axis.yCoord*axis.zCoord;

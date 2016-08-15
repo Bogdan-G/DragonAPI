@@ -81,3 +81,29 @@ processResources {
           exclude 'mcmod.info'
      }
 }
+
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'Reika.DragonAPI.Auxiliary.DragonAPIASMHandler'
+        attributes 'FMLAT': 'DragonAPI_at.cfg'
+        attributes 'FMLCorePluginContainsFMLMod': 'false'
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task devJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+    manifest {
+        //attributes 'FMLCorePlugin': 'WhateverLoaderClass'
+        //attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
+artifacts {
+    archives devJar
+}

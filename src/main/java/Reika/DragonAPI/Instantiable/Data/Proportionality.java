@@ -24,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Proportionality<F> {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	private final HashMap<F, Double> data = new HashMap();
 
@@ -116,8 +116,8 @@ public class Proportionality<F> {
 			v5.addVertex(x, y, 0);
 
 			for (double d = ang; d <= ang+angw; d += 0.5) {
-				double dx = r*Math.cos(Math.toRadians(d));
-				double dy = r*Math.sin(Math.toRadians(d));
+				double dx = r*org.bogdang.modifications.math.MathHelperLite.cos(Math.toRadians(d));
+				double dy = r*org.bogdang.modifications.math.MathHelperLite.sin(Math.toRadians(d));
 				v5.addVertex(dx, dy, 0);
 			}
 

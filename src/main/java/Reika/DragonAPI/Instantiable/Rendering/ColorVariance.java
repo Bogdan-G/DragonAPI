@@ -18,7 +18,7 @@ import Reika.DragonAPI.Libraries.Java.ReikaRandomHelper;
 
 public class ColorVariance {
 
-	private static final Random rand = new Random();
+	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public final int rootColor;
 

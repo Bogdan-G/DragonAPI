@@ -32,7 +32,7 @@ import Reika.DragonAPI.Libraries.World.ReikaWorldHelper;
 
 public abstract class BlockTieredResource extends Block {
 
-	protected static final Random rand = new Random();
+	protected static final Random rand = new org.bogdang.modifications.random.XSTR();
 
 	public BlockTieredResource(Material mat) {
 		super(mat);

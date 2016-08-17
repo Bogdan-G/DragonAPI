@@ -69,10 +69,10 @@ public class BlockReplaceCommand extends DragonCommandBase {
 					}
 				}
 				else if (from.startsWith("class_")) {
-					String cl = from.substring(6).toLowerCase();
+					String cl = from.substring(6).toLowerCase(java.util.Locale.ENGLISH);
 					for (String n : ((Collection<String>)Block.blockRegistry.getKeys())) {
 						Block b = Block.getBlockFromName(n);
-						if (b.getClass().getSimpleName().toLowerCase().equals(cl)) {
+						if (b.getClass().getSimpleName().toLowerCase(java.util.Locale.ENGLISH).equals(cl)) {
 							id1.add(Block.getIdFromBlock(b));
 						}
 					}

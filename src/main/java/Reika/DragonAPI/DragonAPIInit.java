@@ -203,7 +203,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	@EventHandler
 	public void invalidSignature(FMLFingerprintViolationEvent evt) {
 		if (!ReikaObfuscationHelper.isDeObfEnvironment()) {
-			if (!evt.fingerprints.contains(evt.expectedFingerprint.toLowerCase().replaceAll(":", ""))) {
+			if (!evt.fingerprints.contains(evt.expectedFingerprint.toLowerCase(java.util.Locale.ENGLISH).replaceAll(":", ""))) {
 				cpw.mods.fml.common.FMLLog.warning(String.valueOf(this)+String.valueOf(evt.source));
 			}
 		}

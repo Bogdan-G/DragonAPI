@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -125,10 +126,10 @@ public class ReikaTextureHelper {
 		BufferedImage img = ReikaImageLoader.readImage(root, tex, editor);
 		if (img == null) {
 			DragonAPICore.logError("No image found for "+tex+"!");
-			return new Integer(binder.allocateAndSetupTexture(ReikaImageLoader.getMissingTex()));
+			return Integer.valueOf(binder.allocateAndSetupTexture(ReikaImageLoader.getMissingTex()));
 		}
 		else {
-			return new Integer(binder.allocateAndSetupTexture(img));
+			return Integer.valueOf(binder.allocateAndSetupTexture(img));
 		}
 	}
 
@@ -138,11 +139,11 @@ public class ReikaTextureHelper {
 			BufferedImage img = ReikaImageLoader.readHardPathImage(tex);
 			if (img == null) {
 				DragonAPICore.logError("No image found for "+tex+"!");
-				gl = new Integer(binder.allocateAndSetupTexture(ReikaImageLoader.getMissingTex()));
+				gl = Integer.valueOf(binder.allocateAndSetupTexture(ReikaImageLoader.getMissingTex()));
 				textures.put(gl, root, tex);
 			}
 			else {
-				gl = new Integer(binder.allocateAndSetupTexture(img));
+				gl = Integer.valueOf(binder.allocateAndSetupTexture(img));
 				textures.put(gl, root, tex);
 			}
 		}
@@ -152,7 +153,7 @@ public class ReikaTextureHelper {
 
 	private static Integer bindPackTexture(Class root, String tex, IResourcePack res, ImageEditor editor) {
 		BufferedImage img = ReikaImageLoader.getImageFromResourcePack(tex, res, editor);
-		return img != null ? new Integer(binder.allocateAndSetupTexture(img)) : null;
+		return img != null ? Integer.valueOf(binder.allocateAndSetupTexture(img)) : null;
 	}
 
 	public static void bindTerrainTexture() {
@@ -270,16 +271,18 @@ public class ReikaTextureHelper {
 		boolean loaded = false;
 		for (int k = 0; k < li.size(); k++) {
 			AbstractResourcePack pack = (AbstractResourcePack)li.get(k);
+			InputStream in = null;
+			BufferedReader p = null;
 			try {
 				String path = "Reika/DragonAPI/dyecolor.txt";
-				InputStream in = getStreamFromTexturePack(path, pack);
+				in = new java.io.BufferedInputStream(getStreamFromTexturePack(path, pack));
 				if (in != null) {
-					BufferedReader p = new BufferedReader(new InputStreamReader(in));
+					p = new BufferedReader(new InputStreamReader(in));
 					for (int i = 0; i < 16; i++) {
 						String line = p.readLine();
 						String[] s = line.split(":");
 						int c = Color.decode(s[1]).getRGB();
-						Integer color = new Integer(c);
+						Integer color = Integer.valueOf(c);
 						ReikaDyeHelper dye = ReikaDyeHelper.dyes[i];
 						colorOverrides.put(dye, color);
 					}
@@ -295,13 +298,17 @@ public class ReikaTextureHelper {
 				DragonAPICore.logError("Error reading color override text file for texture pack "+pack.getPackName()+".");
 				e.printStackTrace();
 			}
+			finally {
+			try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
+			try {if (in != null) in.close();}catch (IOException e) {e.printStackTrace();}
+			}
 		}
 		if (!loaded) {
 			DragonAPICore.log("Could not find color override text file in any resource packs. Using defaults.");
 			for (int i = 0; i < 16; i++) {
 				ReikaDyeHelper dye = ReikaDyeHelper.dyes[i];
 				int c = dye.getDefaultColor();
-				Integer color = new Integer(c);
+				Integer color = Integer.valueOf(c);
 				colorOverrides.put(dye, color);
 			}
 			noColorPacks = true;

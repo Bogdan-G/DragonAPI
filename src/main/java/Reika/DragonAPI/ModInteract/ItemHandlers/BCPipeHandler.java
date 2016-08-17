@@ -241,13 +241,13 @@ public class BCPipeHandler extends ModHandlerBase {
 	}
 
 	private Types getType(String sg) {
-		sg = sg.toLowerCase();
+		sg = sg.toLowerCase(java.util.Locale.ENGLISH);
 		sg = sg.replaceAll("pipe", "");
 		sg = sg.replaceAll("items", "");
 		sg = sg.replaceAll("fluids", "");
 		sg = sg.replaceAll("power", "");
 		for (int i = 0; i < Types.pipeList.length; i++) {
-			String type = Types.pipeList[i].name().toLowerCase();
+			String type = Types.pipeList[i].name().toLowerCase(java.util.Locale.ENGLISH);
 			if (type.equals(sg))
 				return Types.pipeList[i];
 		}

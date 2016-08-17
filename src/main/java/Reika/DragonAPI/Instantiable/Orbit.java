@@ -31,10 +31,10 @@ public class Orbit {
 	}
 
 	//TODO
-	public DecimalPosition getPosition(double x0, double y0, double z0, double time, double mu) {
+	/*public DecimalPosition getPosition(double x0, double y0, double z0, double time, double mu) {
 		double dtheta = 0; //incomplete
 		return this.getPosition(x0, y0, z0, time, mu);
-	}
+	}*/
 
 	public DecimalPosition getPosition(double x0, double y0, double z0, double dtheta) {
 		double theta = zeroAng+dtheta;

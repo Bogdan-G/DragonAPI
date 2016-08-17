@@ -39,8 +39,9 @@ public class ReikaFileReader extends DragonAPICore {
 
 	public static int getFileLength(File f) {
 		int len;
+		LineNumberReader lnr = null;
 		try {
-			LineNumberReader lnr = new LineNumberReader(new FileReader(f));
+			lnr = new LineNumberReader(new FileReader(f));
 			lnr.skip(Long.MAX_VALUE);
 			len = lnr.getLineNumber()+1+1;
 			lnr.close();
@@ -48,6 +49,9 @@ public class ReikaFileReader extends DragonAPICore {
 		catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Could not load file data due to "+e.getCause()+" and "+e.getClass()+" !");
+		}
+		finally {
+		try {if(lnr != null) lnr.close();}catch (IOException e) {e.printStackTrace();}
 		}
 		return len;
 	}
@@ -157,12 +161,13 @@ public class ReikaFileReader extends DragonAPICore {
 	public static String readTextFile(Class root, String path) {
 		InputStream in = root.getResourceAsStream(path);
 		StringBuilder sb = new StringBuilder();
-		BufferedReader p;
+		BufferedReader p = null;
 		try {
 			p = new BufferedReader(new InputStreamReader(in));
 		}
 		catch (NullPointerException e) {
 			DragonAPICore.logError("File "+path+" does not exist!");
+			try {if (p != null) p.close();}catch (IOException ex) {ex.printStackTrace();}
 			return sb.toString();
 		}
 		int i = 0;
@@ -170,15 +175,17 @@ public class ReikaFileReader extends DragonAPICore {
 			String line = null;
 			while((line = p.readLine()) != null) {
 				if (!line.isEmpty()) {
-					sb.append(line);
+					sb.append(line).append("\n");
 					i++;
-					sb.append("\n");
 				}
 			}
 			p.close();
 		}
 		catch (Exception e) {
 			DragonAPICore.logError(e.getMessage()+" on loading line "+i);
+		}
+		finally {
+		try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
 		}
 		return sb.toString();
 	}
@@ -282,7 +289,7 @@ public class ReikaFileReader extends DragonAPICore {
 			byte[] hash = complete.digest();
 
 			for (int i = 0; i < hash.length; i++) {
-				sb.append(Integer.toString((hash[i] & 0xff) + 0x100, 16).substring(1).toUpperCase());
+				sb.append(Integer.toString((hash[i] & 0xff) + 0x100, 16).substring(1).toUpperCase(java.util.Locale.ENGLISH));
 			}
 		}
 		catch (Exception e) {

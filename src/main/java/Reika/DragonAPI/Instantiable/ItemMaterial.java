@@ -39,6 +39,6 @@ public final class ItemMaterial {
 
 	@Override
 	public String toString() {
-		return name.toUpperCase();
+		return name.toUpperCase(java.util.Locale.ENGLISH);
 	}
 }

@@ -43,6 +43,6 @@ public class MetadataFluid extends Fluid {
 
 	@Override
 	public final boolean equals(Object o) {
-		return ((Fluid)o).getName().contains(fluidName) && o instanceof MetadataFluid;
+		return o instanceof MetadataFluid && ((Fluid)o).getName().contains(fluidName);
 	}
 }

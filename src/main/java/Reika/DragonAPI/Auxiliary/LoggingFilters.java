@@ -92,8 +92,8 @@ public class LoggingFilters {
 
 	private static class ItemBlockMismatchFilter extends CoreFilter {
 
-		private final String PREFIX = "Block <-> ItemBlock name mismatch";
-		private final String TAG = "DragonAPI:minecraft";
+		private static final String PREFIX = "Block <-> ItemBlock name mismatch";
+		private static final String TAG = "DragonAPI:minecraft";
 
 		private int counter = 0;
 
@@ -119,7 +119,7 @@ public class LoggingFilters {
 
 	private static class CustomSoundLoaderFilter extends CoreFilter {
 
-		private final String PREFIX = "Invalid sounds.json";
+		private static final String PREFIX = "Invalid sounds.json";
 
 		private CustomSoundLoaderFilter() {
 			super(LoggerType.SOUND);
@@ -139,7 +139,7 @@ public class LoggingFilters {
 
 	private static class MissingTextureFilter extends CoreFilter {
 
-		private final String PREFIX = "Using missing texture, unable to load";
+		private static final String PREFIX = "Using missing texture, unable to load";
 
 		private MissingTextureFilter() {
 			super(LoggerType.TEXTURE);

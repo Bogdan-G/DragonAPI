@@ -306,6 +306,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		BlendMode.DEFAULT.apply();
+		GL11.glPushMatrix();
 		GL11.glColor4f(var6, var7, var8, var10);
 		if (var9.isDrawing)
 			var9.draw();
@@ -315,6 +316,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 		var9.addVertex(par3, par2, 0.0D);
 		var9.addVertex(par1, par2, 0.0D);
 		var9.draw();
+		GL11.glPopMatrix();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDisable(GL11.GL_BLEND);
 	}
@@ -419,7 +421,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 			return;
 		if (is.getItem() == null)
 			return;
-		if (is != null && is.getItem() != null)
+		//if (is != null && is.getItem() != null)
 			font = is.getItem().getFontRenderer(is);
 		if (font == null)
 			font = fr;
@@ -457,6 +459,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 	 */
 
 	public void drawItemStackWithTooltip(RenderItem renderer, FontRenderer fr, ItemStack is, int x, int y) {
+		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0F, 0.0F, 32.0F);
 		FontRenderer f2 = Minecraft.getMinecraft().fontRenderer;//is.getItem().getFontRenderer(is);
 		if (f2 != null)
@@ -476,9 +479,11 @@ public final class ReikaGuiAPI extends GuiScreen {
 				this.drawTooltip(fr, sg);
 		}
 		GL11.glTranslatef(0.0F, 0.0F, -64.0F);
+		GL11.glPopMatrix();
 	}
 
 	public void drawMultilineTooltip(List<String> li, int x, int y) {
+		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0F, 0.0F, 64.0F);
 		int dy = y;
 		for (String s : li) {
@@ -486,6 +491,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 			dy += 17;
 		}
 		GL11.glTranslatef(0.0F, 0.0F, -64.0F);
+		GL11.glPopMatrix();
 	}
 
 	public void drawMultilineTooltip(ItemStack is, int x, int y) {

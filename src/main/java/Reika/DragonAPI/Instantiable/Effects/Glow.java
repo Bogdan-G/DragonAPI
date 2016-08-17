@@ -65,7 +65,15 @@ public class Glow {
 	}
 
 	public Glow setColor(int r, int g, int b, int a) {
-		return this.setColor(r, g, b, 255);
+		return this.setColor_ARGB(r, g, b, 255);//fix StackOverflow
+	}
+
+	public Glow setColor_ARGB(int r, int g, int b, int a) {
+		red = r;
+		green = g;
+		blue = b;
+		alpha = a;
+		return this;
 	}
 
 	public Glow setScale(double s) {
@@ -94,16 +102,17 @@ public class Glow {
 		double par6 = posZ-TileEntityRendererDispatcher.staticPlayerZ;
 
 		ReikaRenderHelper.prepareGeoDraw(alpha < 255);
+		GL11.glPushMatrix();
 		GL11.glTranslated(par2, par4, par6);
-		//GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
-
-		Tessellator v5 = Tessellator.instance;
-		float d = 7.5F;
 		RenderManager renderManager = RenderManager.instance;
 		GL11.glRotatef(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		GL11.glScaled(scale, scale, scale);
+
+		Tessellator v5 = Tessellator.instance;
+		float d = 7.5F;
 		for (float i = 0; i < 90; i += d) {
+			GL11.glPushMatrix();
 			GL11.glRotated(i, 0, 0, 1);
 			GL11.glTranslated(0, 0, 0.001);
 			v5.startDrawingQuads();
@@ -114,13 +123,14 @@ public class Glow {
 			v5.addVertex(-0.5, 0.5, 0);
 			v5.draw();
 			GL11.glRotated(-i, 0, 0, 1);
+			GL11.glPopMatrix();
 		}
 		GL11.glScaled(1D/scale, 1D/scale, 1D/scale);
 		GL11.glRotatef(renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		GL11.glRotatef(-180.0F + renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 
-		//GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GL11.glTranslated(-par2, -par4, -par6);
+		GL11.glPopMatrix();
 		ReikaRenderHelper.exitGeoDraw();
 	}
 

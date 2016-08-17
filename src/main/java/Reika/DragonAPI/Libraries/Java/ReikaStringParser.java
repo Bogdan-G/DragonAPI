@@ -217,7 +217,7 @@ public class ReikaStringParser extends DragonAPICore {
 	}
 
 	public static String capFirstChar(String s) {
-		return s.toUpperCase().substring(0, 1)+s.toLowerCase().substring(1);
+		return s.toUpperCase(java.util.Locale.ENGLISH).substring(0, 1)+s.toLowerCase(java.util.Locale.ENGLISH).substring(1);
 	}
 
 	public static String subtractFrom(String src, String p) {

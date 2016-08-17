@@ -84,7 +84,7 @@ public class ForestryHandler extends ModHandlerBase {
 		}
 
 		public boolean isLog() {
-			return this.name().toLowerCase().startsWith("log");
+			return this.name().toLowerCase(java.util.Locale.ENGLISH).startsWith("log");
 		}
 	}
 

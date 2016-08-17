@@ -327,16 +327,20 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 
 	public static void printClassMetadata(String path, Class c) {
 		String filename = path+".classdata";
+		BufferedWriter p = null;
 		try {
 			File f = new File(filename);
 			f.createNewFile();
-			BufferedWriter p = new BufferedWriter(new PrintWriter(f));
+			p = new BufferedWriter(new PrintWriter(f));
 			printClassMetadata(p, c);
 			p.close();
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class data!");
 			e.printStackTrace();
+		}
+		finally {
+		try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
 		}
 	}
 
@@ -440,10 +444,11 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		reader.accept(classNode,0);
 		final List<MethodNode> methods = classNode.methods;
 		String filename = path+".asm";
+		BufferedWriter p = null;
 		try {
 			File f = new File(filename);
 			f.createNewFile();
-			BufferedWriter p = new BufferedWriter(new PrintWriter(f));
+			p = new BufferedWriter(new PrintWriter(f));
 			for (MethodNode m : methods) {
 				InsnList inList = m.instructions;
 				p.write(m.name);
@@ -457,6 +462,9 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class ASM!");
 			e.printStackTrace();
+		}
+		finally {
+		try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
 		}
 	}
 
@@ -495,14 +503,18 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		data = out.toByteArray() */
 
 		String filename = path+".class";
+		FileOutputStream fos = null;
 		try {
-			FileOutputStream fos = new FileOutputStream(filename);
+			fos = new FileOutputStream(filename);
 			fos.write(data);
 			fos.close();
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class!");
 			e.printStackTrace();
+		}
+		finally {
+		try {if (fos != null) fos.close();}catch (IOException e) {e.printStackTrace();}
 		}
 	}
 
@@ -548,9 +560,12 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 	 * Keep in mind that this number is the <i>total</i> stack depth and as such contains some
 	 * vanilla MC and Forge calls as well. Subtract 100 or so to be safe. */
 	public static int getMaximumRecursiveDepth() {
-		if (maxRecurse <= 0) {
+		/*if (maxRecurse <= 0) {
 			recurse(0);
-		}
+		}*/
+		//use another method, fix StackOverflow
+		maxRecurse = Thread.currentThread().getStackTrace().length;
+		if (maxRecurse <= 0) { maxRecurse = 256; }
 		return maxRecurse;
 	}
 
@@ -588,7 +603,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 	}
 
 	private static Class getPrimitiveClass(Object o) {
-		String name = o.getClass().getSimpleName().toLowerCase();
+		String name = o.getClass().getSimpleName().toLowerCase(java.util.Locale.ENGLISH);
 		if (name.equals("byte"))
 			return byte.class;
 		if (name.equals("short"))

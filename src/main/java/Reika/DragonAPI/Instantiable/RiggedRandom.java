@@ -16,7 +16,7 @@ import Reika.DragonAPI.Libraries.Java.ReikaRandomHelper;
 
 public class RiggedRandom extends Random {
 
-	private final WeightedRandom<Integer> rand = new WeightedRandom();
+	private transient final WeightedRandom<Integer> rand = new WeightedRandom();
 	private double bioff = 0;
 	private double birange = 0;
 	private double scale = 1;

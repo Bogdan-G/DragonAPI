@@ -197,7 +197,7 @@ public abstract class DragonAPIMod {
 	}
 
 	public final String getTechnicalName() {
-		return this.getDisplayName().toUpperCase();
+		return this.getDisplayName().toUpperCase(java.util.Locale.ENGLISH);
 	}
 
 	protected void hasNoDragonAPI() {
@@ -225,7 +225,7 @@ public abstract class DragonAPIMod {
 
 	@Override
 	public final boolean equals(Object o) {
-		return o.getClass() == this.getClass() && ((DragonAPIMod)o).getTechnicalName().equalsIgnoreCase(this.getTechnicalName());
+		return o != null && o.getClass() == this.getClass() && ((DragonAPIMod)o).getTechnicalName().equalsIgnoreCase(this.getTechnicalName());
 	}
 
 	@Override

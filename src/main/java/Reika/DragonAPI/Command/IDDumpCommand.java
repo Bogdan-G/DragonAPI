@@ -36,7 +36,7 @@ public class IDDumpCommand extends DragonCommandBase {
 		IDType type = null;
 
 		try {
-			type = IDType.valueOf(args[0].toUpperCase());
+			type = IDType.valueOf(args[0].toUpperCase(java.util.Locale.ENGLISH));
 		}
 		catch (IllegalArgumentException e) {
 			StringBuilder sb = new StringBuilder();
@@ -44,7 +44,7 @@ public class IDDumpCommand extends DragonCommandBase {
 			for (int i = 0; i < IDType.list.length; i++) {
 				sb.append(EnumChatFormatting.RED.toString());
 				sb.append("'");
-				sb.append(IDType.list[i].name().toLowerCase());
+				sb.append(IDType.list[i].name().toLowerCase(java.util.Locale.ENGLISH));
 				sb.append("'");
 				if (i < IDType.list.length-1)
 					sb.append(", ");
@@ -57,14 +57,14 @@ public class IDDumpCommand extends DragonCommandBase {
 		Side side = null;
 
 		try {
-			side = Side.valueOf(args[1].toUpperCase());
+			side = Side.valueOf(args[1].toUpperCase(java.util.Locale.ENGLISH));
 		}
 		catch (IllegalArgumentException e) {
 			StringBuilder sb = new StringBuilder();
 			sb.append(EnumChatFormatting.RED+"Invalid side. Use one of the following: ");
 			for (int i = 0; i < Side.values().length; i++) {
 				sb.append("'");
-				sb.append(Side.values()[i].name().toLowerCase());
+				sb.append(Side.values()[i].name().toLowerCase(java.util.Locale.ENGLISH));
 				sb.append("'");
 				if (i < Side.values().length-1)
 					sb.append(", ");

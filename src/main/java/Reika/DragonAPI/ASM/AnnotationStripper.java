@@ -230,7 +230,7 @@ class AnnotationStripper {
 					else if ("side".equals(k) && v instanceof String[]) {
 						String t = ((String[]) v)[1];
 						if (t != null) {
-							info.side = t.toUpperCase().intern();
+							info.side = t.toUpperCase(java.util.Locale.ENGLISH).intern();
 						}
 					}
 				}
@@ -240,7 +240,7 @@ class AnnotationStripper {
 	}
 
 	static void scrapeData(ASMDataTable table) {
-		side = FMLCommonHandler.instance().getSide().toString().toUpperCase().intern();
+		side = FMLCommonHandler.instance().getSide().toString().toUpperCase(java.util.Locale.ENGLISH).intern();
 		for (ASMData data : table.getAll(Strippable.class.getName())) {
 			String name = data.getClassName();
 			strippables.add(name);

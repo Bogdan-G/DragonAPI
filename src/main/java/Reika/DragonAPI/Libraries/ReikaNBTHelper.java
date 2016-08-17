@@ -112,7 +112,7 @@ public final class ReikaNBTHelper extends DragonAPICore {
 		else if (NBT instanceof NBTTagCompound) {
 			return NBT;
 		}
-		else if (NBT instanceof NBTBase) {
+		else if (NBT.getClass().equals(NBTBase.class) || NBT instanceof NBTBase) {
 			return NBT;
 		}
 		else {

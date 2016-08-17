@@ -34,12 +34,12 @@ public class ClearItemsCommand extends DragonCommandBase {
 	public void processCommand(ICommandSender ics, String[] args) {
 		clearIDs.clear();
 		clearAll = false;
-		if (args.length == 0 || (args.length == 1 && args[0].toLowerCase().equals("scan"))) {
+		if (args.length == 0 || (args.length == 1 && args[0].toLowerCase(java.util.Locale.ENGLISH).equals("scan"))) {
 			this.sendChatToSender(ics, EnumChatFormatting.RED.toString()+"You must specify at least one ID, or a '*'!");
 			return;
 		}
 		boolean scan = false;
-		if (args[0].toLowerCase().equals("scan")) {
+		if (args[0].toLowerCase(java.util.Locale.ENGLISH).equals("scan")) {
 			scan = true;
 			String[] cp = new String[args.length-1];
 			System.arraycopy(args, 1, cp, 0, cp.length);

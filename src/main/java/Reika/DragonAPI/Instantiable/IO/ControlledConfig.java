@@ -111,11 +111,11 @@ public class ControlledConfig {
 		if (backup.exists())
 			backup.delete();
 		try {
-			DragonAPICore.log(configMod.getDisplayName().toUpperCase()+": Writing Backup File to "+path);
-			DragonAPICore.log(configMod.getDisplayName().toUpperCase()+": Use this to restore custom IDs if necessary.");
+			DragonAPICore.log(configMod.getDisplayName().toUpperCase(java.util.Locale.ENGLISH)+": Writing Backup File to "+path);
+			DragonAPICore.log(configMod.getDisplayName().toUpperCase(java.util.Locale.ENGLISH)+": Use this to restore custom IDs if necessary.");
 			backup.createNewFile();
 			if (!backup.exists())
-				DragonAPICore.logError(configMod.getDisplayName().toUpperCase()+": Could not create backup file at "+path+"!");
+				DragonAPICore.logError(configMod.getDisplayName().toUpperCase(java.util.Locale.ENGLISH)+": Could not create backup file at "+path+"!");
 			else {
 				PrintWriter p = new PrintWriter(backup);
 				p.println("#####----------THESE ARE ALL THE OLD CONFIG SETTINGS YOU WERE USING----------#####");
@@ -125,7 +125,7 @@ public class ControlledConfig {
 			}
 		}
 		catch (IOException e) {
-			DragonAPICore.logError(configMod.getDisplayName().toUpperCase()+": Could not create backup file due to IOException!");
+			DragonAPICore.logError(configMod.getDisplayName().toUpperCase(java.util.Locale.ENGLISH)+": Could not create backup file due to IOException!");
 			e.printStackTrace();
 		}
 		configFile.delete();
@@ -133,7 +133,7 @@ public class ControlledConfig {
 
 	private void versionCheck(FMLPreInitializationEvent event) {
 		if (this.checkReset(config)) {
-			DragonAPICore.log(configMod.getDisplayName().toUpperCase()+": Config File Format Changed. Resetting...");
+			DragonAPICore.log(configMod.getDisplayName().toUpperCase(java.util.Locale.ENGLISH)+": Config File Format Changed. Resetting...");
 			this.resetConfigFile();
 			this.initProps(event);
 			return;

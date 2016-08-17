@@ -16,7 +16,7 @@ import Reika.DragonAPI.Libraries.IO.ReikaChatHelper;
 
 public class TestControlCommand extends CommandBase {
 
-	private final String tag = "debugtest";
+	private static final String tag = "debugtest";
 
 	@Override
 	public String getCommandName() {

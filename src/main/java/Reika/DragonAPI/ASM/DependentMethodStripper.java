@@ -143,7 +143,7 @@ public class DependentMethodStripper implements IClassTransformer {
 
 	private static class InvalidStrippingAnnotationException extends ASMException {
 
-		private final AnnotationNode annotation;
+		private transient final AnnotationNode annotation;
 
 		public InvalidStrippingAnnotationException(ClassNode cn, AnnotationNode ann) {
 			super(cn);

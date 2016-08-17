@@ -62,7 +62,7 @@ public class LootController {
 		return items.toString();
 	}
 
-	class LootStack {
+	static class LootStack {
 		public final int lootTier;
 		public final Location chestLocation;
 		private final ItemStack item;

@@ -432,7 +432,7 @@ public class ReikaThaumHelper {
 		String name = out.getDisplayName();
 		CustomThaumResearch res = new CustomThaumResearch(id, category, aspects, col, row, 0, out).setName(name);
 		res.setDescription(desc);
-		XMLResearch xml = new XMLResearch(id.toLowerCase(), root, path, ir, 2);
+		XMLResearch xml = new XMLResearch(id.toLowerCase(java.util.Locale.ENGLISH), root, path, ir, 2);
 		res.setPages(xml.getPages());
 		res.registerResearchItem();
 	}
@@ -443,7 +443,7 @@ public class ReikaThaumHelper {
 		String name = out.getDisplayName();
 		CustomThaumResearch res = new CustomThaumResearch(id, category, aspects, col, row, 0, out).setName(name);
 		res.setDescription(desc);
-		XMLResearch xml = new XMLResearch(id.toLowerCase(), root, path, ir, 2);
+		XMLResearch xml = new XMLResearch(id.toLowerCase(java.util.Locale.ENGLISH), root, path, ir, 2);
 		res.setPages(xml.getPages());
 		res.registerResearchItem();
 	}
@@ -454,7 +454,7 @@ public class ReikaThaumHelper {
 		String name = out.getDisplayName();
 		CustomThaumResearch res = new CustomThaumResearch(id, category, aspects, col, row, 0, out).setName(name);
 		res.setDescription(desc);
-		XMLResearch xml = new XMLResearch(id.toLowerCase(), root, path, ir, 2);
+		XMLResearch xml = new XMLResearch(id.toLowerCase(java.util.Locale.ENGLISH), root, path, ir, 2);
 		res.setPages(xml.getPages());
 		res.registerResearchItem();
 	}
@@ -534,7 +534,7 @@ public class ReikaThaumHelper {
 
 			@Override
 			public String getTranslatedText() {
-				return info.getValueAtNode("researches:"+name.toLowerCase()+":page"+page);
+				return info.getValueAtNode("researches:"+name.toLowerCase(java.util.Locale.ENGLISH)+":page"+page);
 			}
 
 			@Override
@@ -717,7 +717,7 @@ public class ReikaThaumHelper {
 	/*
 	/** Note dat[0] is the length. *//*
 	public static int[] aspectToIntsForPacket(Aspect a) {
-		String s = a.getName().toLowerCase();
+		String s = a.getName().toLowerCase(java.util.Locale.ENGLISH);
 		int[] dat = new int[1+s.length()];
 		dat[0] = s.length();
 		for (int i = 0; i < dat.length; i++) {

@@ -29,8 +29,8 @@ public class CustomSoundHandler {
 	/** Do not add ".ogg" to the file name. All strings are forced to lowercase.
 	 * To load the sound, put it in /assets/mod folder/sound */
 	public void addSound(String mod, String sound, SoundCategory cat) {
-		String name = mod.toLowerCase();
-		String file = sound.toLowerCase();
+		String name = mod.toLowerCase(java.util.Locale.ENGLISH);
+		String file = sound.toLowerCase(java.util.Locale.ENGLISH);
 		sounds.put(sound, new ResourceLocation(mod, sound));
 		DirectResourceManager.getInstance().registerSound(mod, sound+".ogg", cat);
 	}

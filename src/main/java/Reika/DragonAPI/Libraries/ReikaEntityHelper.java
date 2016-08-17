@@ -259,9 +259,9 @@ public final class ReikaEntityHelper extends DragonAPICore {
 			return true;
 		if (mob instanceof EntityWither)
 			return true;
-		if (mob.getClass().getSimpleName().toLowerCase().contains("wisp"))
+		if (mob.getClass().getSimpleName().toLowerCase(java.util.Locale.ENGLISH).contains("wisp"))
 			return true;
-		if (mob.getClass().getSimpleName().toLowerCase().contains("pech"))
+		if (mob.getClass().getSimpleName().toLowerCase(java.util.Locale.ENGLISH).contains("pech"))
 			return true;
 		return false;
 	}
@@ -281,9 +281,9 @@ public final class ReikaEntityHelper extends DragonAPICore {
 			return true;
 		if (EntityWither.class.isAssignableFrom(mob))
 			return true;
-		if (mob.getSimpleName().toLowerCase().contains("wisp"))
+		if (mob.getSimpleName().toLowerCase(java.util.Locale.ENGLISH).contains("wisp"))
 			return true;
-		if (mob.getSimpleName().toLowerCase().contains("pech"))
+		if (mob.getSimpleName().toLowerCase(java.util.Locale.ENGLISH).contains("pech"))
 			return true;
 		return false;
 	}
@@ -305,7 +305,7 @@ public final class ReikaEntityHelper extends DragonAPICore {
 		Object[] entityKeys = EntityList.IDtoClassMapping.keySet().toArray();
 		int[] entityIDs = new int[entityKeys.length];
 		for (int i = 0; i < entityKeys.length; i++) {
-			entityIDs[i] = Integer.valueOf(String.valueOf(entityKeys[i]));
+			entityIDs[i] = Integer.parseInt(String.valueOf(entityKeys[i]));
 		}
 		for (int i = 0; i < entityIDs.length; i++) {
 			if (entityIDs[i] > highestid) {
@@ -771,7 +771,7 @@ public final class ReikaEntityHelper extends DragonAPICore {
 	public static boolean isBossMob(EntityLiving e) {
 		if (e instanceof EntityWither || e instanceof EntityDragon)
 			return true;
-		String name = e.getClass().getName().toLowerCase();
+		String name = e.getClass().getName().toLowerCase(java.util.Locale.ENGLISH);
 		if (name.contains("voidmonster"))
 			return false;
 		if (name.startsWith("twilightforest.entity.boss"))

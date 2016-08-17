@@ -1187,7 +1187,7 @@ public final class ReikaInventoryHelper extends DragonAPICore {
 				}
 			}
 		}
-		else if (source instanceof IInventory) {
+		else if (source.getClass().equals(IInventory.class) || source instanceof IInventory) {
 			IInventory ii = source;
 			for (int slot = 0; slot < source.getSizeInventory(); slot++) {
 				ItemStack is = ii.getStackInSlot(slot);
@@ -1212,7 +1212,7 @@ public final class ReikaInventoryHelper extends DragonAPICore {
 				}
 			}
 		}
-		else if (source instanceof IInventory) {
+		else if (source.getClass().equals(IInventory.class) || source instanceof IInventory) {
 			IInventory ii = source;
 			for (int slot = 0; slot < source.getSizeInventory(); slot++) {
 				ItemStack is = ii.getStackInSlot(slot);

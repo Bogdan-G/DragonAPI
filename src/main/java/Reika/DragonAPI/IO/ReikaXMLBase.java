@@ -10,6 +10,7 @@
 package Reika.DragonAPI.IO;
 
 import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,18 +33,22 @@ public class ReikaXMLBase {
 	}
 
 	public static Document getXMLDocument(Class root, String path) {
-		InputStream in = root.getResourceAsStream(path);
+		InputStream in = new java.io.BufferedInputStream(root.getResourceAsStream(path));
 		if (in == null) {
 			throw new RuntimeException("XML file at "+path+" relative to "+root.getCanonicalName()+" not found!");
 		}
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
+			try {in.close();}catch (IOException e) {e.printStackTrace();}
 			return builder.parse(in);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("XML file at "+path+" relative to "+root.getCanonicalName()+" failed to load!");
+		}
+		finally {
+		try {in.close();}catch (IOException e) {e.printStackTrace();}
 		}
 	}
 

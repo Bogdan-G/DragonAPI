@@ -277,13 +277,13 @@ public class ReikaBiomeHelper extends DragonAPICore {
 			return true;
 		if (biome.getEnableSnow())
 			return true;
-		if (biome.biomeName.toLowerCase().contains("arctic"))
+		if (biome.biomeName.toLowerCase(java.util.Locale.ENGLISH).contains("arctic"))
 			return true;
-		if (biome.biomeName.toLowerCase().contains("tundra"))
+		if (biome.biomeName.toLowerCase(java.util.Locale.ENGLISH).contains("tundra"))
 			return true;
-		if (biome.biomeName.toLowerCase().contains("alpine"))
+		if (biome.biomeName.toLowerCase(java.util.Locale.ENGLISH).contains("alpine"))
 			return true;
-		if (biome.biomeName.toLowerCase().contains("frozen"))
+		if (biome.biomeName.toLowerCase(java.util.Locale.ENGLISH).contains("frozen"))
 			return true;
 		BiomeDictionary.Type[] types = BiomeDictionary.getTypesForBiome(biome);
 		for (int i = 0; i < types.length; i++) {
@@ -434,7 +434,7 @@ public class ReikaBiomeHelper extends DragonAPICore {
 			return true;
 		if (BiomeDictionary.isBiomeOfType(biome, Type.OCEAN))
 			return true;
-		return ReikaStringParser.containsWord(biome.biomeName.toLowerCase(), "ocean");
+		return ReikaStringParser.containsWord(biome.biomeName.toLowerCase(java.util.Locale.ENGLISH), "ocean");
 	}
 
 	public static void removeBiomeWithAssociates(BiomeGenBase biome) {

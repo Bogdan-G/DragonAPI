@@ -12,7 +12,9 @@ package Reika.DragonAPI.Instantiable.Rendering;
 import java.awt.Color;
 
 import net.minecraft.client.renderer.Tessellator;
+import org.lwjgl.opengl.GL11;
 import Reika.DragonAPI.Libraries.IO.ReikaRenderHelper;
+
 
 public class PixelRenderer {
 
@@ -63,9 +65,12 @@ public class PixelRenderer {
 
 		}
 		ReikaRenderHelper.prepareGeoDraw(rgba[3] < 255);
+		//start lulz
+		GL11.glPushMatrix();
 		Tessellator v5 = Tessellator.instance;
 		if (flip) {
 			if (xy) {
+				GL11.glPushMatrix();
 				v5.startDrawingQuads();
 				v5.setColorRGBA(rgba[0], rgba[1], rgba[2], rgba[3]);
 				v5.addVertex(x+x1*pw, y+ph+y2*ph, z);
@@ -73,8 +78,10 @@ public class PixelRenderer {
 				v5.addVertex(x+pw+x2*pw, y+y1*ph, z);
 				v5.addVertex(x+x1*pw, y+y1*ph, z);
 				v5.draw();
+				GL11.glPopMatrix();
 			}
 			else {
+				GL11.glPushMatrix();
 				v5.startDrawingQuads();
 				v5.setColorRGBA(rgba[0], rgba[1], rgba[2], rgba[3]);
 				v5.addVertex(x, y+ph+y2*ph, z+x1*pw);
@@ -82,10 +89,12 @@ public class PixelRenderer {
 				v5.addVertex(x, y+y1*ph, z+pw+x2*pw);
 				v5.addVertex(x, y+y1*ph, z+x1*pw);
 				v5.draw();
+				GL11.glPopMatrix();
 			}
 		}
 		else {
 			if (xy) {
+				GL11.glPushMatrix();
 				v5.startDrawingQuads();
 				v5.setColorRGBA(rgba[0], rgba[1], rgba[2], rgba[3]);
 				v5.addVertex(x+x1*pw, y+y1*ph, z);
@@ -93,8 +102,10 @@ public class PixelRenderer {
 				v5.addVertex(x+pw+x2*pw, y+ph+y2*ph, z);
 				v5.addVertex(x+x1*pw, y+ph+y2*ph, z);
 				v5.draw();
+				GL11.glPopMatrix();
 			}
 			else {
+				GL11.glPushMatrix();
 				v5.startDrawingQuads();
 				v5.setColorRGBA(rgba[0], rgba[1], rgba[2], rgba[3]);
 				v5.addVertex(x, y+y1*ph, z+x1*pw);
@@ -102,8 +113,10 @@ public class PixelRenderer {
 				v5.addVertex(x, y+ph+y2*ph, z+pw+x2*pw);
 				v5.addVertex(x, y+ph+y2*ph, z+x1*pw);
 				v5.draw();
+				GL11.glPopMatrix();
 			}
 		}
+		GL11.glPopMatrix();
 		ReikaRenderHelper.exitGeoDraw();
 	}
 

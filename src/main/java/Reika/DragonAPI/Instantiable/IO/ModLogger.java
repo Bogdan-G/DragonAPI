@@ -192,7 +192,7 @@ public class ModLogger {
 		return loggers.size();
 	}
 
-	private class LogLine {
+	private static class LogLine {
 
 		private final String message;
 		private final Level level;

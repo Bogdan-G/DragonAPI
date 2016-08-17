@@ -97,7 +97,7 @@ public class EditNearbyInventoryCommand extends DragonCommandBase {
 		private static Mode get(String mode) {
 			for (int i = 0; i < values().length; i++) {
 				Mode m = values()[i];
-				if (m.name().toLowerCase().equals(mode.toLowerCase()))
+				if (m.name().toLowerCase(java.util.Locale.ENGLISH).equals(mode.toLowerCase(java.util.Locale.ENGLISH)))
 					return m;
 			}
 			return null;

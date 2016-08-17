@@ -41,7 +41,7 @@ public class TileSyncCommand extends DragonCommandBase {
 		}
 		int nbt = ReikaJavaLibrary.safeIntParse(args[1]);
 		World world = ep.worldObj;
-		if (r > 0) {
+		//if (r > 0) {
 			int x = MathHelper.floor_double(ep.posX);
 			int y = MathHelper.floor_double(ep.posY);
 			int z = MathHelper.floor_double(ep.posZ);
@@ -61,7 +61,7 @@ public class TileSyncCommand extends DragonCommandBase {
 					}
 				}
 			}
-		}
+		/*}
 		else {
 			for (TileEntity te : ((List<TileEntity>)world.loadedTileEntityList)) {
 				if (te instanceof TileEntityBase)
@@ -69,7 +69,7 @@ public class TileSyncCommand extends DragonCommandBase {
 				else
 					world.markBlockForUpdate(te.xCoord, te.yCoord, te.zCoord);
 			}
-		}
+		}*/
 	}
 
 	@Override

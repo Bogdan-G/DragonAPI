@@ -37,8 +37,8 @@ public class GuiGuide extends GuiScreen {
 	private int screen;
 	private int page;
 
-	protected final int xSize = 256;
-	protected final int ySize = 220;
+	protected static final int xSize = 256;
+	protected static final int ySize = 220;
 
 	public GuiGuide() {
 		guide.reread();
@@ -49,7 +49,7 @@ public class GuiGuide extends GuiScreen {
 		for (int i = 0; i < mods.size(); i++) {
 			ModList mod = mods.get(i);
 			for (int j = 0; j < tabTags.length; j++) {
-				String tag = "dragonapi:"+mod.name().toLowerCase()+":"+tabTags[j];
+				String tag = "dragonapi:"+mod.name().toLowerCase(java.util.Locale.ENGLISH)+":"+tabTags[j];
 				String desc = guide.getValueAtNode(tag);
 				//ReikaJavaLibrary.pConsole(tag+" ;; "+desc);
 				data.put(tag, desc);
@@ -179,7 +179,7 @@ public class GuiGuide extends GuiScreen {
 		 */
 		String s = "This book contains basic information about each of Reika's mods.";
 		if (screen > 0) {
-			String tag = "dragonapi:"+mods.get(screen-1).name().toLowerCase()+":"+tabTags[page];
+			String tag = "dragonapi:"+mods.get(screen-1).name().toLowerCase(java.util.Locale.ENGLISH)+":"+tabTags[page];
 			s = data.get(tag);
 		}
 		fontRendererObj.drawSplitString(String.format("%s", s), posX+9, posY+88, 241, 0xffffff);

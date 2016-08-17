@@ -112,7 +112,7 @@ public final class ReikaPacketHelper extends DragonAPICore {
 	public static void sendNIntPacket(String ch, int id, PacketTarget p, List<Integer> data) {
 		int npars = 1+data.size(); //+1 for the size
 
-		ByteArrayOutputStream bos = new ByteArrayOutputStream(npars*4); //4 bytes an int
+		ByteArrayOutputStream bos = new ByteArrayOutputStream(npars*4+8192); //4 bytes an int//fix no buffer wrappers
 		DataOutputStream outputStream = new DataOutputStream(bos);
 		try {
 			outputStream.writeInt(id);
@@ -129,6 +129,8 @@ public final class ReikaPacketHelper extends DragonAPICore {
 
 		PacketPipeline pipe = pipelines.get(ch);
 		if (pipe == null) {
+			try {if (bos != null) bos.close();}catch (java.io.IOException ex) {ex.printStackTrace();}
+			try {if (outputStream != null) outputStream.close();}catch (java.io.IOException ex) {ex.printStackTrace();}
 			DragonAPICore.logError("Attempted to send a packet from an unbound channel!");
 			ReikaJavaLibrary.dumpStack();
 			return;
@@ -141,6 +143,8 @@ public final class ReikaPacketHelper extends DragonAPICore {
 
 		Side side = FMLCommonHandler.instance().getEffectiveSide();
 		p.dispatch(pipe, pack);
+		try {if (bos != null) bos.close();}catch (java.io.IOException ex) {ex.printStackTrace();}
+		try {if (outputStream != null) outputStream.close();}catch (java.io.IOException ex) {ex.printStackTrace();}
 	}
 
 	public static void sendNIntPacket(String ch, int id, PacketTarget p, int... data) {

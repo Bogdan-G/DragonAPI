@@ -148,7 +148,7 @@ public class MESystemReader {
 		if (most == null)
 			return 0;
 		most.setStackSize(is.stackSize);
-		IAEItemStack ret = most != null ? mon.extractItems(most, simulate ? Actionable.SIMULATE : Actionable.MODULATE, actionSource) : null;
+		IAEItemStack ret = /*most != null ? */mon.extractItems(most, simulate ? Actionable.SIMULATE : Actionable.MODULATE, actionSource)/* : null*/;
 		return ret != null ? ret.getStackSize() : 0;
 	}
 

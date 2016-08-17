@@ -445,7 +445,7 @@ public enum ModCropList implements ModCrop {
 	}
 
 	public static void addCustomCropType(CustomCropHandler ch) {
-		String n = ch.getEnumEntryName().toUpperCase();
+		String n = ch.getEnumEntryName().toUpperCase(java.util.Locale.ENGLISH);
 		try {
 			ModCropList.valueOf(n);
 			throw new IllegalArgumentException("Crop name "+n+" is already taken!");

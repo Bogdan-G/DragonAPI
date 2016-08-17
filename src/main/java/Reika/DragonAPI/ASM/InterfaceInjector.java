@@ -139,8 +139,8 @@ public class InterfaceInjector implements IClassTransformer {
 
 	private static class ImproperImplementationException extends ASMException {
 
-		private final ClassNode interface_;
-		private final Collection<MethodNode> missingMethods;
+		private transient final ClassNode interface_;
+		private transient final Collection<MethodNode> missingMethods;
 		private final Collection<String> missingMethodNames = new ArrayList();
 
 		protected ImproperImplementationException(ClassNode cn, ClassNode interf, Collection<MethodNode> ms) {

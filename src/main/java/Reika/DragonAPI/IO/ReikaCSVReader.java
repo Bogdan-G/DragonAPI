@@ -21,9 +21,10 @@ public final class ReikaCSVReader {
 	private final BufferedReader bf;
 	
 	public ReikaCSVReader(Class root, String path) {
-		InputStream input = root.getResourceAsStream(path);
+		InputStream input = new java.io.BufferedInputStream(root.getResourceAsStream(path));
 		FileReader fr = null;
 		if (input == null) {
+			try{input.close();} catch (java.io.IOException e) {e.printStackTrace();}
 			bf = null;
 			return;
 		}
@@ -32,10 +33,12 @@ public final class ReikaCSVReader {
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
+			try{input.close();} catch (java.io.IOException ex) {ex.printStackTrace();}
 			bf = null;
 			return;
 		}
 		bf = new BufferedReader(fr);
+		try{input.close();} catch (java.io.IOException e) {e.printStackTrace();}
 	}
 	
 }

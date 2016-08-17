@@ -58,9 +58,9 @@ public class NEIIntercept implements IContainerInputHandler {
 					if (slot != null && panel.draggedStack == null) {
 						ItemStack item = slot.item;
 						if (NEIController.manager.window instanceof GuiRecipe || !NEIClientConfig.canCheatItem(item)) {
-							if (button == 0) {
+							//if (button == 0) {//above(higher) we have already checked
 								return MinecraftForge.EVENT_BUS.post(new NEIRecipeCheckEvent(gui, item));
-							}
+							//}
 						}
 					}
 				}

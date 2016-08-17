@@ -51,7 +51,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 	/** Array of width of all the characters in default.png */
 	protected int[] charWidth = new int[256];
 	/** the height in pixels of default text */
-	public final int FONT_HEIGHT = 9;
+	public static final int FONT_HEIGHT = 9;
 	public Random fontRandom = new org.bogdang.modifications.random.XSTR();
 	/** Array of the start/end column (in upper/lower nibble) for every glyph in the /font directory. */
 	protected final byte[] glyphWidth = new byte[65536];
@@ -374,7 +374,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 		int k;
 
 		if (c0 == 167 && idx+1 < sg.length()) {
-			j = this.getFormatIndex(sg.toLowerCase().charAt(idx+1));
+			j = this.getFormatIndex(sg.toLowerCase(java.util.Locale.ENGLISH).charAt(idx+1));
 
 			if (j < 16) {
 				randomStyle = false;
@@ -383,7 +383,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 				underlineStyle = false;
 				italicStyle = false;
 
-				if (j < 0 || j > 15)
+				if (j < 0/* || j > 15*/)
 					j = 15;
 
 				if (shadow)

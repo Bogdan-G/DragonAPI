@@ -605,6 +605,7 @@ public class ReikaRecipeHelper extends DragonAPICore {
 
 	public static ShapedRecipes getShapedRecipeFor(ItemStack out, Object... in) {
 		String s = "";
+		StringBuilder sSB = new StringBuilder(s);
 		int i = 0;
 		int j = 0;
 		int k = 0;
@@ -618,8 +619,9 @@ public class ReikaRecipeHelper extends DragonAPICore {
 				String s1 = astring[l];
 				++k;
 				j = s1.length();
-				s = s + s1;
+				sSB.append(s1);
 			}
+			s = String.valueOf(sSB);
 		}
 		else
 		{
@@ -628,8 +630,9 @@ public class ReikaRecipeHelper extends DragonAPICore {
 				String s2 = (String)in[i++];
 				++k;
 				j = s2.length();
-				s = s + s2;
+				sSB.append(s2);
 			}
+			s = String.valueOf(sSB);
 		}
 
 		HashMap hashmap;

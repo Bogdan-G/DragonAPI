@@ -39,8 +39,8 @@ public final class ReikaMIDIReader {
 
 	public static Sequence getMIDIFromFile(Class root, String path, String back) {
 		DragonAPICore.log("Reading MIDI at "+path+" with backup at "+back);
-		InputStream input = root.getResourceAsStream(path);
-		InputStream backup = root.getResourceAsStream(back);
+		InputStream input = new java.io.BufferedInputStream(root.getResourceAsStream(path));
+		InputStream backup = new java.io.BufferedInputStream(root.getResourceAsStream(back));
 
 		if (input == null && backup == null) {
 			DragonAPICore.logError("Neither main file at "+path+" nor backup at "+back+" found. Aborting.");
@@ -55,6 +55,8 @@ public final class ReikaMIDIReader {
 		catch (MidiUnavailableException e1) {
 			//e1.printStackTrace();
 			DragonAPICore.logError("MIDI system unavailable.");
+			try {input.close();}catch (IOException e) {e.printStackTrace();}
+			try {backup.close();}catch (IOException e) {e.printStackTrace();}
 			return null;
 		}
 
@@ -100,6 +102,10 @@ public final class ReikaMIDIReader {
 			else {
 				DragonAPICore.logError("MIDI File at "+path+" unreadable, and no backup was available.");
 			}
+		}
+		finally {
+		try {input.close();}catch (IOException e) {e.printStackTrace();}
+		try {backup.close();}catch (IOException e) {e.printStackTrace();}
 		}
 		return seq.getSequence();
 	}

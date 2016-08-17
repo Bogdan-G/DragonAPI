@@ -102,13 +102,13 @@ public class DragonAPICore {
 		return reika;
 	}
 
-	static {
-		if (isReikasComputer())
+	/*static {
+		if (isReikasComputer())//FB: Superclass uses subclass during initialization
 			ReikaJavaLibrary.pConsole("DRAGONAPI: Loading on Reika's computer; Dev features enabled.");
 
 		//ReikaMathCacher.initalize();
 		validateForgeVersions();
-	}
+	}*/
 
 	protected static Side getSide() {
 		return FMLCommonHandler.instance().getEffectiveSide();

@@ -52,7 +52,7 @@ public class ModVersion implements Comparable<ModVersion> {
 
 	private ModVersion(int major, char minor) {
 		majorVersion = major;
-		subVersion = minor == '\0' ? "" : Character.toString(minor).toLowerCase();
+		subVersion = minor == '\0' ? "" : Character.toString(minor).toLowerCase(java.util.Locale.ENGLISH);
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class ModVersion implements Comparable<ModVersion> {
 		if (DragonAPICore.isReikasComputer() && ReikaObfuscationHelper.isDeObfEnvironment())
 			return source;
 		Properties p = new Properties();
-		String path = ReikaStringParser.stripSpaces("version_"+ReikaStringParser.stripSpaces(mod.getTechnicalName().toLowerCase())+".properties");
+		String path = ReikaStringParser.stripSpaces("version_"+ReikaStringParser.stripSpaces(mod.getTechnicalName().toLowerCase(java.util.Locale.ENGLISH))+".properties");
 		try {
 			InputStream stream = ModVersion.class.getClassLoader().getResourceAsStream(path);
 			if (stream == null) {

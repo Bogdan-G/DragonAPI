@@ -621,8 +621,10 @@ public class BlockArray implements Iterable<Coordinate> {
 	}
 
 	public void addLineOfClear(World world, int x, int y, int z, int range, int stepx, int stepy, int stepz) {
-		if (stepx == 0 && stepy == 0 && stepz == 0)
+		if (stepx == 0 && stepy == 0 && stepz == 0) {
 			FMLLog.warning("The addLineOfClear() method requires a specified direction!");
+			return;//if all three are zero code below will not run(performed)
+		}
 		if (stepx != 0) {
 			if (stepy != 0 || stepz != 0)
 				FMLLog.warning("The addLineOfClear() method is only designed for 1D lines!");

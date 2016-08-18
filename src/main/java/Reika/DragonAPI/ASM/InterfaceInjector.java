@@ -154,15 +154,11 @@ public class InterfaceInjector implements IClassTransformer {
 		@Override
 		public final String getMessage() {
 			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append("Could not inject interface "+interface_.name+";\n");
-			sb.append(node.name+" does not implement the following required methods:\n");
+			sb.append(super.getMessage()).append("Could not inject interface "+interface_.name+";\n").append(node.name+" does not implement the following required methods:\n");
 			for (MethodNode m : missingMethods) {
-				sb.append("\t"+m.name+" "+m.desc);
-				sb.append("\n");
+				sb.append("\t"+m.name+" "+m.desc).append("\n");
 			}
-			sb.append("\nIn all likelihood, the interface has changed and its implementation requires correction.\n");
-			sb.append("The following methods were found on the class:\n");
+			sb.append("\nIn all likelihood, the interface has changed and its implementation requires correction.\n").append("The following methods were found on the class:\n");
 			for (MethodNode m : node.methods) {
 				sb.append("\t"+m.name+" "+m.desc);
 				if (missingMethodNames.contains(m.name)) {

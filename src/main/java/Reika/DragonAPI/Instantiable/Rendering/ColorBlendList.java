@@ -94,13 +94,11 @@ public class ColorBlendList {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(cycleModulus);
-		sb.append("x [");
+		sb.append(cycleModulus).append("x [");
 		for (int color : data) {
-			sb.append(Integer.toHexString(color));
-			sb.append(",");
+			sb.append(Integer.toHexString(color)).append(',');
 		}
-		sb.append("]");
+		sb.append(']');
 		return sb.toString();
 	}
 

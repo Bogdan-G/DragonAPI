@@ -42,12 +42,10 @@ public class EntityListCommand extends DragonCommandBase {
 			side = Side.valueOf(args[0].toUpperCase(java.util.Locale.ENGLISH));
 		}
 		catch (IllegalArgumentException e) {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(45);
 			sb.append(EnumChatFormatting.RED+"Invalid side. Use one of the following: ");
 			for (int i = 0; i < Side.values().length; i++) {
-				sb.append("'");
-				sb.append(Side.values()[i].name().toLowerCase(java.util.Locale.ENGLISH));
-				sb.append("'");
+				sb.append("'").append(Side.values()[i].name().toLowerCase(java.util.Locale.ENGLISH)).append("'");
 				if (i < Side.values().length-1)
 					sb.append(", ");
 			}

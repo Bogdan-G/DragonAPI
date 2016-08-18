@@ -130,14 +130,8 @@ public enum ReikaTreeHelper implements TreeType {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(this.getName());
-		sb.append(" (LOG "+log+":"+Arrays.toString(logMeta)+";");
-		sb.append(" ");
-		sb.append("LEAF "+leaf+":"+Arrays.toString(leafMeta)+";");
-		sb.append(" ");
-		sb.append("SAPLING "+sapling+":"+saplingMeta);
-		sb.append(")");
+		StringBuilder sb = new StringBuilder(32);
+		sb.append(this.getName()).append(" (LOG "+log+":"+Arrays.toString(logMeta)+";").append(' ').append("LEAF "+leaf+":"+Arrays.toString(leafMeta)+";").append(' ').append("SAPLING "+sapling+":"+saplingMeta).append(')');
 		return sb.toString();
 	}
 

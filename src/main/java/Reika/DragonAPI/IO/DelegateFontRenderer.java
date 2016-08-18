@@ -134,7 +134,7 @@ public final class DelegateFontRenderer extends FontRenderer {
 	public static String stripFlags(String sg) {
 		int idx = sg.indexOf(keyChar);
 		while (idx >= 0) {
-			sg = sg.replaceAll(String.valueOf(keyChar)+String.valueOf(sg.charAt(idx+1)), "");
+			sg = sg.replaceAll(String.valueOf(keyChar)+sg.charAt(idx+1), "");
 			idx = sg.indexOf(keyChar);
 		}
 		return sg;

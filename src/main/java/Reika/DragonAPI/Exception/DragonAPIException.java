@@ -12,7 +12,7 @@ package Reika.DragonAPI.Exception;
 
 public abstract class DragonAPIException extends RuntimeException {
 
-	protected StringBuilder message = new StringBuilder();
+	protected StringBuilder message = new StringBuilder(512);
 
 	protected DragonAPIException() {
 		super();

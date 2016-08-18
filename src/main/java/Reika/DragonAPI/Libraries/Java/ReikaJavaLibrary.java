@@ -75,7 +75,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			//	writeLineToConsoleAndLogs(level, Arrays.toString((Object[])obj));
 			//}
 			if (cl != String.class && cl != Integer.class && cl != Boolean.class)
-				writeLineToConsoleAndLogs(level, String.valueOf(obj)+" of "+String.valueOf(cl));
+				writeLineToConsoleAndLogs(level, obj+" of "+cl);
 			else
 				writeLineToConsoleAndLogs(level, String.valueOf(obj));
 		}
@@ -189,7 +189,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 	public static void printLine(int length) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < length; i++)
-			sb.append("-");
+			sb.append('-');
 		pConsole(sb.toString());
 	}
 
@@ -569,7 +569,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		return maxRecurse;
 	}
 
-	private static int recurse(int i) {
+	/*private static int recurse(int i) {
 		maxRecurse = Math.max(i, maxRecurse);
 		//pConsole(i+":"+maxRecurse);
 		try {
@@ -579,7 +579,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			return i;
 		}
 		return 0;
-	}
+	}*/
 
 	public static void toggleStackTrace() {
 		dumpStack = !dumpStack;

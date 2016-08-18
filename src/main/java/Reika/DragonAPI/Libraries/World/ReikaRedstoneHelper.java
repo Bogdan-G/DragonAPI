@@ -98,9 +98,10 @@ public final class ReikaRedstoneHelper extends DragonAPICore {
 				ac = true;
 		}
 
-		for (int i = lastPower.length-1; i > 0; i--) {
+		/*for (int i = lastPower.length-1; i > 0; i--) {
 			lastPower[i] = lastPower[i-1];
-		}
+		}*/
+		System.arraycopy(lastPower, 0, lastPower, 1, lastPower.length-1);
 		lastPower[0] = currentpower;
 
 		return ac;

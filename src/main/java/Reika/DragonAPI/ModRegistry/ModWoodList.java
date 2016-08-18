@@ -279,17 +279,10 @@ public enum ModWoodList implements TreeType {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(this.getName());
-		sb.append(" from ");
-		sb.append(mod);
+		StringBuilder sb = new StringBuilder(32);
+		sb.append(this.getName()).append(" from ").append(mod);
 		if (exists) {
-			sb.append(" (LOG "+blockID+":"+Arrays.toString(blockMeta)+";");
-			sb.append(" ");
-			sb.append("LEAF "+leafID+":"+Arrays.toString(leafMeta)+";");
-			sb.append(" ");
-			sb.append("SAPLING "+saplingID+":"+saplingMeta);
-			sb.append(")");
+			sb.append(" (LOG "+blockID+":"+Arrays.toString(blockMeta)+";").append(" ").append("LEAF "+leafID+":"+Arrays.toString(leafMeta)+";").append(" ").append("SAPLING "+saplingID+":"+saplingMeta).append(")");
 		}
 		else {
 			sb.append(" (Not loaded)");
@@ -299,9 +292,7 @@ public enum ModWoodList implements TreeType {
 
 	public String getBasicInfo() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getName());
-		sb.append(" from ");
-		sb.append(mod);
+		sb.append(this.getName()).append(" from ").append(mod);
 		return sb.toString();
 	}
 

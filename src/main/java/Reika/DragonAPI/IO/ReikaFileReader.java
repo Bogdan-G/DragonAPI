@@ -175,7 +175,7 @@ public class ReikaFileReader extends DragonAPICore {
 			String line = null;
 			while((line = p.readLine()) != null) {
 				if (!line.isEmpty()) {
-					sb.append(line).append("\n");
+					sb.append(line).append('\n');
 					i++;
 				}
 			}

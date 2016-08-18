@@ -64,7 +64,7 @@ public final class ReikaChatHelper extends DragonAPICore {
 	/** Writes a block ID:metadata and coordinates to the chat.
 	 * Args: World, x, y, z */
 	public static void writeBlockAtCoords(World world, int x, int y, int z) {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(64);
 		String name;
 		Block id = world.getBlock(x, y, z);
 		if (id != Blocks.air)
@@ -78,8 +78,7 @@ public final class ReikaChatHelper extends DragonAPICore {
 			sb.append("No Tile Entity at this location.");
 		}
 		else {
-			sb.append("Tile Entity at this location:\n");
-			sb.append(te.toString());
+			sb.append("Tile Entity at this location:\n").append(te.toString());
 		}
 		writeString(sb.toString());
 	}

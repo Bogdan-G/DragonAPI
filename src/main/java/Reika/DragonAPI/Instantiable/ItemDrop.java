@@ -110,22 +110,14 @@ public class ItemDrop {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(item.getDisplayName());
-		sb.append(": ");
-		sb.append(item.getItem());
-		sb.append(":");
-		sb.append(item.getItemDamage());
-		sb.append(" (");
+		StringBuilder sb = new StringBuilder(64);
+		sb.append(item.getDisplayName()).append(": ").append(item.getItem()).append(':').append(item.getItemDamage()).append(" (");
 		if (minDrops != maxDrops) {
-			sb.append(minDrops);
-			sb.append("-");
+			sb.append(minDrops).append('-');
 		}
-		sb.append(maxDrops);
-		sb.append(")");
+		sb.append(maxDrops).append(')');
 		if (this.isEnchanted()) {
-			sb.append("; ");
-			sb.append(EnchantmentHelper.getEnchantments(item));
+			sb.append("; ").append(EnchantmentHelper.getEnchantments(item));
 		}
 		return sb.toString();
 	}

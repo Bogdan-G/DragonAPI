@@ -1437,11 +1437,11 @@ public final class ReikaPacketHelper extends DragonAPICore {
 	{
 		short short1 = par0DataInput.readShort();
 
-		if (short1 > Short.MAX_VALUE)
+		/*if (short1 > Short.MAX_VALUE)
 		{
-			throw new IOException("Received string length longer than maximum allowed!");
+			throw new IOException("Received string length longer than maximum allowed!");//type short <=32767(0x7fff)
 		}
-		else if (short1 < 0)
+		else */if (short1 < 0)
 		{
 			throw new IOException("Received string length is less than zero!");
 		}

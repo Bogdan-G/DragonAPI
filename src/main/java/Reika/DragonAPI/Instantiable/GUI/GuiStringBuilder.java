@@ -26,7 +26,7 @@ public final class GuiStringBuilder extends GuiScreen {
 	private int displayHeight;
 	private int displayWidth;
 
-	private StringBuilder sb = new StringBuilder();
+	//private StringBuilder sb = new StringBuilder();//dead?
 	private Gui2DTextField text;
 
 	public static final String NEWLINE = "#N";

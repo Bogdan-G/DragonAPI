@@ -48,7 +48,7 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		public String getMessage() {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(32);
 			sb.append("Error ASMing method "+method.name+" "+method.desc+" in "+owner.name+":\n");
 			return sb.toString();
 		}
@@ -70,9 +70,8 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		public String getMessage() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append("Could not find an instruction for a method call to "+memberOwner+"'s "+callName+" "+callDesc+":\n");
+			StringBuilder sb = new StringBuilder(128);
+			sb.append(super.getMessage()).append("Could not find an instruction for a method call to "+memberOwner+"'s "+callName+" "+callDesc+":\n");
 			if (callInt > 0)
 				sb.append("Was looking for call #"+callInt+" to that method call.\n");
 			return sb.toString();
@@ -93,9 +92,8 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		public String getMessage() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append("Could not find an instruction for a field call to "+memberOwner+"'s "+callName+":\n");
+			StringBuilder sb = new StringBuilder(128);
+			sb.append(super.getMessage()).append("Could not find an instruction for a field call to "+memberOwner+"'s "+callName+":\n");
 			if (callInt > 0)
 				sb.append("Was looking for call #"+callInt+" to that field call.\n");
 			return sb.toString();
@@ -114,17 +112,8 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		public final String getMessage() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append(this.getTitle());
-			sb.append(" not found in class ");
-			sb.append(node.name);
-			sb.append(".\n");
-			sb.append("This is a critical ASM error and the class transformer operation cannot proceed.");
-			sb.append(" If you are the developer of this mod, check for proper use of SRG/deobf names and/or sideonly elements.");
-			sb.append(" If not, report it to the developer.");
-			sb.append("\n\nAdditional information:\n");
-			sb.append(this.getAdditionalInformation());
+			StringBuilder sb = new StringBuilder(272);
+			sb.append(super.getMessage()).append(this.getTitle()).append(" not found in class ").append(node.name).append(".\n").append("This is a critical ASM error and the class transformer operation cannot proceed.").append(" If you are the developer of this mod, check for proper use of SRG/deobf names and/or sideonly elements.").append(" If not, report it to the developer.").append("\n\nAdditional information:\n").append(this.getAdditionalInformation());
 			return sb.toString();
 		}
 
@@ -162,7 +151,7 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		protected String getAdditionalInformation() {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(128);
 			if (DEV_ENV && label.startsWith("func_")) {
 				sb.append("Use of SRG name in dev environment. This may be an error.\n");
 			}
@@ -192,7 +181,7 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		protected String getAdditionalInformation() {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(128);
 			if (DEV_ENV && label.startsWith("field_")) {
 				sb.append("Use of SRG name in dev environment. This may be an error.\n");
 			}
@@ -220,17 +209,8 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		public final String getMessage() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append(this.getTitle());
-			sb.append(" already found in class ");
-			sb.append(node.name);
-			sb.append(" when trying to add another member with the same erasure.\n");
-			sb.append("This is a critical ASM error and the class transformer operation cannot proceed.");
-			sb.append(" If you are the developer of this mod, check for copy-paste errors or broken overloading.");
-			sb.append(" If not, report it to the developer.");
-			sb.append("\n\nAdditional information:\n");
-			sb.append(this.getAdditionalInformation());
+			StringBuilder sb = new StringBuilder(320);
+			sb.append(super.getMessage()).append(this.getTitle()).append(" already found in class ").append(node.name).append(" when trying to add another member with the same erasure.\n").append("This is a critical ASM error and the class transformer operation cannot proceed.").append(" If you are the developer of this mod, check for copy-paste errors or broken overloading.").append(" If not, report it to the developer.").append("\n\nAdditional information:\n").append(this.getAdditionalInformation());
 			return sb.toString();
 		}
 
@@ -259,7 +239,7 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		protected String getAdditionalInformation() {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(32);
 			sb.append("Identified methods:\n");
 			for (MethodNode m : node.methods) {
 				String tag1 = m.name.equals(label) ? " * Name match" : "";
@@ -284,7 +264,7 @@ public abstract class ASMException extends RuntimeException {
 
 		@Override
 		protected String getAdditionalInformation() {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(32);
 			sb.append("Identified fields:\n");
 			for (FieldNode f : node.fields) {
 				String tag = f.name.equals(label) ? " * Name match" : "";

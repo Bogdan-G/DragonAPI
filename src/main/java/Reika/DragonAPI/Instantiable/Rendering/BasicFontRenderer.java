@@ -837,18 +837,21 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 	 */
 	private static String getFormatFromString(String sg) {
 		String s1 = "";
+		StringBuilder s1SB = new StringBuilder(s1);
 		int i = -1;
 		int j = sg.length();
 
 		while ((i = sg.indexOf(167, i+1)) != -1) {
 			if (i < j-1) {
 				char c0 = sg.charAt(i+1);
-				if (isFormatColor(c0))
-					s1 = "\u00a7"+c0;
-				else if (isFormatSpecial(c0))
-					s1 = s1+"\u00a7"+c0;
+				if (isFormatColor(c0)) {
+					/*s1 = "\u00a7"+c0;*/s1SB = new StringBuilder().append("\u00a7").append(c0);
+				} else if (isFormatSpecial(c0)) {
+					/*s1 = s1+"\u00a7"+c0;*/s1SB.append("\u00a7").append(c0);
+				}
 			}
 		}
+		s1 = String.valueOf(s1SB);
 
 		return s1;
 	}

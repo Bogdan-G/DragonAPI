@@ -495,12 +495,11 @@ public class ReikaASMHelper {
 			return "[]";
 		else {
 			StringBuilder sb = new StringBuilder();
-			sb.append("[");
+			sb.append('[');
 			for (AnnotationNode a : li) {
-				sb.append(a.desc);
-				sb.append(", ");
+				sb.append(a.desc).append(", ");
 			}
-			sb.append("]");
+			sb.append(']');
 			return sb.toString();
 		}
 	}

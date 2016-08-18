@@ -38,17 +38,12 @@ public final class LoginHandler implements PlayerTracker {
 	}
 
 	private static String getReikaWelcome() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Welcome ");
-		sb.append(EnumChatFormatting.LIGHT_PURPLE.toString()+"Reika");
-		sb.append(EnumChatFormatting.WHITE.toString()+", Developer of:\n");
-		sb.append(EnumChatFormatting.GOLD.toString()+"   DragonAPI\n");
+		StringBuilder sb = new StringBuilder(86);
+		sb.append("Welcome ").append(EnumChatFormatting.LIGHT_PURPLE.toString()+"Reika").append(EnumChatFormatting.WHITE.toString()+", Developer of:\n").append(EnumChatFormatting.GOLD.toString()+"   DragonAPI\n");
 		List<ModList> li = ModList.getReikasMods();
 		for (int i = 0; i < li.size(); i++) {
 			ModList mod = li.get(i);
-			sb.append(EnumChatFormatting.GOLD.toString()+"   ");
-			sb.append(mod.getModLabel());
-			sb.append(" ");
+			sb.append(EnumChatFormatting.GOLD.toString()+"   ").append(mod.getModLabel()).append(" ");
 			if (mod.isLoaded()) {
 				sb.append(EnumChatFormatting.GREEN.toString()+"(Installed)");
 			}

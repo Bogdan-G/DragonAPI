@@ -152,9 +152,8 @@ public class DependentMethodStripper implements IClassTransformer {
 
 		//@//Override
 		public final String getMessage() {
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.getMessage());
-			sb.append("Annotation type "+annotation.desc+" is not valid dependency annotation!");
+			StringBuilder sb = new StringBuilder(64);
+			sb.append(super.getMessage()).append("Annotation type "+annotation.desc+" is not valid dependency annotation!");
 			return sb.toString();
 		}
 

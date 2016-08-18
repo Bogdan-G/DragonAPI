@@ -109,9 +109,10 @@ public final class KeyedItemStack {
 	public boolean match(ItemStack is) {
 		KeyedItemStack ks = new KeyedItemStack(is);
 		ks.setSimpleHash(simpleHash);
-		for (int i = 0; i < Criteria.list.length; i++) {
+		/*for (int i = 0; i < Criteria.list.length; i++) {
 			ks.enabledCriteria[i] = enabledCriteria[i];
-		}
+		}*/
+		System.arraycopy(enabledCriteria, 0, ks.enabledCriteria, 0, Criteria.list.length);
 		return this.equals(ks);
 	}
 
@@ -135,9 +136,10 @@ public final class KeyedItemStack {
 	public KeyedItemStack copy() {
 		KeyedItemStack ks = new KeyedItemStack(item.copy());
 		ks.setSimpleHash(simpleHash);
-		for (int i = 0; i < Criteria.list.length; i++) {
+		/*for (int i = 0; i < Criteria.list.length; i++) {
 			ks.enabledCriteria[i] = enabledCriteria[i];
-		}
+		}*/
+		System.arraycopy(enabledCriteria, 0, ks.enabledCriteria, 0, Criteria.list.length);
 		ks.lock = lock;
 		return ks;
 	}

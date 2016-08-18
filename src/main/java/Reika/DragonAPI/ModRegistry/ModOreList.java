@@ -152,9 +152,10 @@ public enum ModOreList implements OreType {
 		displayName = n;
 		product = prod;
 		oreLabel = new String[ore.length];
-		for (int i = 0; i < ore.length; i++) {
+		/*for (int i = 0; i < ore.length; i++) {
 			oreLabel[i] = ore[i];
-		}
+		}*/
+		System.arraycopy(ore, 0, oreLabel, 0, ore.length);
 		rarity = r;
 
 		DragonAPICore.log("Adding ore entries for "+this.toString()+" (Ore Names: "+Arrays.toString(ore)+")");

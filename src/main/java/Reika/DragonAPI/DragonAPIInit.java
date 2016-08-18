@@ -204,7 +204,7 @@ public class DragonAPIInit extends DragonAPIMod {
 	public void invalidSignature(FMLFingerprintViolationEvent evt) {
 		if (!ReikaObfuscationHelper.isDeObfEnvironment()) {
 			if (!evt.fingerprints.contains(evt.expectedFingerprint.toLowerCase(java.util.Locale.ENGLISH).replaceAll(":", ""))) {
-				cpw.mods.fml.common.FMLLog.warning(String.valueOf(this)+String.valueOf(evt.source));
+				cpw.mods.fml.common.FMLLog.warning("invalidSignature func:"+this+evt.source);
 			}
 		}
 	}
@@ -556,14 +556,8 @@ public class DragonAPIInit extends DragonAPIMod {
 		Fluid f = evt.data.fluid.getFluid();
 		ItemStack fill = evt.data.filledContainer;
 		ItemStack empty = evt.data.emptyContainer;
-		StringBuilder sb = new StringBuilder();
-		sb.append("Logged FluidContainer registration of ");
-		sb.append(f.getName());
-		sb.append(" with filled '");
-		sb.append(fill != null ? fill.getDisplayName() : "[null]");
-		sb.append("' and empty '");
-		sb.append(empty != null ? empty.getDisplayName() : "[null]");
-		sb.append("'.");
+		StringBuilder sb = new StringBuilder(72);
+		sb.append("Logged FluidContainer registration of ").append(f.getName()).append(" with filled '").append(fill != null ? fill.getDisplayName() : "[null]").append("' and empty '").append(empty != null ? empty.getDisplayName() : "[null]").append("'.");
 		logger.log(sb.toString());
 		ReikaFluidHelper.mapContainerToFluid(f, empty, fill);
 	}

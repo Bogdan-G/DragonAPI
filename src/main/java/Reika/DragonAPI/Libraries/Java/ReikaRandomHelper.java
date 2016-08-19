@@ -23,7 +23,7 @@ public class ReikaRandomHelper extends DragonAPICore {
 
 	/** Gets a random double value within base +/- range. */
 	public static double getRandomPlusMinus(double base, double range) {
-		double add = -range+rand.nextDouble()*range*2;
+		double add = -range+rand.nextFloat()*range*2;
 		return (base+add);
 	}
 
@@ -45,10 +45,10 @@ public class ReikaRandomHelper extends DragonAPICore {
 			return false;
 
 		if (num < 10e-15) { //to help precision
-			return rand.nextDouble()*10e12 < num*10e12;
+			return rand.nextFloat()*10e12 < num*10e12;
 		}
 
-		return rand.nextDouble() < num;
+		return rand.nextFloat() < num;
 	}
 
 	public static short getRandomShort(int max) {
@@ -96,13 +96,13 @@ public class ReikaRandomHelper extends DragonAPICore {
 	}
 
 	public static DecimalPosition getRandomSphericalPosition(double x, double y, double z, int r) {
-		double dr = rand.nextDouble()*r;
+		double dr = rand.nextFloat()*r;
 		double[] d = ReikaPhysicsHelper.polarToCartesian(dr, rand.nextInt(360), rand.nextInt(360));
 		return new DecimalPosition(x+d[0], y+d[1], z+d[2]);
 	}
 
 	public static double getRandomBetween(double min, double max) {
-		return min+rand.nextDouble()*(max-min);
+		return min+rand.nextFloat()*(max-min);
 	}
 
 }

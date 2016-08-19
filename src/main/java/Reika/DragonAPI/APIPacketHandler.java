@@ -165,7 +165,7 @@ public class APIPacketHandler implements PacketHandler {
 					for (int i = 0; i < data[1]; i++) {
 						if (data[0] >= 0 && data[0] < ReikaParticleHelper.particleList.length) {
 							ReikaParticleHelper p = ReikaParticleHelper.particleList[data[0]];
-							world.spawnParticle(p.name, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), 0, 0, 0);
+							world.spawnParticle(p.name, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), 0, 0, 0);
 						}
 					}
 					break;

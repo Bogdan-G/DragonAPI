@@ -194,7 +194,7 @@ public final class Coordinate {
 
 	public void dropItem(World world, ItemStack is, double vscale) {
 		if (world != null && !world.isRemote) {
-			ReikaItemHelper.dropItem(world, xCoord+rand.nextDouble(), yCoord+rand.nextDouble(), zCoord+rand.nextDouble(), is, vscale);
+			ReikaItemHelper.dropItem(world, xCoord+rand.nextFloat(), yCoord+rand.nextFloat(), zCoord+rand.nextFloat(), is, vscale);
 		}
 	}
 

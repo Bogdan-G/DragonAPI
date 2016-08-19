@@ -129,7 +129,7 @@ public class WorldLocation {
 	public void dropItem(ItemStack is, double vscale) {
 		World world = this.getWorld();
 		if (world != null && !world.isRemote) {
-			ReikaItemHelper.dropItem(this.getWorld(), xCoord+rand.nextDouble(), yCoord+rand.nextDouble(), zCoord+rand.nextDouble(), is, vscale);
+			ReikaItemHelper.dropItem(this.getWorld(), xCoord+rand.nextFloat(), yCoord+rand.nextFloat(), zCoord+rand.nextFloat(), is, vscale);
 		}
 	}
 

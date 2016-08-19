@@ -85,9 +85,9 @@ public class FlyingBlocksExplosion extends Explosion {
 			double vy = 1.5;
 			Random rand = new org.bogdang.modifications.random.XSTR();
 
-			e.motionX = dx*dd*rand.nextDouble();
-			e.motionY = dy*dd*rand.nextDouble()+vy;
-			e.motionZ = dz*dd*rand.nextDouble();
+			e.motionX = dx*dd*rand.nextFloat();
+			e.motionY = dy*dd*rand.nextFloat()+vy;
+			e.motionZ = dz*dd*rand.nextFloat();
 
 			e.velocityChanged = true;
 		}

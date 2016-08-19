@@ -47,7 +47,7 @@ public class FlexiOreGenerator extends WorldGenerator {
 			double d6 = d0 + (d1 - d0) * l / clusterSize;
 			double d7 = d4 + (d5 - d4) * l / clusterSize;
 			double d8 = d2 + (d3 - d2) * l / clusterSize;
-			double d9 = par2Random.nextDouble() * clusterSize / 16.0D;
+			double d9 = par2Random.nextFloat() * clusterSize / 16.0D;
 			double d10 = (MathHelper.sin(l * (float)Math.PI / clusterSize) + 1.0F) * d9 + 1.0D;
 			double d11 = (MathHelper.sin(l * (float)Math.PI / clusterSize) + 1.0F) * d9 + 1.0D;
 			int i1 = MathHelper.floor_double(d6 - d10 / 2.0D);

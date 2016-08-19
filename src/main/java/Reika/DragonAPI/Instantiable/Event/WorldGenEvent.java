@@ -39,7 +39,7 @@ public abstract class WorldGenEvent extends Event {
 	}
 
 	public final double getRandomDouble() {
-		return rand.nextDouble();
+		return rand.nextFloat();
 	}
 
 }

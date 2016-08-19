@@ -233,9 +233,9 @@ public final class ReikaItemHelper extends DragonAPICore {
 			return null;
 		EntityItem ei = new EntityItem(world, x, y, z, is.copy());
 		ei.delayBeforeCanPickup = 10;
-		ei.motionX = (-0.1+0.2*rand.nextDouble())*vscale;
-		ei.motionZ = (-0.1+0.2*rand.nextDouble())*vscale;
-		ei.motionY = (0.2*rand.nextDouble())*vscale;
+		ei.motionX = (-0.1+0.2*rand.nextFloat())*vscale;
+		ei.motionZ = (-0.1+0.2*rand.nextFloat())*vscale;
+		ei.motionY = (0.2*rand.nextFloat())*vscale;
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(ei);
 		}

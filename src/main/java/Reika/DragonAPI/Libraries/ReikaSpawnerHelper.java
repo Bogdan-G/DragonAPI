@@ -92,13 +92,13 @@ public class ReikaSpawnerHelper {
 		String name = getMobSpawnerMobName(spw);
 		for (int i = 0; i < num; i++) {
 			Entity e = EntityList.createEntityByName(name, world);
-			double ex = -8+r.nextDouble()*17+spw.xCoord;
-			double ez = -8+r.nextDouble()*17+spw.zCoord;
+			double ex = -8+r.nextFloat()*17+spw.xCoord;
+			double ez = -8+r.nextFloat()*17+spw.zCoord;
 			double ey = spw.yCoord;
 			Block id = world.getBlock((int)ex, (int)ey, (int)ez);
 			while (id != Blocks.air) {
-				ex = -8+r.nextDouble()*17+spw.xCoord;
-				ez = -8+r.nextDouble()*17+spw.zCoord;
+				ex = -8+r.nextFloat()*17+spw.xCoord;
+				ez = -8+r.nextFloat()*17+spw.zCoord;
 				ey = spw.yCoord;
 				id = world.getBlock((int)ex, (int)ey, (int)ez);
 			}

@@ -86,7 +86,7 @@ public enum ReikaParticleHelper {
 
 	public void spawnAroundBlock(World world, int x, int y, int z, double vx, double vy, double vz, int number) {
 		for (int i = 0; i < number; i++) {
-			world.spawnParticle(name, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), vx, vy, vz);
+			world.spawnParticle(name, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), vx, vy, vz);
 		}
 	}
 

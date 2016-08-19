@@ -27,7 +27,7 @@ public class WeightedRandom<V> {
 	}
 
 	public V getRandomEntry() {
-		double d = r.nextDouble()*this.weightSum;
+		double d = r.nextFloat()*this.weightSum;
 		double p = 0;
 		for (V obj : data.keySet()) {
 			p += data.get(obj);
@@ -40,7 +40,7 @@ public class WeightedRandom<V> {
 
 	public V getRandomEntry(V fallback, double wt) {
 		double sum = this.weightSum+wt;
-		double d = r.nextDouble()*sum;
+		double d = r.nextFloat()*sum;
 		double p = 0;
 		for (V obj : data.keySet()) {
 			p += data.get(obj);
@@ -74,7 +74,7 @@ public class WeightedRandom<V> {
 		}
 
 		public V getRandomEntry() {
-			double value = r.nextDouble()*this.weightSum;
+			double value = r.nextFloat()*this.weightSum;
 			//ReikaJavaLibrary.pConsole(value+" of "+this.data.toString());
 			return data.ceilingEntry(value).getValue();
 		}

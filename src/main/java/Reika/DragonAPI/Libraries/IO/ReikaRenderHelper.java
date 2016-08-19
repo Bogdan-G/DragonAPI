@@ -258,15 +258,15 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		for (int i = 0; i < 48; i++) {
 			int k = rand.nextInt(allowedRegions.size());
 			double[] p = allowedRegions.get(k);
-			double px = p[0]+rand.nextDouble()*(p[2]-p[0]);
-			double py = p[1]+rand.nextDouble()*(p[3]-p[1]);
+			double px = p[0]+rand.nextFloat()*(p[2]-p[0]);
+			double py = p[1]+rand.nextFloat()*(p[3]-p[1]);
 			double overx = px+ReikaModelledBreakFX.pw-p[2];
 			if (overx > 0)
 				px -= overx;
 			double overy = py+ReikaModelledBreakFX.pw-p[2];
 			if (overy > 0)
 				py -= overy;
-			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), -1+rand.nextDouble()*2, 2, -1+rand.nextDouble()*2, b, 0, world.getBlockMetadata(x, y, z), file, px, py, mod));
+			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), -1+rand.nextFloat()*2, 2, -1+rand.nextFloat()*2, b, 0, world.getBlockMetadata(x, y, z), file, px, py, mod));
 		}
 		return true;
 	}
@@ -295,15 +295,15 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		for (int i = 0; i < j; i++) {
 			int k = rand.nextInt(allowedRegions.size());
 			double[] p = allowedRegions.get(k);
-			double px = p[0]+rand.nextDouble()*(p[2]-p[0]);
-			double py = p[1]+rand.nextDouble()*(p[3]-p[1]);
+			double px = p[0]+rand.nextFloat()*(p[2]-p[0]);
+			double py = p[1]+rand.nextFloat()*(p[3]-p[1]);
 			double overx = px+ReikaModelledBreakFX.pw-p[2];
 			if (overx > 0)
 				px -= overx;
 			double overy = py+ReikaModelledBreakFX.pw-p[2];
 			if (overy > 0)
 				py -= overy;
-			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), -1+rand.nextDouble()*2, 2, -1+rand.nextDouble()*2, b, 0, world.getBlockMetadata(x, y, z), file, px, py, mod));
+			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), -1+rand.nextFloat()*2, 2, -1+rand.nextFloat()*2, b, 0, world.getBlockMetadata(x, y, z), file, px, py, mod));
 		}
 		return true;
 	}
@@ -315,15 +315,15 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		for (int i = 0; i < 48; i++) {
 			int k = rand.nextInt(allowedRegions.size());
 			double[] p = allowedRegions.get(k);
-			double px = p[0]+rand.nextDouble()*(p[2]-p[0]);
-			double py = p[1]+rand.nextDouble()*(p[3]-p[1]);
+			double px = p[0]+rand.nextFloat()*(p[2]-p[0]);
+			double py = p[1]+rand.nextFloat()*(p[3]-p[1]);
 			double overx = px+ReikaModelledBreakFX.pw-p[2];
 			if (overx > 0)
 				px -= overx;
 			double overy = py+ReikaModelledBreakFX.pw-p[2];
 			if (overy > 0)
 				py -= overy;
-			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), -1+rand.nextDouble()*2, 2, -1+rand.nextDouble()*2, b, 0, world.getBlockMetadata(x, y, z), texture, px, py, mod));
+			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), -1+rand.nextFloat()*2, 2, -1+rand.nextFloat()*2, b, 0, world.getBlockMetadata(x, y, z), texture, px, py, mod));
 		}
 		return true;
 	}
@@ -341,15 +341,15 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		for (int i = 0; i < j; i++) {
 			int k = rand.nextInt(allowedRegions.size());
 			double[] p = allowedRegions.get(k);
-			double px = p[0]+rand.nextDouble()*(p[2]-p[0]);
-			double py = p[1]+rand.nextDouble()*(p[3]-p[1]);
+			double px = p[0]+rand.nextFloat()*(p[2]-p[0]);
+			double py = p[1]+rand.nextFloat()*(p[3]-p[1]);
 			double overx = px+ReikaModelledBreakFX.pw-p[2];
 			if (overx > 0)
 				px -= overx;
 			double overy = py+ReikaModelledBreakFX.pw-p[2];
 			if (overy > 0)
 				py -= overy;
-			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), -1+rand.nextDouble()*2, 2, -1+rand.nextDouble()*2, b, 0, world.getBlockMetadata(x, y, z), texture, px, py, mod));
+			eff.addEffect(new ReikaModelledBreakFX(world, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), -1+rand.nextFloat()*2, 2, -1+rand.nextFloat()*2, b, 0, world.getBlockMetadata(x, y, z), texture, px, py, mod));
 		}
 		return true;
 	}
@@ -357,7 +357,7 @@ public final class ReikaRenderHelper extends DragonAPICore {
 	@SideOnly(Side.CLIENT)
 	public static void spawnDropParticles(World world, int x, int y, int z, Block b, int meta) {
 		for (int i = 0; i < 16; i++) {
-			Minecraft.getMinecraft().effectRenderer.addEffect(new ReikaModelledBreakFX(world, x+rand.nextDouble(), y+rand.nextDouble(), z+rand.nextDouble(), -1+rand.nextDouble()*2, 2, -1+rand.nextDouble()*2, b, meta, 0));
+			Minecraft.getMinecraft().effectRenderer.addEffect(new ReikaModelledBreakFX(world, x+rand.nextFloat(), y+rand.nextFloat(), z+rand.nextFloat(), -1+rand.nextFloat()*2, 2, -1+rand.nextFloat()*2, b, meta, 0));
 		}
 	}
 

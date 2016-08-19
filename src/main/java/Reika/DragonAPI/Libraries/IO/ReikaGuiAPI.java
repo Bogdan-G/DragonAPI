@@ -305,11 +305,13 @@ public final class ReikaGuiAPI extends GuiScreen {
 		Tessellator var9 = Tessellator.instance;
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		BlendMode.DEFAULT.apply();
 		GL11.glPushMatrix();
+		BlendMode.DEFAULT.apply();
 		GL11.glColor4f(var6, var7, var8, var10);
+		GL11.glPushMatrix();
 		if (var9.isDrawing)
 			var9.draw();
+		GL11.glPopMatrix();
 		var9.startDrawingQuads();
 		var9.addVertex(par1, par4, 0.0D);
 		var9.addVertex(par3, par4, 0.0D);

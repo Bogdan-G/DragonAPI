@@ -163,6 +163,7 @@ public final class ReikaRenderHelper extends DragonAPICore {
 		v5.startDrawing(GL11.GL_TRIANGLE_STRIP);
 		v5.setBrightness(240);
 		for (int i = 0; i <= sides; i++) {
+			GL11.glPushMatrix();
 			double f11a = r1*org.bogdang.modifications.math.MathHelperLite.sin(i % sides * Math.PI * 2 / sides) * 0.75;
 			double f12a = r1*org.bogdang.modifications.math.MathHelperLite.cos(i % sides * Math.PI * 2 / sides) * 0.75;
 			double f11b = r2*org.bogdang.modifications.math.MathHelperLite.sin(i % sides * Math.PI * 2 / sides) * 0.75;
@@ -172,6 +173,7 @@ public final class ReikaRenderHelper extends DragonAPICore {
 			v5.addVertex(f11a, f12a, 0);
 			v5.setColorRGBA_I(c2 & 0xffffff, c2 >> 24 & 255);
 			v5.addVertex(f11b, f12b, f8);
+			GL11.glPopMatrix();
 		}
 
 		v5.draw();

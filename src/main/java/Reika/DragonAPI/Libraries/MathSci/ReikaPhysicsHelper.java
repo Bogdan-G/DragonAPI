@@ -32,9 +32,9 @@ public final class ReikaPhysicsHelper extends DragonAPICore {
 		double[] coords = new double[3];
 		theta = degToRad(theta);
 		phi = degToRad(phi);
-		coords[0] = mag*org.bogdang.modifications.math.MathHelperLite.cos(theta)*org.bogdang.modifications.math.MathHelperLite.cos(phi);
-		coords[1] = mag*org.bogdang.modifications.math.MathHelperLite.sin(theta);
-		coords[2] = mag*org.bogdang.modifications.math.MathHelperLite.cos(theta)*org.bogdang.modifications.math.MathHelperLite.sin(phi);
+		coords[0] = mag*Math.cos(theta)*Math.cos(phi);
+		coords[1] = mag*Math.sin(theta);
+		coords[2] = mag*Math.cos(theta)*Math.sin(phi);
 		return coords;
 	}
 

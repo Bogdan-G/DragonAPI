@@ -27,9 +27,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public final class SyncPacket extends S35PacketUpdateTileEntity implements DataSync {
 
-	private final HashMap<String, NBTBase> data = new HashMap();
-	private final HashMap<String, NBTBase> oldData = new HashMap();
-	private final HashMap<String, NBTBase> changes = new HashMap();
+	private final java.util.Map<String, NBTBase> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<String, NBTBase> oldData = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<String, NBTBase> changes = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Is the packet currently being written by the network thread */
 	private boolean dispatch;

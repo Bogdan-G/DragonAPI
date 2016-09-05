@@ -26,7 +26,7 @@ public class Proportionality<F> {
 
 	private static final Random rand = new org.bogdang.modifications.random.XSTR();
 
-	private final HashMap<F, Double> data = new HashMap();
+	private final java.util.Map<F, Double> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private double totalValue = 0;
 
@@ -88,7 +88,7 @@ public class Proportionality<F> {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void renderAsPie(double x, double y, double r, double zeroAng, HashMap<F, Integer> colorMap) {
+	public void renderAsPie(double x, double y, double r, double zeroAng, java.util.Map<F, Integer> colorMap) {
 		double ang = zeroAng;
 		Tessellator v5 = Tessellator.instance;
 		int i = 0;

@@ -107,7 +107,7 @@ public class ReikaSortingHelper {
 
 	/** Sorts a list by every possible pairing. Very slow but very effective for specialized datasets. */
 	public static void allPairSort(ArrayList li, Comparator c) {
-		HashMap<ImmutablePair, Integer> map = new HashMap();
+		java.util.Map<ImmutablePair, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		Collection<CommutativePair> pairs = new ArrayList();
 		for (Object o1 : li) {
 			for (Object o2 : li) {
@@ -131,7 +131,7 @@ public class ReikaSortingHelper {
 		}
 	}
 
-	private static boolean sortListByPairMap(ArrayList li, HashMap<ImmutablePair, Integer> map) {
+	private static boolean sortListByPairMap(ArrayList li, java.util.Map<ImmutablePair, Integer> map) {
 		for (int i = 0; i < li.size(); i++) {
 			Object o1 = li.get(i);
 			for (int k = 0; k < li.size(); k++) {

@@ -22,7 +22,7 @@ public class SequenceMap<V> {
 
 	//private final ObjectWeb<V> data = new ObjectWeb();
 
-	private final HashMap<V, TreeEntry<V>> data = new HashMap();
+	private final java.util.Map<V, TreeEntry<V>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public Collection<V> getParents(V obj) {
 		TreeEntry t = data.get(obj);
@@ -162,7 +162,7 @@ public class SequenceMap<V> {
 	public static class Topology<V> {
 
 		private final SequenceMap<V> map;
-		private final HashMap<V, Integer> depths = new HashMap();
+		private final java.util.Map<V, Integer> depths = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		//private final ArrayList<V> sortedList;
 
 		private final Comparator topologySorter = new TopologySorter();

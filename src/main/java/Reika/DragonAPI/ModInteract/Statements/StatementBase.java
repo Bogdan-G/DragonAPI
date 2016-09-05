@@ -36,7 +36,7 @@ public abstract class StatementBase implements ITriggerExternal {
 
 	protected static final String questionIcon = "dragonapi:modinteract/question";
 
-	private static final HashMap<Class, Constructor> constructors = new HashMap();
+	private static final java.util.Map<Class, Constructor> constructors = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public StatementBase(String name, Class... args) {
 		this(name, name);

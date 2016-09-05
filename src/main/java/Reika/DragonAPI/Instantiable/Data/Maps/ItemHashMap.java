@@ -28,7 +28,7 @@ import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
 
 public final class ItemHashMap<V> {
 
-	private final HashMap<ItemKey, V> data = new HashMap();
+	private final java.util.Map<ItemKey, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private ArrayList<ItemStack> sorted = null;
 	private Collection<ItemStack> keyset = null;
 	private boolean modifiedKeys = true;

@@ -68,7 +68,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public final class ReikaPacketHelper extends DragonAPICore {
 
-	private static final HashMap<String, PacketPipeline> pipelines = new HashMap();
+	private static final java.util.Map<String, PacketPipeline> pipelines = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private static final HashBiMap<Short, PacketHandler> handlers = HashBiMap.create();
 	private static short handlerID = 0;
 

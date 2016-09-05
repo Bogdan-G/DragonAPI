@@ -44,9 +44,9 @@ public enum ReikaOreHelper implements OreType {
 	public final int blockDrops;
 	private final ArrayList<ItemStack> ores = new ArrayList<ItemStack>();
 
-	private static final HashMap<String, String> cases = new HashMap();
-	private static final HashMap<Block, ReikaOreHelper> vanillaOres = new HashMap();
-	private static final HashMap<String, ReikaOreHelper> oreNames = new HashMap();
+	private static final java.util.Map<String, String> cases = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<Block, ReikaOreHelper> vanillaOres = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<String, ReikaOreHelper> oreNames = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private static final ItemHashMap<ReikaOreHelper> itemMap = new ItemHashMap();
 
 	public static final ReikaOreHelper[] oreList = ReikaOreHelper.values();

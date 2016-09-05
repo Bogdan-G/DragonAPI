@@ -207,7 +207,7 @@ public final class ReikaNBTHelper extends DragonAPICore {
 		public final int ID;
 
 		private static final NBTTypes[] list = values();
-		private static final HashMap<Integer, NBTTypes> IDMap = new HashMap();
+		private static final java.util.Map<Integer, NBTTypes> IDMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private NBTTypes(int id) {
 			ID = id;

@@ -15,8 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class BarGraphData {
-	private HashMap<Integer, Integer> data = new HashMap();
-	private ArrayList<Integer> values = new ArrayList();
+	private /*java.util.Map<Integer, Integer>*/org.eclipse.collections.impl.map.mutable.primitive.IntIntHashMap data = new org.eclipse.collections.impl.map.mutable.primitive.IntIntHashMap();
+	private /*ArrayList<Integer>*/org.eclipse.collections.impl.list.mutable.primitive.IntArrayList values = new org.eclipse.collections.impl.list.mutable.primitive.IntArrayList();
 
 	public BarGraphData() {
 
@@ -37,7 +37,7 @@ public class BarGraphData {
 					place = i;
 				}
 			}
-			values.add(place, x);
+			values.addAtIndex(place, x);
 			data.put(x, number);
 		}
 		return this;
@@ -55,8 +55,8 @@ public class BarGraphData {
 		return data.get(x);
 	}
 
-	public List<Integer> getXValues() {
-		return Collections.unmodifiableList(values);
+	public org.eclipse.collections.api.list.primitive.ImmutableIntList getXValues() {
+		return values.toImmutable();
 	}
 
 	public void clear() {

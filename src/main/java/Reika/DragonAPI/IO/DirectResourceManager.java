@@ -34,7 +34,7 @@ import com.google.common.collect.ImmutableSet;
 
 public class DirectResourceManager implements IResourceManager, IResourceManagerReloadListener {
 
-	private final HashMap<String, SoundEventAccessorComposite> accessors = new HashMap();
+	private final java.util.Map<String, SoundEventAccessorComposite> accessors = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static final DirectResourceManager instance = new DirectResourceManager();
 

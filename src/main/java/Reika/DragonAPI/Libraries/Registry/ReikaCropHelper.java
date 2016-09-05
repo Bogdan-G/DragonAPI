@@ -34,7 +34,7 @@ public enum ReikaCropHelper implements CropType {
 
 	public static final ReikaCropHelper[] cropList = values();
 
-	private static final HashMap<Block, ReikaCropHelper> cropMappings = new HashMap();
+	private static final java.util.Map<Block, ReikaCropHelper> cropMappings = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private ReikaCropHelper(Block id, int metaripe, Item seed) {
 		this(id, metaripe, new ItemStack(seed));

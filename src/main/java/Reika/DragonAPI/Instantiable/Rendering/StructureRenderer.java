@@ -42,9 +42,9 @@ public class StructureRenderer {
 
 	private final FilledBlockArray array;
 
-	private final HashMap<Coordinate, ItemStack> overrides = new HashMap();
+	private final java.util.Map<Coordinate, ItemStack> overrides = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final ItemHashMap<ItemStack> itemOverrides = new ItemHashMap();
-	private final HashMap<Block, BlockChoiceHook> choiceHooks = new HashMap();
+	private final java.util.Map<Block, BlockChoiceHook> choiceHooks = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final ItemHashMap<BlockRenderHook> renderHooks = new ItemHashMap();
 
 	public StructureRenderer(FilledBlockArray structure) {
@@ -142,7 +142,7 @@ public class StructureRenderer {
 		int dd = 12;
 		int ddy = 12;
 
-		HashMap<Vector3f, CoordStack> render = new HashMap();
+		java.util.Map<Vector3f, CoordStack> render = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		Matrix4f rot = new Matrix4f();
 		ReikaVectorHelper.euler213Sequence(rot, rx, ry, rz);

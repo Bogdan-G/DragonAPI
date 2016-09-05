@@ -65,8 +65,8 @@ public class TinkerMaterialHelper {
 
 	public static final TinkerMaterialHelper instance = new TinkerMaterialHelper();
 
-	private final HashMap<String, AbstractMaterial> materialNames = new HashMap();
-	private final HashMap<Integer, AbstractMaterial> materialIDs = new HashMap();
+	private final java.util.Map<String, AbstractMaterial> materialNames = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<Integer, AbstractMaterial> materialIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private TinkerMaterialHelper() {
 		MinecraftForge.EVENT_BUS.register(this);

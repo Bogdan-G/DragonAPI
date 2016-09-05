@@ -54,9 +54,9 @@ public class ControlledConfig {
 	protected Object[] controls;
 	protected int[] otherIDs;
 
-	private final HashMap<SegmentedConfigList, String> specialFiles = new HashMap();
+	private final java.util.Map<SegmentedConfigList, String> specialFiles = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final MultiMap<String, SegmentedConfigList> specialConfigs = new MultiMap();
-	private final HashMap<String, HashMap<String, String>> extraFiles = new HashMap();
+	private final java.util.Map<String, java.util.Map<String, String>> extraFiles = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public ControlledConfig(DragonAPIMod mod, ConfigList[] option, IDRegistry[] id, int cfg) {
 		configMod = mod;
@@ -167,7 +167,7 @@ public class ControlledConfig {
 					if (s != null) {
 						s = this.parseFileString(s);
 						specialFiles.put(sg, s);
-						extraFiles.put(s, new HashMap());
+						extraFiles.put(s, new org.eclipse.collections.impl.map.mutable.UnifiedMap());
 						specialConfigs.addValue(s, sg);
 					}
 				}
@@ -273,7 +273,7 @@ public class ControlledConfig {
 
 		for (ConfigList cfg : specialFiles.keySet()) {
 			String file = specialFiles.get(cfg);
-			HashMap<String, String> data = extraFiles.get(file);
+			java.util.Map<String, String> data = extraFiles.get(file);
 			String s = data.get(cfg.getLabel());
 			if (s == null) {
 				controls[cfg.ordinal()] = this.getDefault(cfg);
@@ -379,7 +379,7 @@ public class ControlledConfig {
 		}
 	}
 
-	private void readData(HashMap<String, String> map, File f) {
+	private void readData(java.util.Map<String, String> map, File f) {
 		ArrayList<String> li = ReikaFileReader.getFileAsLines(f, true);
 		for (String s : li) {
 			if (s.startsWith("[")) {

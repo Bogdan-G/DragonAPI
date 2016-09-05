@@ -55,7 +55,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 
 	private static final boolean printClasses = ReikaJVMParser.isArgumentPresent("-DragonAPI_printClassInit");
 
-	private static final HashMap<String, Object> threadLock = new HashMap();
+	private static final java.util.Map<String, Object> threadLock = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Generic write-to-console function. Args: Object */
 	public static void pConsole(Object obj) {
@@ -193,7 +193,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		pConsole(sb.toString());
 	}
 
-	public static <T, E> T getHashMapKeyByValue(HashMap<T,E> map, E value) {
+	public static <T, E> T getHashMapKeyByValue(java.util.Map<T,E> map, E value) {
 		for (Entry<T, E> entry : map.entrySet()) {
 			if (value.equals(entry.getValue())) {
 				return entry.getKey();
@@ -629,7 +629,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		return null;
 	}
 
-	public static <K,T> boolean collectionMapContainsValue(HashMap<K, Collection<T>> map, T value) {
+	public static <K,T> boolean collectionMapContainsValue(java.util.Map<K, Collection<T>> map, T value) {
 		for (Collection<T> c : map.values()) {
 			if (c != null && c.contains(value))
 				return true;
@@ -681,10 +681,10 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		return outputs;
 	}
 
-	public static HashMap sortMapByValues(HashMap map) {
-		List<Map.Entry> list = new LinkedList(map.entrySet());
+	public static Map sortMapByValues(Map map) {
+		List<Map.Entry> list = new ArrayList(map.entrySet());
 		Collections.sort(list, new MapValueSorter());
-		HashMap sortedHashMap = new LinkedHashMap();
+		Map sortedHashMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (Map.Entry e : list) {
 			sortedHashMap.put(e.getKey(), e.getValue());
 		}

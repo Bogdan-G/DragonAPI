@@ -12,17 +12,20 @@ package Reika.DragonAPI.Libraries.MathSci;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import cern.colt.map.OpenIntDoubleHashMap;
+import org.eclipse.collections.impl.map.mutable.primitive.DoubleDoubleHashMap;
+import org.eclipse.collections.impl.map.mutable.primitive.LongDoubleHashMap;
 
 public class ReikaMathCacher {
 
-	private static final HashMap<Long, Double> log2Cache = new HashMap();
-	private static final HashMap<List<Double>, Double> powerCache = new HashMap();
-	private static final HashMap<Integer, Double> sinCache = new HashMap();
-	private static final HashMap<Integer, Double> cosCache = new HashMap();
-	private static final HashMap<Integer, Double> tanCache = new HashMap();
-	private static final HashMap<Double, Double> asinCache = new HashMap();
-	private static final HashMap<Double, Double> acosCache = new HashMap();
-	private static final HashMap<List<Double>, Double> atan2Cache = new HashMap();
+	private static final java.util.Map<Long, Double> log2Cache = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<List<Double>, Double> powerCache = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final OpenIntDoubleHashMap sinCache = new OpenIntDoubleHashMap();
+	private static final OpenIntDoubleHashMap cosCache = new OpenIntDoubleHashMap();
+	private static final OpenIntDoubleHashMap tanCache = new OpenIntDoubleHashMap();
+	private static final DoubleDoubleHashMap asinCache = new DoubleDoubleHashMap();
+	private static final DoubleDoubleHashMap acosCache = new DoubleDoubleHashMap();
+	private static final java.util.Map<List<Double>, Double> atan2Cache = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public static void initalize() {
 		for (long i = 1; i <= Integer.MAX_VALUE; i *= 2L) {

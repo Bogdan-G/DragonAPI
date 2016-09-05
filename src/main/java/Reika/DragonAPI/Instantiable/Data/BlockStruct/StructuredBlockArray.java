@@ -26,7 +26,7 @@ import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
 
 public class StructuredBlockArray extends BlockArray {
 
-	private final HashMap<Coordinate, BlockKey> data = new HashMap();
+	private final java.util.Map<Coordinate, BlockKey> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public final World world;
 
@@ -151,7 +151,7 @@ public class StructuredBlockArray extends BlockArray {
 	@Override
 	public BlockArray offset(int x, int y, int z) {
 		super.offset(x, y, z);
-		HashMap<Coordinate, BlockKey> map = new HashMap();
+		java.util.Map<Coordinate, BlockKey> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (Coordinate c : data.keySet()) {
 			map.put(c.offset(x, y, z), data.get(c));
 		}

@@ -117,12 +117,12 @@ public enum ModList implements ModEntry {
 	private final String[] itemClass;
 	private final String[] blockClass;
 
-	private final HashMap<String, ModHandlerBase> handlers = new HashMap();
+	private final java.util.Map<String, ModHandlerBase> handlers = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	//To save on repeated Class.forName
 	private static final EnumMap<ModList, Class> blockClasses = new EnumMap(ModList.class);
 	private static final EnumMap<ModList, Class> itemClasses = new EnumMap(ModList.class);
-	private static final HashMap<String, ModList> modIDs = new HashMap();
+	private static final java.util.Map<String, ModList> modIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static final Class liteClass;
 	private static final Class optiClass;

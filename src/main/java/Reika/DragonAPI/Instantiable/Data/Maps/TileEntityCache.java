@@ -27,7 +27,7 @@ import Reika.DragonAPI.Libraries.ReikaNBTHelper.NBTTypes;
 
 public final class TileEntityCache<V> {
 
-	private final HashMap<WorldLocation, V> data = new HashMap();
+	private final java.util.Map<WorldLocation, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public TileEntityCache() {
 

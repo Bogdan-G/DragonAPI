@@ -14,9 +14,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import org.eclipse.collections.impl.map.mutable.UnifiedMap;
 
 /** A multi-key HashMap. */
-public class PluralMap<V> extends HashMap {
+public class PluralMap<V> extends UnifiedMap {
 
 	public final int keySize;
 

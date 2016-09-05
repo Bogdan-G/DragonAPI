@@ -10,13 +10,14 @@
 package Reika.DragonAPI.Instantiable;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import net.minecraft.nbt.NBTTagCompound;
 
 public class ParallelTicker {
 
-	private final HashMap <String, Integer> tickers = new HashMap<String, Integer>();
-	private final HashMap <String, Integer> caps = new HashMap<String, Integer>();
+	private final Map <String, Integer> tickers = new org.eclipse.collections.impl.map.mutable.UnifiedMap<String, Integer>();
+	private final Map <String, Integer> caps = new org.eclipse.collections.impl.map.mutable.UnifiedMap<String, Integer>();
 
 	public void updateAll() {
 		for (String key : tickers.keySet()) {

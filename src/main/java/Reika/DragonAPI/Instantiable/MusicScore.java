@@ -61,7 +61,7 @@ public class MusicScore {
 	}
 
 	public Map<Integer, Note> getTrack(int channel) {
-		return music[channel] != null ? Collections.unmodifiableMap(music[channel]) : new HashMap();
+		return music[channel] != null ? Collections.unmodifiableMap(music[channel]) : new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	}
 
 	public int getLatestPos(int channel) {

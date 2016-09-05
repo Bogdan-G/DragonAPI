@@ -67,7 +67,7 @@ public class ReikaDispenserHelper {
 
 	private static class StackDataSensitiveEntry implements IBehaviorDispenseItem {
 
-		private final HashMap<KeyedItemStack, IBehaviorDispenseItem> actions = new HashMap();
+		private final java.util.Map<KeyedItemStack, IBehaviorDispenseItem> actions = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		private final IBehaviorDispenseItem fallback;
 
 		private StackDataSensitiveEntry(IBehaviorDispenseItem ibd) {

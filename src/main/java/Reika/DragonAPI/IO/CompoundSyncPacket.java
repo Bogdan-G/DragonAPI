@@ -41,9 +41,9 @@ public final class CompoundSyncPacket extends Packet implements DataSync {
 
 	public static final CompoundSyncPacket instance = new CompoundSyncPacket();
 
-	private final HashMap<WorldLocation, HashMap<String, NBTBase>> data = new HashMap();
-	private final HashMap<WorldLocation, HashMap<String, NBTBase>> oldData = new HashMap();
-	private final HashMap<WorldLocation, HashMap<String, NBTBase>> changes = new HashMap();
+	private final java.util.Map<WorldLocation, java.util.Map<String, NBTBase>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<WorldLocation, java.util.Map<String, NBTBase>> oldData = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<WorldLocation, java.util.Map<String, NBTBase>> changes = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Is the packet currently being written by the network thread */
 	private boolean dispatch;
@@ -85,10 +85,10 @@ public final class CompoundSyncPacket extends Packet implements DataSync {
 
 	private void createMaps(WorldLocation loc) {
 		if (data.get(loc) == null) {
-			data.put(loc, new HashMap());
+			data.put(loc, new org.eclipse.collections.impl.map.mutable.UnifiedMap());
 		}
 		if (oldData.get(loc) == null) {
-			oldData.put(loc, new HashMap());
+			oldData.put(loc, new org.eclipse.collections.impl.map.mutable.UnifiedMap());
 		}
 	}
 
@@ -103,9 +103,9 @@ public final class CompoundSyncPacket extends Packet implements DataSync {
 	}
 
 	private void addChange(WorldLocation loc, String key, NBTBase value) {
-		HashMap<String, NBTBase> map = changes.get(loc);
+		java.util.Map<String, NBTBase> map = changes.get(loc);
 		if (map == null) {
-			map = new HashMap();
+			map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 			changes.put(loc, map);
 		}
 		map.put(key, value);
@@ -167,7 +167,7 @@ public final class CompoundSyncPacket extends Packet implements DataSync {
 		NBTTagCompound toSend = new NBTTagCompound();
 
 		for (WorldLocation loc : changes.keySet()) {
-			HashMap<String, NBTBase> map = changes.get(loc);
+			java.util.Map<String, NBTBase> map = changes.get(loc);
 			try {
 				NBTTagCompound local = new NBTTagCompound();
 				this.saveChanges(map, local);
@@ -194,7 +194,7 @@ public final class CompoundSyncPacket extends Packet implements DataSync {
 		dispatch = false;
 	}
 
-	private void saveChanges(HashMap<String, NBTBase> changes, NBTTagCompound loc) {
+	private void saveChanges(java.util.Map<String, NBTBase> changes, NBTTagCompound loc) {
 		Iterator<String> keys = changes.keySet().iterator();
 		while (keys.hasNext()) {
 			String key = keys.next();

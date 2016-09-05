@@ -21,7 +21,7 @@ import Reika.DragonAPI.Instantiable.Data.Immutable.BlockKey;
 
 public final class BlockMap<V> {
 
-	private final HashMap<BlockKey, V> data = new HashMap();
+	private final java.util.Map<BlockKey, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public BlockMap() {
 

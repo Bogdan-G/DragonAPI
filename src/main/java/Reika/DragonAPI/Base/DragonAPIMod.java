@@ -51,7 +51,7 @@ public abstract class DragonAPIMod {
 	protected final boolean isDeObf;
 	private final ModVersion version;
 	private static ModVersion apiVersion;
-	private static final HashMap<String, ModVersion> modVersions = new HashMap();
+	private static final java.util.Map<String, ModVersion> modVersions = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	//private static final ModVersion api_version;
 
 	private final LoadProfiler profiler;
@@ -146,7 +146,7 @@ public abstract class DragonAPIMod {
 			if (mod.majorVersion != apiVersion.majorVersion || mod.isNewerMinorVersion(apiVersion)) {
 				throw new APIMismatchException(this, mod, apiVersion, DragonAPICore.last_API_Version);
 			}
-			HashMap<String, String> map = this.getDependencies();
+			java.util.Map<String, String> map = this.getDependencies();
 			if (map != null) {
 				for (String key : map.keySet()) {
 					String req = map.get(key);
@@ -165,7 +165,7 @@ public abstract class DragonAPIMod {
 		}
 	}*/
 
-	protected HashMap<String, String> getDependencies() {
+	protected java.util.Map<String, String> getDependencies() {
 		return null;
 	}
 

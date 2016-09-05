@@ -1199,8 +1199,8 @@ public final class ReikaInventoryHelper extends DragonAPICore {
 		return li;
 	}
 
-	public static HashMap<Integer, ItemStack> getLocatedTransferrables(ForgeDirection from, IInventory source) {
-		HashMap<Integer, ItemStack> li = new HashMap<Integer, ItemStack>();
+	public static java.util.Map<Integer, ItemStack> getLocatedTransferrables(ForgeDirection from, IInventory source) {
+		java.util.Map<Integer, ItemStack> li = new org.eclipse.collections.impl.map.mutable.UnifiedMap<Integer, ItemStack>();
 		if (source instanceof ISidedInventory) {
 			ISidedInventory ii = (ISidedInventory)source;
 			for (int slot = 0; slot < source.getSizeInventory(); slot++) {

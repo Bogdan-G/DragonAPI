@@ -12,10 +12,11 @@ package Reika.DragonAPI.Instantiable.Data.Maps;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.eclipse.collections.impl.map.mutable.UnifiedMap;
 
 /** Like HashMap but can take int arrays as keys and still function.
  * Do not use the traditional put/get on this map! */
-public class ArrayMap<V> extends HashMap {
+public class ArrayMap<V> extends UnifiedMap {
 
 	public final int keySize;
 

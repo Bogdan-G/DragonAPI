@@ -39,7 +39,7 @@ public enum ReikaPlantHelper {
 
 	public static final ReikaPlantHelper[] plantList = values();
 
-	private static final HashMap<Block, ReikaPlantHelper> plantMappings = new HashMap();
+	private static final java.util.Map<Block, ReikaPlantHelper> plantMappings = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private ReikaPlantHelper(Block... blocks) {
 		for (int i = 0; i < blocks.length; i++) {

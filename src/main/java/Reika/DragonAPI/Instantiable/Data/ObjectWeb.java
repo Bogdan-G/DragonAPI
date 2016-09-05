@@ -19,7 +19,7 @@ import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 
 public class ObjectWeb<V> {
 
-	private final HashMap<V, ArrayList<V>> web = new HashMap();
+	private final java.util.Map<V, ArrayList<V>> web = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public ObjectWeb() {
 

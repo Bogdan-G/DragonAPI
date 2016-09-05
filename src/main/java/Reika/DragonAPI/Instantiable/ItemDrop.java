@@ -54,7 +54,7 @@ public class ItemDrop {
 		item = is.copy();
 	}
 
-	public void enchant(HashMap<Enchantment, Integer> map) {
+	public void enchant(java.util.Map<Enchantment, Integer> map) {
 		ReikaEnchantmentHelper.applyEnchantments(item, map);
 	}
 

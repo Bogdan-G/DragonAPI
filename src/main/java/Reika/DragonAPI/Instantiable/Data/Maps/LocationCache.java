@@ -20,7 +20,7 @@ import Reika.DragonAPI.Instantiable.Data.Immutable.WorldLocation;
 
 public final class LocationCache<V> {
 
-	private final HashMap<WorldLocation, V> data = new HashMap();
+	private final java.util.Map<WorldLocation, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public LocationCache() {
 

@@ -144,7 +144,7 @@ public final class ReikaItemHelper extends DragonAPICore {
 
 	private static final ItemComparator comparator = new ItemComparator();
 
-	private static HashMap<Fluid, ItemStack> fluidContainerData = new HashMap();
+	private static java.util.Map<Fluid, ItemStack> fluidContainerData = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Returns true if the block or item has metadata variants. Args: ID *//*
 	public static boolean hasMetadata(Item id) {
@@ -380,7 +380,7 @@ public final class ReikaItemHelper extends DragonAPICore {
 		return is2;
 	}
 
-	private static final HashMap<Item, ArrayList<ItemStack>> permutations = new HashMap();
+	private static final java.util.Map<Item, ArrayList<ItemStack>> permutations = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	@SideOnly(Side.CLIENT)
 	public static List<ItemStack> getAllMetadataPermutations(Item item) {

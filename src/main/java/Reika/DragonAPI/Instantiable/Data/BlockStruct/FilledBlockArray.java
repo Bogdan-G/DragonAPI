@@ -37,7 +37,7 @@ import Reika.DragonAPI.Libraries.World.ReikaWorldHelper;
 
 public class FilledBlockArray extends StructuredBlockArray {
 
-	private final HashMap<Coordinate, BlockCheck> data = new HashMap();
+	private final java.util.Map<Coordinate, BlockCheck> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public FilledBlockArray(World world) {
 		super(world);
@@ -202,7 +202,7 @@ public class FilledBlockArray extends StructuredBlockArray {
 
 	@Override
 	public BlockArray offset(int x, int y, int z) {
-		HashMap map = new HashMap();
+		java.util.Map map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (Coordinate key : data.keySet()) {
 			int dx = key.xCoord;
 			int dy = key.yCoord;

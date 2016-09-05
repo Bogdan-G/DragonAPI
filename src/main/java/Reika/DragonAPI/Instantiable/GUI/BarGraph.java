@@ -23,7 +23,7 @@ import Reika.DragonAPI.Libraries.IO.ReikaRenderHelper;
 public class BarGraph {
 
 	private final BarGraphData data;
-	private final List<Integer> values;
+	private final org.eclipse.collections.api.list.primitive.ImmutableIntList values;
 
 	public final int xSize;
 	public final int ySize;
@@ -81,13 +81,13 @@ public class BarGraph {
 			}
 			int dx = x+i*w+w/4;
 			int dy = y+ySize;
-			GL11.glTranslated(dx, dy, 0);
-			GL11.glRotated(-90, 0, 0, 1);
-			GL11.glTranslated(-dx, -dy, 0);
+			GL11.glTranslatef(dx, dy, 0);
+			GL11.glRotatef(-90, 0, 0, 1);
+			GL11.glTranslatef(-dx, -dy, 0);
 			Minecraft.getMinecraft().fontRenderer.drawString(String.valueOf(v), dx, dy, 0xffffff);
-			GL11.glTranslated(dx, dy, 0);
-			GL11.glRotated(90, 0, 0, 1);
-			GL11.glTranslated(-dx, -dy, 0);
+			GL11.glTranslatef(dx, dy, 0);
+			GL11.glRotatef(90, 0, 0, 1);
+			GL11.glTranslatef(-dx, -dy, 0);
 		}
 		ReikaRenderHelper.exitGeoDraw();
 		ReikaRenderHelper.disableLighting();

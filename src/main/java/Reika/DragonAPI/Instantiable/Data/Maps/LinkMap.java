@@ -24,7 +24,7 @@ import Reika.DragonAPI.Libraries.ReikaNBTHelper.NBTTypes;
 
 public class LinkMap {
 
-	private final HashMap<WorldLocation, HashMap<WorldLocation, Double>> data = new HashMap();
+	private final java.util.Map<WorldLocation, java.util.Map<WorldLocation, Double>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public void addLink(WorldLocation src, WorldLocation tg) {
 		this.connect(src, tg);
@@ -36,16 +36,16 @@ public class LinkMap {
 	}
 
 	private void connect(WorldLocation src, WorldLocation tg) {
-		HashMap<WorldLocation, Double> c = data.get(src);
+		java.util.Map<WorldLocation, Double> c = data.get(src);
 		if (c == null) {
-			c = new HashMap();
+			c = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 			data.put(src, c);
 		}
 		c.put(tg, tg.getDistanceTo(src));
 	}
 
 	public double getDistance(WorldLocation src, WorldLocation tg) {
-		HashMap<WorldLocation, Double> c = data.get(src);
+		java.util.Map<WorldLocation, Double> c = data.get(src);
 		if (c != null) {
 			Double d = c.get(tg);
 			return d != null ? d.doubleValue() : Double.POSITIVE_INFINITY;
@@ -54,7 +54,7 @@ public class LinkMap {
 	}
 
 	public boolean isConnected(WorldLocation src, WorldLocation tg) {
-		HashMap<WorldLocation, Double> c = data.get(src);
+		java.util.Map<WorldLocation, Double> c = data.get(src);
 		return c != null && c.containsKey(tg);
 	}
 
@@ -64,7 +64,7 @@ public class LinkMap {
 
 	public boolean removeLocation(WorldLocation loc) {
 		boolean flag = this.removeSource(loc);
-		for (HashMap<WorldLocation, Double> map : data.values()) {
+		for (java.util.Map<WorldLocation, Double> map : data.values()) {
 			flag |= map.remove(loc) != null;
 		}
 		return flag;
@@ -105,7 +105,7 @@ public class LinkMap {
 			NBTTagCompound entry = new NBTTagCompound();
 			src.writeToNBT(entry);
 			NBTTagList map = new NBTTagList();
-			HashMap<WorldLocation, Double> dat = data.get(src);
+			java.util.Map<WorldLocation, Double> dat = data.get(src);
 			for (WorldLocation tg : dat.keySet()) {
 				NBTTagCompound nbt = new NBTTagCompound();
 				tg.writeToNBT(nbt);

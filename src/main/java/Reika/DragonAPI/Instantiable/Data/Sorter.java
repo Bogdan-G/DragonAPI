@@ -22,7 +22,7 @@ public class Sorter<O> {
 
 	private final Element[] elements;
 
-	private final HashMap<O, Integer> indexes = new HashMap();
+	private final java.util.Map<O, Integer> indexes = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public Sorter(O... objects) {
 		elements = new Element[objects.length];

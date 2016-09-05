@@ -263,10 +263,10 @@ public class BlockArray implements Iterable<Coordinate> {
 	/** Recursively adds a contiguous area of one block type, akin to a fill tool.
 	 * Args: World, start x, start y, start z, id to follow */
 	public void recursiveAdd(World world, int x, int y, int z, Block id) {
-		this.recursiveAdd(world, x, y, z, id, 0, new HashMap());
+		this.recursiveAdd(world, x, y, z, id, 0, new org.eclipse.collections.impl.map.mutable.UnifiedMap());
 	}
 
-	private void recursiveAdd(World world, int x, int y, int z, Block id, int depth, HashMap<Coordinate, Integer> map) {
+	private void recursiveAdd(World world, int x, int y, int z, Block id, int depth, java.util.Map<Coordinate, Integer> map) {
 		if (overflow)
 			return;
 		if (depth > maxDepth)
@@ -295,10 +295,10 @@ public class BlockArray implements Iterable<Coordinate> {
 	/** Recursively adds a contiguous area of one block type, akin to a fill tool.
 	 * Args: World, start x, start y, start z, id to follow, metadata to follow */
 	public void recursiveAddWithMetadata(World world, int x, int y, int z, Block id, int meta) {
-		this.recursiveAddWithMetadata(world, x, y, z, id, meta, 0, new HashMap());
+		this.recursiveAddWithMetadata(world, x, y, z, id, meta, 0, new org.eclipse.collections.impl.map.mutable.UnifiedMap());
 	}
 
-	private void recursiveAddWithMetadata(World world, int x, int y, int z, Block id, int meta, int depth, HashMap<Coordinate, Integer> map) {
+	private void recursiveAddWithMetadata(World world, int x, int y, int z, Block id, int meta, int depth, java.util.Map<Coordinate, Integer> map) {
 		if (overflow)
 			return;
 		if (depth > maxDepth)

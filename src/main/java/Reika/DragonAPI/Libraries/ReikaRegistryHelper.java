@@ -43,8 +43,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class ReikaRegistryHelper extends DragonAPICore {
 
-	private static final HashMap<BlockEnum, ArrayList<Integer>> blockVariants = new HashMap();
-	private static final HashMap<ItemEnum, ArrayList<Integer>> itemVariants = new HashMap();
+	private static final java.util.Map<BlockEnum, ArrayList<Integer>> blockVariants = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<ItemEnum, ArrayList<Integer>> itemVariants = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private static final IdentityHashMap<Object, RegistrationList> registries = new IdentityHashMap();
 	private static final IdentityHashMap<Object, EntityCollection> modEntityRegistries = new IdentityHashMap();
 

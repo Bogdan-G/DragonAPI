@@ -21,7 +21,7 @@ import Reika.DragonAPI.Instantiable.Data.Immutable.Coordinate;
 
 public class ChunkSplicedGenerationCache {
 
-	private final HashMap<ChunkCoordIntPair, HashMap<Coordinate, BlockPlace>> data = new HashMap();
+	private final java.util.Map<ChunkCoordIntPair, java.util.Map<Coordinate, BlockPlace>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public ChunkSplicedGenerationCache() {
 
@@ -45,9 +45,9 @@ public class ChunkSplicedGenerationCache {
 
 	public void place(int x, int y, int z, BlockPlace sb) {
 		ChunkCoordIntPair key = this.getKey(x, z);
-		HashMap<Coordinate, BlockPlace> map = data.get(key);
+		java.util.Map<Coordinate, BlockPlace> map = data.get(key);
 		if (map == null) {
-			map = new HashMap();
+			map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 			data.put(key, map);
 		}
 		x = this.modAndAlign(x);
@@ -67,7 +67,7 @@ public class ChunkSplicedGenerationCache {
 
 	public BlockKey getBlock(int x, int y, int z) {
 		ChunkCoordIntPair key = this.getKey(x, z);
-		HashMap<Coordinate, BlockPlace> map = data.get(key);
+		java.util.Map<Coordinate, BlockPlace> map = data.get(key);
 		if (map == null)
 			return null;
 		x = this.modAndAlign(x);
@@ -78,7 +78,7 @@ public class ChunkSplicedGenerationCache {
 
 	public boolean hasBlock(int x, int y, int z) {
 		ChunkCoordIntPair key = this.getKey(x, z);
-		HashMap<Coordinate, BlockPlace> map = data.get(key);
+		java.util.Map<Coordinate, BlockPlace> map = data.get(key);
 		if (map == null)
 			return false;
 		x = this.modAndAlign(x);
@@ -89,7 +89,7 @@ public class ChunkSplicedGenerationCache {
 	public HashSet<Coordinate> getLocationsOf(BlockKey key) {
 		HashSet<Coordinate> set = new HashSet();
 		for (ChunkCoordIntPair p : data.keySet()) {
-			HashMap<Coordinate, BlockPlace> map = data.get(p);
+			java.util.Map<Coordinate, BlockPlace> map = data.get(p);
 			for (Coordinate c : map.keySet()) {
 				BlockPlace bp = map.get(c);
 				if (bp.asBlockKey().equals(key)) {
@@ -117,7 +117,7 @@ public class ChunkSplicedGenerationCache {
 	}
 
 	private void doGenerate(World world, ChunkCoordIntPair cp) {
-		HashMap<Coordinate, BlockPlace> map = data.get(cp);
+		java.util.Map<Coordinate, BlockPlace> map = data.get(cp);
 		if (map != null) {
 			//ReikaJavaLibrary.pConsole("To generate: "+map);
 			for (Coordinate c : map.keySet()) {

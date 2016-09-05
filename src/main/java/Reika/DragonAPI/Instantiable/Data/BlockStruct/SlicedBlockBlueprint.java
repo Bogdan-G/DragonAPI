@@ -31,8 +31,8 @@ public class SlicedBlockBlueprint {
 	private final ArrayList<Block[][]> antiIDs = new ArrayList();
 	private final ArrayList<int[][]> antiMetadatas = new ArrayList();
 
-	private final HashMap<Character, BlockKey> mappings = new HashMap();
-	private final HashMap<Character, BlockKey> antiMappings = new HashMap();
+	private final java.util.Map<Character, BlockKey> mappings = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<Character, BlockKey> antiMappings = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public void addMapping(char c, Block id) {
 		this.addMapping(c, id, -1);

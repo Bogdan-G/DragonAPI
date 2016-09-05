@@ -78,7 +78,7 @@ public class BCPipeHandler extends ModHandlerBase {
 		"pipePowerDiamond",
 	};
 
-	private final HashMap<String, Item> itemIDs = new HashMap();
+	private final java.util.Map<String, Item> itemIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static final BCPipeHandler instance = new BCPipeHandler();
 

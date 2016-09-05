@@ -34,10 +34,10 @@ public class ReikaBiomeHelper extends DragonAPICore {
 
 	private static final MultiMap<BiomeGenBase, BiomeGenBase> children = new MultiMap();
 	private static final MultiMap<BiomeGenBase, BiomeGenBase> similarity = new MultiMap();
-	private static final HashMap<BiomeGenBase, BiomeGenBase> parents = new HashMap();
+	private static final java.util.Map<BiomeGenBase, BiomeGenBase> parents = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private static final int[] biomeColors = new int[40];
 
-	private static final HashMap<BiomeGenBase, BiomeTemperatures> temperatures = new HashMap();
+	private static final java.util.Map<BiomeGenBase, BiomeTemperatures> temperatures = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	static {
 		addChildBiome(BiomeGenBase.desert, BiomeGenBase.desertHills);

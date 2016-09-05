@@ -229,8 +229,8 @@ public final class TinkerToolHandler extends ModHandlerBase {
 
 	public final Item blankPattern;
 
-	private final HashMap<Item, Tools> tools = new HashMap();
-	private final HashMap<Item, Weapons> weapons = new HashMap();
+	private final java.util.Map<Item, Tools> tools = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<Item, Weapons> weapons = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private final EnumMap<Tools, EnumMap<ToolPartType, ToolParts>> toolPartMap = new EnumMap(Tools.class);
 

@@ -27,7 +27,7 @@ public class XMLInterface {
 	private final String filepath;
 	private final boolean requireFile;
 
-	private final HashMap<String, String> data = new HashMap();
+	private final java.util.Map<String, String> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final MultiMap<String, String> tree = new MultiMap();
 
 	public static final String NULL_VALUE = "#NULL!";

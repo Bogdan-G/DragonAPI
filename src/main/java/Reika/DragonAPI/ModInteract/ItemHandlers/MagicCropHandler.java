@@ -117,9 +117,9 @@ public class MagicCropHandler extends CropHandlerBase {
 
 		private static final EssenceType[] essenceList = values();
 
-		private static final HashMap<Block, EssenceType> cropIDs = new HashMap();
-		private static final HashMap<Item, EssenceType> essenceIDs = new HashMap();
-		private static final HashMap<Item, EssenceType> seedIDs = new HashMap();
+		private static final java.util.Map<Block, EssenceType> cropIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+		private static final java.util.Map<Item, EssenceType> essenceIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+		private static final java.util.Map<Item, EssenceType> seedIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private EssenceType(EssenceClass c, String name) {
 			type = c;
@@ -198,7 +198,7 @@ public class MagicCropHandler extends CropHandlerBase {
 		private Item item;
 
 		private static final MiscEssence[] list = values();
-		private static final HashMap<Item, MiscEssence> itemMap = new HashMap();
+		private static final java.util.Map<Item, MiscEssence> itemMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private MiscEssence(String s) {
 			field = s;

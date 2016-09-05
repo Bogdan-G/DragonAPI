@@ -20,8 +20,8 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 
 public final class MixMap<V, K> {
 
-	private final HashMap<V, HashMap<V, K>> data = new HashMap();
-	private final HashMap<K, ArrayList<ImmutablePair<V, V>>> reverse = new HashMap();
+	private final java.util.Map<V, java.util.Map<V, K>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<K, ArrayList<ImmutablePair<V, V>>> reverse = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public MixMap() {
 
@@ -36,16 +36,16 @@ public final class MixMap<V, K> {
 	}
 
 	private void addOrSetKey(V v1, V v2, K mix) { //Bidirectional
-		HashMap<V, K> map = data.get(v1);
+		java.util.Map<V, K> map = data.get(v1);
 		if (map == null) {
-			map = new HashMap();
+			map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 			data.put(v1, map);
 		}
 		map.put(v2, mix);
 
 		map = data.get(v2);
 		if (map == null) {
-			map = new HashMap();
+			map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 			data.put(v2, map);
 		}
 		map.put(v1, mix);
@@ -63,7 +63,7 @@ public final class MixMap<V, K> {
 	}
 
 	public K getMix(V v1, V v2) {
-		HashMap<V, K> map = data.get(v1);
+		java.util.Map<V, K> map = data.get(v1);
 		return map != null ? map.get(v2) : null;
 	}
 
@@ -96,7 +96,7 @@ public final class MixMap<V, K> {
 	public Collection<ImmutablePair<V, V>> getMixesMaking(K mix) {/*
 		ArrayList<ImmutablePair<V, V>> li = new ArrayList();
 		for (V k1 : data.keySet()) {
-			HashMap<V, K> map = data.get(k1);
+			java.util.Map<V, K> map = data.get(k1);
 			for (V k2 : map.keySet()) {
 				K out = map.get(k2);
 				if (mix.equals(out)) {

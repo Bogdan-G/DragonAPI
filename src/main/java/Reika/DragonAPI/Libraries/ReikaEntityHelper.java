@@ -175,10 +175,10 @@ public final class ReikaEntityHelper extends DragonAPICore {
 	}
 
 	/** provides a mapping between an Entity Class and an entity ID */
-	private static Map<Class, Integer> classToIDMapping = new HashMap();
+	private static Map<Class, Integer> classToIDMapping = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Maps entity names to their numeric identifiers */
-	private static Map<String, Integer> stringToIDMapping = new HashMap();
+	private static Map<String, Integer> stringToIDMapping = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public static void loadMappings()
 	{

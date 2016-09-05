@@ -20,7 +20,7 @@ public class CustomSoundHandler {
 
 	public static final CustomSoundHandler instance = new CustomSoundHandler();
 
-	private HashMap<String, ResourceLocation> sounds = new HashMap();
+	private java.util.Map<String, ResourceLocation> sounds = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private CustomSoundHandler() {
 

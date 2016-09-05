@@ -632,7 +632,7 @@ public final class ReikaGuiAPI extends GuiScreen {
 		this.drawVanillaHealthBar(ep, sr, rowHeight, null);
 	}
 
-	public void drawVanillaHealthBar(EntityPlayer ep, ScaledResolution sr, int rowHeight, HashMap<Integer, Integer> colors) {
+	public void drawVanillaHealthBar(EntityPlayer ep, ScaledResolution sr, int rowHeight, java.util.Map<Integer, Integer> colors) {
 		GL11.glEnable(GL11.GL_BLEND);
 		if (colors != null && !colors.isEmpty())
 			ReikaTextureHelper.bindFinalTexture(DragonAPICore.class, "Resources/gui.png");

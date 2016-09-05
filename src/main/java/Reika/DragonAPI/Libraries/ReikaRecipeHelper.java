@@ -50,8 +50,8 @@ public class ReikaRecipeHelper extends DragonAPICore {
 
 	private static final int[] permuOffsets = new int[9];
 
-	private static final HashMap<IRecipe, RecipeCache> recipeCache = new HashMap();
-	private static final HashMap<IRecipe, RecipeCache> recipeCacheClient = new HashMap();
+	private static final java.util.Map<IRecipe, RecipeCache> recipeCache = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<IRecipe, RecipeCache> recipeCacheClient = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static Field shapedOreHeight;
 	private static Field shapedOreWidth;
@@ -249,7 +249,7 @@ public class ReikaRecipeHelper extends DragonAPICore {
 	}
 
 	private static RecipeCache getRecipeCacheObject(IRecipe ir, boolean client) {
-		HashMap<IRecipe, RecipeCache> map = client ? recipeCacheClient : recipeCache;
+		java.util.Map<IRecipe, RecipeCache> map = client ? recipeCacheClient : recipeCache;
 		RecipeCache cache = map.get(ir);
 		if (cache == null) {
 			cache = calculateRecipeToItemStackArray(ir, client);
@@ -635,9 +635,9 @@ public class ReikaRecipeHelper extends DragonAPICore {
 			s = String.valueOf(sSB);
 		}
 
-		HashMap hashmap;
+		java.util.Map hashmap;
 
-		for (hashmap = new HashMap(); i < in.length; i += 2)
+		for (hashmap = new org.eclipse.collections.impl.map.mutable.UnifiedMap(); i < in.length; i += 2)
 		{
 			Character character = (Character)in[i];
 			ItemStack itemstack1 = null;

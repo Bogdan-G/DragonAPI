@@ -23,7 +23,7 @@ import Reika.DragonAPI.Instantiable.Data.Maps.ItemHashMap;
 
 public class PneumaticPlantHandler extends CropHandlerBase {
 
-	private final HashMap<Block, Plants> blockMap = new HashMap();
+	private final java.util.Map<Block, Plants> blockMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final ItemHashMap<Plants> itemMap = new ItemHashMap();
 
 	public static enum Plants {

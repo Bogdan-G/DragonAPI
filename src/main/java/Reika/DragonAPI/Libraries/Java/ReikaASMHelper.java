@@ -331,7 +331,7 @@ public class ReikaASMHelper {
 
 		private final String id;
 
-		private static final HashMap<String, ReturnType> map = new HashMap();
+		private static final java.util.Map<String, ReturnType> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private ReturnType(String s) {
 			id = s;
@@ -466,7 +466,7 @@ public class ReikaASMHelper {
 
 	/** Currently broken */
 	public static InsnList copyInsnList(InsnList li, LabelNode... pairs) {
-		Map<LabelNode, LabelNode> map = new HashMap();
+		Map<LabelNode, LabelNode> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (int i = 0; i < pairs.length; i += 2) {
 			map.put(pairs[i], pairs[i+1]);
 		}

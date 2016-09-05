@@ -55,8 +55,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public final class ReikaPlayerAPI extends DragonAPICore {
 
-	private static final HashMap<String, FakePlayer> fakePlayers = new HashMap();
-	private static final HashMap<String, UUID> uuidMap = new HashMap();
+	private static final java.util.Map<String, FakePlayer> fakePlayers = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<String, UUID> uuidMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Transfers a player's entire inventory to an inventory. Args: Player, Inventory */
 	public static void transferInventoryToChest(EntityPlayer ep, ItemStack[] inv) {

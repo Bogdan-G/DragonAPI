@@ -33,7 +33,7 @@ public final class ReikaPotionHelper extends DragonAPICore {
 	public static final int POTION_BIT = 8192;
 
 	private static final ArrayList<Integer> badPotions = new ArrayList();
-	private static HashMap<Potion, Integer> potionDamageValues = new HashMap();
+	private static java.util.Map<Potion, Integer> potionDamageValues = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	/** Returns a potion ID from the damage value. Returns -1 if invalid damage value. */
 	public static int getPotionID(int dmg) {

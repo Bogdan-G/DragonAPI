@@ -35,7 +35,7 @@ public class KeybindHandler {
 	//private final MultiMap<Integer, KeyBinding> map = new MultiMap();
 
 	private final Collection<KeyBinding> keys = new ArrayList();
-	private final HashMap<KeyBinding, Boolean> pressed = new HashMap();
+	private final java.util.Map<KeyBinding, Boolean> pressed = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private KeybindHandler() {
 		//MinecraftForge.EVENT_BUS.register(this);

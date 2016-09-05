@@ -21,7 +21,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class ReikaFluidHelper {
 
-	private static HashMap<Fluid, FluidContainer> containers = new HashMap();
+	private static java.util.Map<Fluid, FluidContainer> containers = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public static void mapContainerToFluid(Fluid f, ItemStack empty, ItemStack filled) {
 		containers.put(f, new FluidContainer(filled, empty));

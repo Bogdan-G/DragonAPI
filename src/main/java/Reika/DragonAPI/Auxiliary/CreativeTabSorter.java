@@ -24,7 +24,7 @@ public class CreativeTabSorter {
 
 	public static final CreativeTabSorter instance = new CreativeTabSorter();
 
-	private final HashMap<CreativeTabs, LinkedList<CreativeTabs>> tabGroups = new HashMap();
+	private final java.util.Map<CreativeTabs, LinkedList<CreativeTabs>> tabGroups = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private final Collection<CreativeTabs> childTabs = new ArrayList();
 
 	private CreativeTabSorter() {

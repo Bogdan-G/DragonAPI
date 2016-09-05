@@ -25,9 +25,9 @@ public class ReikaObfuscationHelper {
 
 	private static final boolean deobf = testDeobf();
 
-	private static final HashMap<String, Method> methods = new HashMap();
-	private static final HashMap<String, Field> fields = new HashMap();
-	private static final HashMap<String, String> labels = new HashMap();
+	private static final java.util.Map<String, Method> methods = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<String, Field> fields = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private static final java.util.Map<String, String> labels = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static boolean testDeobf() {/*
 		try {

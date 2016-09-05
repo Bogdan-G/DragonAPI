@@ -715,8 +715,8 @@ public abstract class TileEntityBase extends TileEntity implements CompoundSyncP
 	}
 
 
-	/*private final HashMap<Integer, LuaMethod> luaMethods = new HashMap();
-	private final HashMap<String, LuaMethod> methodNames = new HashMap();*/
+	/*private final java.util.Map<Integer, LuaMethod> luaMethods = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+	private final java.util.Map<String, LuaMethod> methodNames = new org.eclipse.collections.impl.map.mutable.UnifiedMap();*/
 	private final Object node = this.createNode();
 
 	/** ComputerCraft */

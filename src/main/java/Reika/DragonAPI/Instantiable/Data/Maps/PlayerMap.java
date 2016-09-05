@@ -18,7 +18,7 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class PlayerMap<V> {
 
-	private final HashMap<UUID, V> data = new HashMap();
+	private final java.util.Map<UUID, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static UUID getKey(EntityPlayer ep) {
 		return ep.getUniqueID();

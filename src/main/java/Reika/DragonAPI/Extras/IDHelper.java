@@ -29,13 +29,13 @@ import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 
 public class IDHelper {
 
-	private static final HashMap<String, Integer> blocks;
-	private static final HashMap<String, Integer> items;
-	private static final HashMap<String, Integer> entities;
-	private static final HashMap<String, Integer> potions;
-	private static final HashMap<String, Integer> biomes;
-	private static final HashMap<String, Integer> fluids;
-	private static final HashMap<String, Integer> fluidcontainers;
+	private static final java.util.Map<String, Integer> blocks;
+	private static final java.util.Map<String, Integer> items;
+	private static final java.util.Map<String, Integer> entities;
+	private static final java.util.Map<String, Integer> potions;
+	private static final java.util.Map<String, Integer> biomes;
+	private static final java.util.Map<String, Integer> fluids;
+	private static final java.util.Map<String, Integer> fluidcontainers;
 
 	static {
 		blocks = ReikaJavaLibrary.sortMapByValues(calcBlockIDs());
@@ -47,8 +47,8 @@ public class IDHelper {
 		fluidcontainers = ReikaJavaLibrary.sortMapByValues(calcFluidContainers());
 	}
 
-	private static HashMap<String, Integer> calcBlockIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcBlockIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		Iterator<Block> it = Block.blockRegistry.iterator();
 		while (it.hasNext()) {
 			Block o = it.next();
@@ -59,8 +59,8 @@ public class IDHelper {
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcItemIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcItemIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		Iterator<Item> it = Item.itemRegistry.iterator();
 		while (it.hasNext()) {
 			Item o = it.next();
@@ -71,8 +71,8 @@ public class IDHelper {
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcBiomeIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcBiomeIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (int i = 0; i < BiomeGenBase.biomeList.length; i++) {
 			BiomeGenBase b = BiomeGenBase.biomeList[i];
 			if (b != null) {
@@ -82,14 +82,14 @@ public class IDHelper {
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcEntityIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcEntityIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		map.putAll(EntityList.stringToIDMapping);
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcPotionIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcPotionIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (int i = 0; i < Potion.potionTypes.length; i++) {
 			Potion b = Potion.potionTypes[i];
 			if (b != null) {
@@ -99,14 +99,14 @@ public class IDHelper {
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcFluidIDs() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcFluidIDs() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		map.putAll(FluidRegistry.getRegisteredFluidIDs());
 		return map;
 	}
 
-	private static HashMap<String, Integer> calcFluidContainers() {
-		HashMap<String, Integer> map = new HashMap();
+	private static java.util.Map<String, Integer> calcFluidContainers() {
+		java.util.Map<String, Integer> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		FluidContainerData[] dat = FluidContainerRegistry.getRegisteredFluidContainerData();
 		for (int i = 0; i < dat.length; i++) {
 			FluidContainerData fcd = dat[i];

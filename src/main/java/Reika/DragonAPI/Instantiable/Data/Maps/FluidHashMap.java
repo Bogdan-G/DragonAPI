@@ -21,10 +21,11 @@ import net.minecraftforge.fluids.FluidStack;
 import Reika.DragonAPI.Interfaces.Matcher;
 import Reika.DragonAPI.Libraries.ReikaFluidHelper;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
+import org.eclipse.collections.impl.map.sorted.mutable.TreeSortedMap;
 
 public final class FluidHashMap<V> {
 
-	private final HashMap<Fluid, TreeMap<Integer, V>> data = new HashMap();
+	private final java.util.Map<Fluid, TreeSortedMap<Integer, V>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private ArrayList<FluidStack> sorted = null;
 	private Collection<FluidStack> keyset = null;
 	private boolean modifiedKeys = true;
@@ -53,16 +54,16 @@ public final class FluidHashMap<V> {
 	}
 
 	private V putKey(FluidStack is, V value) {
-		TreeMap<Integer, V> map = this.data.get(is.getFluid());
+		TreeSortedMap<Integer, V> map = this.data.get(is.getFluid());
 		if (map == null) {
-			map = new TreeMap(new ReikaJavaLibrary.ReverseComparator());
+			map = new TreeSortedMap(new ReikaJavaLibrary.ReverseComparator());
 			this.data.put(is.getFluid(), map);
 		}
 		return map.put(is.amount, value);
 	}
 
 	public V get(FluidStack is) {
-		TreeMap<Integer, V> map = this.data.get(is.getFluid());
+		TreeSortedMap<Integer, V> map = this.data.get(is.getFluid());
 		if (map != null) {
 			for (int key : map.keySet()) {
 				if (is.amount >= key) {
@@ -74,7 +75,7 @@ public final class FluidHashMap<V> {
 	}
 
 	public boolean containsKey(FluidStack is) {
-		TreeMap<Integer, V> map = this.data.get(is.getFluid());
+		TreeSortedMap<Integer, V> map = this.data.get(is.getFluid());
 		if (map != null) {
 			for (int key : map.keySet()) {
 				if (is.amount >= key) {
@@ -154,7 +155,7 @@ public final class FluidHashMap<V> {
 	}
 
 	private V removeKey(FluidStack is) {
-		TreeMap<Integer, V> map = this.data.get(is.getFluid());
+		TreeSortedMap<Integer, V> map = this.data.get(is.getFluid());
 		return map != null ? map.remove(is.amount) : null;
 	}
 

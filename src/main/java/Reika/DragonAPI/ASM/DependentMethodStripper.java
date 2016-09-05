@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashMap;import java.util.*;
 import java.util.Iterator;
 import java.util.List;
 
@@ -210,7 +210,7 @@ public class DependentMethodStripper implements IClassTransformer {
 		private final String name;
 		private final String desc;
 
-		private static final HashMap<String, Annotations> map = new HashMap();
+		private static final Map<String, Annotations> map = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private Annotations(String s, String d) {
 			name = s;

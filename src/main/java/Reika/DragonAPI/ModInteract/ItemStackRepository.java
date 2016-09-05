@@ -22,7 +22,7 @@ public class ItemStackRepository {
 
 	public static final ItemStackRepository instance = new ItemStackRepository();
 
-	private final HashMap<String, Repository> data = new HashMap();
+	private final java.util.Map<String, Repository> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private ItemStackRepository() {
 
@@ -63,7 +63,7 @@ public class ItemStackRepository {
 
 	private static class Repository {
 
-		private final HashMap<String, Field> fields = new HashMap();
+		private final java.util.Map<String, Field> fields = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private Repository(Class c) {
 			Field[] fds = c.getDeclaredFields();

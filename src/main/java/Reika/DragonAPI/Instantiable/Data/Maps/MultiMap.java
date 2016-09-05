@@ -22,7 +22,7 @@ import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 
 public final class MultiMap<K, V> {
 
-	private final HashMap<K, Collection<V>> data = new HashMap();
+	private final java.util.Map<K, Collection<V>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private boolean modifiable = true;
 	private boolean nullEmpty = false;

@@ -104,9 +104,9 @@ public class VeryLegacyMagicCropHandler extends CropHandlerBase {
 		private final int essenceMeta;
 
 		public static final EssenceType[] essenceList = values();
-		private static final HashMap<Block, EssenceType> cropIDs = new HashMap();
-		private static final HashMap<Item, EssenceType> essenceIDs = new HashMap();
-		private static final HashMap<Item, EssenceType> seedIDs = new HashMap();
+		private static final java.util.Map<Block, EssenceType> cropIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+		private static final java.util.Map<Item, EssenceType> essenceIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
+		private static final java.util.Map<Item, EssenceType> seedIDs = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 		private EssenceType(EssenceClass type, String name, int meta) {
 			this.type = type;

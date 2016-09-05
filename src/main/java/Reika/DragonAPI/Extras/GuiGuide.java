@@ -29,7 +29,7 @@ public class GuiGuide extends GuiScreen {
 	private static final ArrayList<ModList> mods = new ArrayList();
 	private static final String PARENT = "Resources/";
 	private static final XMLInterface guide = new XMLInterface(DragonAPICore.class, PARENT+"guide.xml", !ReikaObfuscationHelper.isDeObfEnvironment());
-	private static HashMap<String, String> data = new HashMap();
+	private static java.util.Map<String, String> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static final String[] tabLabels = {"Info", "Getting Started", "Useful Notes", "Tips and Tricks"};
 	private static final String[] tabTags = {"info", "tutorial", "notes", "tips"};

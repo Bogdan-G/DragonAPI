@@ -19,7 +19,7 @@ import java.util.List;
  * n "y" values, where n >= 0. It can also be converted into a bar graph. */
 public class SortedPairs {
 
-	private HashMap<Integer, ArrayList<Object>> data = new HashMap();
+	private java.util.Map<Integer, ArrayList<Object>> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private ArrayList<Integer> keys = new ArrayList();
 
 	public SortedPairs addPair(int x, Object y) {

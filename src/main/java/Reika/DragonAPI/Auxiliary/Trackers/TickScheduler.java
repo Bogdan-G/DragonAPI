@@ -23,7 +23,7 @@ public class TickScheduler implements TickHandler {
 
 	public static final TickScheduler instance = new TickScheduler();
 
-	private final HashMap<ScheduledTickEvent, Integer> data = new HashMap();
+	private final java.util.Map<ScheduledTickEvent, Integer> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private TickScheduler() {
 

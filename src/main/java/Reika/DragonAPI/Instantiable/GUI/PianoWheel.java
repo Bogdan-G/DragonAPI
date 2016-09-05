@@ -41,7 +41,7 @@ public class PianoWheel {
 	private final TreeMap<Integer, Ring> rings = new TreeMap();
 	private final ArrayList<Ring> ringList = new ArrayList();
 
-	private final HashMap<MusicKey, Integer> colorTag = new HashMap();
+	private final java.util.Map<MusicKey, Integer> colorTag = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private static final int WHITE_COLOR = 0xEFEFEF;
 	private static final int BLACK_COLOR = 0x161616;

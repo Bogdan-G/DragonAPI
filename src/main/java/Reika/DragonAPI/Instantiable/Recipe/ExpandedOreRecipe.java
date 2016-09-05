@@ -106,7 +106,7 @@ public class ExpandedOreRecipe implements IRecipe {
 			throw new RuntimeException(ret);
 		}
 
-		HashMap<Character, Object> itemMap = new HashMap<Character, Object>();
+		java.util.Map<Character, Object> itemMap = new org.eclipse.collections.impl.map.mutable.UnifiedMap<Character, Object>();
 
 		for (; idx < recipe.length; idx += 2)
 		{

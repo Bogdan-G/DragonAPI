@@ -24,11 +24,11 @@ import Reika.DragonAPI.DragonAPICore;
 public class ReikaEnchantmentHelper extends DragonAPICore {
 
 	/** Get a listing of all enchantments on an ItemStack. Args: ItemStack */
-	public static HashMap<Enchantment,Integer> getEnchantments(ItemStack is) {
+	public static java.util.Map<Enchantment,Integer> getEnchantments(ItemStack is) {
 		Map<Integer, Integer> enchants = EnchantmentHelper.getEnchantments(is);
 		if (enchants == null)
 			return null;
-		HashMap<Enchantment,Integer> ench = new HashMap();
+		java.util.Map<Enchantment,Integer> ench = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 		for (Integer id : enchants.keySet()) {
 			Enchantment e = Enchantment.enchantmentsList[id];
 			int level = enchants.get(id);
@@ -38,7 +38,7 @@ public class ReikaEnchantmentHelper extends DragonAPICore {
 	}
 
 	/** Applies all enchantments to an ItemStack. Args: ItemStack, enchantment map */
-	public static void applyEnchantments(ItemStack is, HashMap<Enchantment,Integer> en) {
+	public static void applyEnchantments(ItemStack is, java.util.Map<Enchantment,Integer> en) {
 		for (Enchantment e : en.keySet()) {
 			int level = en.get(e);
 			if (level > 0) {

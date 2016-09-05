@@ -24,7 +24,7 @@ public class RectangleMap<V> {
 
 	}
 
-	private final HashMap<V, Rectangle> data = new HashMap();
+	private final java.util.Map<V, Rectangle> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public void addItem(V obj, int x, int y, int w, int h) {
 		data.put(obj, new Rectangle(x, y, w, h));

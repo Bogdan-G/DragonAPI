@@ -24,8 +24,8 @@ public class BlockTracker extends BlockArray {
 		refWorld = world;
 	}
 
-	private HashMap<ItemStack, Integer> counts = new HashMap<ItemStack, Integer>();
-	private HashMap<Block, Integer> ids = new HashMap<Block, Integer>();
+	private java.util.Map<ItemStack, Integer> counts = new org.eclipse.collections.impl.map.mutable.UnifiedMap<ItemStack, Integer>();
+	private java.util.Map<Block, Integer> ids = new org.eclipse.collections.impl.map.mutable.UnifiedMap<Block, Integer>();
 
 	@Override
 	public boolean addBlockCoordinate(int x, int y, int z) {

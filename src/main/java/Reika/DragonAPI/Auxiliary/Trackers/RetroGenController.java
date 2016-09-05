@@ -40,7 +40,7 @@ public class RetroGenController {
 	private static final GenComparator genComparator = new GenComparator();
 
 	private ArrayList<RetroactiveGenerator> retrogens = new ArrayList();
-	private HashMap<String, Integer> retrogenOrder = new HashMap();
+	private java.util.Map<String, Integer> retrogenOrder = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private Collection<ChunkData> chunks = new ArrayList();
 	private Collection<ChunkData> scheduledAdds = new ArrayList();

@@ -37,7 +37,7 @@ public class ChunkManager implements LoadingCallback {
 
 	public static final ChunkManager instance = new ChunkManager();
 
-	private final HashMap<WorldLocation, Ticket> tickets = new HashMap();
+	private final java.util.Map<WorldLocation, Ticket> tickets = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private ChunkManager() {
 

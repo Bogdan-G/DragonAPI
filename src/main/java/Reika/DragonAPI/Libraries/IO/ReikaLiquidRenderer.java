@@ -29,8 +29,8 @@ import Reika.DragonAPI.Auxiliary.BlockModelRenderer.ModelBlockInterface;
 
 public class ReikaLiquidRenderer {
 
-	private static Map<Fluid, int[]> flowingRenderCache = new HashMap<Fluid, int[]>();
-	private static Map<Fluid, int[]> stillRenderCache = new HashMap<Fluid, int[]>();
+	private static Map<Fluid, int[]> flowingRenderCache = new org.eclipse.collections.impl.map.mutable.UnifiedMap<Fluid, int[]>();
+	private static Map<Fluid, int[]> stillRenderCache = new org.eclipse.collections.impl.map.mutable.UnifiedMap<Fluid, int[]>();
 	public static final int LEVELS = 100;
 	private static final ModelBlockInterface liquidBlock = new ModelBlockInterface();
 

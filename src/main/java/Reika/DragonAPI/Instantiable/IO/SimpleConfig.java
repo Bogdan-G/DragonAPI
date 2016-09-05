@@ -27,7 +27,7 @@ public final class SimpleConfig {
 
 	private final DragonAPIMod configMod;
 
-	private final HashMap<String, Object> data = new HashMap();
+	private final java.util.Map<String, Object> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	private boolean isReading = false;
 

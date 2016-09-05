@@ -52,7 +52,7 @@ public enum ReikaParticleHelper {
 
 	public final String name;
 	private static final Random rand = new org.bogdang.modifications.random.XSTR();
-	private static final HashMap<String, ReikaParticleHelper> names = new HashMap();
+	private static final java.util.Map<String, ReikaParticleHelper> names = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public static final ReikaParticleHelper[] particleList = values();
 

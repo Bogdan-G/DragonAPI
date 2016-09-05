@@ -19,7 +19,7 @@ import org.lwjgl.util.Rectangle;
 /** Uses the rectangle as a key. Do not confuse with {@link RectangleMap}. */
 public class RegionMap<V> {
 
-	private final HashMap<Rectangle, V> data = new HashMap();
+	private final java.util.Map<Rectangle, V> data = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 
 	public RegionMap() {
 

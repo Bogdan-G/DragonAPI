@@ -583,9 +583,9 @@ public class DragonAPIInit extends DragonAPIMod {
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onGameLoaded(GameFinishedLoadingEvent evt) throws InterruptedException {
-		this.checkRemoteAssetDownload();
+		//this.checkRemoteAssetDownload();//why?
 		//if (ModList.liteLoaderInstalled())
-		Minecraft.getMinecraft().refreshResources();
+		//Minecraft.getMinecraft().refreshResources();//test reduce 4x useless reload
 		if (ModList.NEI.isLoaded()) {
 			NEIIntercept.instance.register();
 			//NEIFontRendererHandler.instance.register();

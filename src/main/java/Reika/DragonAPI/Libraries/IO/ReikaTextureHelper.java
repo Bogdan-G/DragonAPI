@@ -54,7 +54,7 @@ public class ReikaTextureHelper {
 	/** Keys: Class, Path */
 	private static final PluralMap textures = new PluralMap(2);
 
-	private static final HashMap<ReikaDyeHelper, Integer> colorOverrides = new HashMap();
+	private static final java.util.Map<ReikaDyeHelper, Integer> colorOverrides = new org.eclipse.collections.impl.map.mutable.UnifiedMap();
 	private static boolean noColorPacks = false;
 
 	private static final ReikaTextureBinder binder = new ReikaTextureBinder();

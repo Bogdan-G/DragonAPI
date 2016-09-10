@@ -64,7 +64,7 @@ public final class ReikaReflectionHelper extends DragonAPICore {
 			//return null;
 		}
 		catch (NoClassDefFoundError e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw new RegistrationException(mod, "Failed to load "+list+" due to a missing class: "+e);
 		}
 		return null;
@@ -99,7 +99,7 @@ public final class ReikaReflectionHelper extends DragonAPICore {
 				throw new RegistrationException(mod, list+" ("+list.getObjectClass().getSimpleName()+") threw invocation target exception: "+e+" with "+e.getCause()+" ("+e.getCause().getMessage()+")");
 		}
 		catch (NoClassDefFoundError e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw new RegistrationException(mod, "Failed to load "+list+" due to a missing class: "+e);
 		}
 		return null;
@@ -135,7 +135,7 @@ public final class ReikaReflectionHelper extends DragonAPICore {
 				cpw.mods.fml.common.FMLLog.warning(cl.getSimpleName()+" threw invocation target exception: "+e+" with "+e.getCause()+" ("+e.getCause().getMessage()+")");
 		}
 		catch (NoClassDefFoundError e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw new RegistrationException(mod, "Failed to load "+cl+" due to a missing class: "+e);
 		}
 		return null;
@@ -176,21 +176,21 @@ public final class ReikaReflectionHelper extends DragonAPICore {
 				DragonAPICore.logError("Could not find field "+field+" in "+obj);
 				ReikaChatHelper.write("Could not find field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (IllegalAccessException e) {
 			if (log.shouldDebug()) {
 				DragonAPICore.logError("Could not access field "+field+" in "+obj);
 				ReikaChatHelper.write("Could not access field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (SecurityException e) {
 			if (log.shouldDebug()) {
 				DragonAPICore.logError("Security Manager locked field "+field+" in "+obj);
 				ReikaChatHelper.write("Security Manager locked field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return Integer.MIN_VALUE;
 	}
@@ -230,21 +230,21 @@ public final class ReikaReflectionHelper extends DragonAPICore {
 				DragonAPICore.logError("Could not find field "+field+" in "+obj);
 				ReikaChatHelper.write("Could not find field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (IllegalAccessException e) {
 			if (log.shouldDebug()) {
 				DragonAPICore.logError("Could not access field "+field+" in "+obj);
 				ReikaChatHelper.write("Could not access field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (SecurityException e) {
 			if (log.shouldDebug()) {
 				DragonAPICore.logError("Security Manager locked field "+field+" in "+obj);
 				ReikaChatHelper.write("Security Manager locked field "+field+" in "+obj);
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return false;
 	}

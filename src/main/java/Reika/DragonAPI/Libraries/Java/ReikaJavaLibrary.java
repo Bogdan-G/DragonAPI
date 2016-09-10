@@ -235,15 +235,15 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (ClassNotFoundException e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (NoClassDefFoundError e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (LinkageError e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		catch (RuntimeException e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c+"!");
@@ -251,7 +251,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			if (s.endsWith("for invalid side SERVER")) {
 				pConsole("DRAGONAPI: Attemped to load a clientside class on the server! This is a significant programming error!");
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
@@ -269,19 +269,19 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (ClassNotFoundException e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c.getName()+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 			printClassMetadata(c);
 			//printClassASM(c); //, "ErroredClasses/"
 		}
 		catch (NoClassDefFoundError e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c.getName()+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 			printClassMetadata(c);
 			//printClassASM(c);
 		}
 		catch (LinkageError e) {
 			pConsole("DRAGONAPI: Failed to initalize class "+c.getName()+"! Class not found!");
-			e.printStackTrace();
+			//e.printStackTrace();
 			printClassMetadata(c);
 			//printClassASM(c);
 		}
@@ -291,7 +291,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			if (s.endsWith("for invalid side SERVER")) {
 				pConsole("DRAGONAPI: Attemped to load a clientside class on the server! This is a significant programming error!");
 			}
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
@@ -320,7 +320,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error converting class to byte[]!");
-			e.printStackTrace();
+			//e.printStackTrace();
 			return new byte[0];
 		}
 	}
@@ -337,10 +337,10 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class data!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		finally {
-		try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
+		try {if (p != null) p.close();}catch (IOException e) {/*e.printStackTrace();*/}
 		}
 	}
 
@@ -356,7 +356,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			p.write("\n\n");
 		}
 		catch (Throwable t) {
-			t.printStackTrace();
+			//t.printStackTrace();//need config option? off for reduce spam(test?) log
 		}
 
 		try {
@@ -372,7 +372,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			p.write("\n\n");
 		}
 		catch (Throwable t) {
-			t.printStackTrace();
+			//t.printStackTrace();
 		}
 
 		try {
@@ -386,13 +386,13 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 					p.write("\tSynthetic: "+cs.isSynthetic()+"\n");
 				}
 				catch (Throwable t) {
-					t.printStackTrace();
+					//t.printStackTrace();
 				}
 			}
 			p.write("\n\n");
 		}
 		catch (Throwable t) {
-			t.printStackTrace();
+			//t.printStackTrace();
 		}
 
 		try {
@@ -406,13 +406,13 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 					p.write("\tSynthetic: "+fd.isSynthetic()+"\n");
 				}
 				catch (Throwable t) {
-					t.printStackTrace();
+					//t.printStackTrace();
 				}
 			}
 			p.write("\n\n");
 		}
 		catch (Throwable t) {
-			t.printStackTrace();
+			//t.printStackTrace();
 		}
 
 		try {
@@ -428,13 +428,13 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 					p.write("\tSynthetic: "+m.isSynthetic()+"\n");
 				}
 				catch (Throwable t) {
-					t.printStackTrace();
+					//t.printStackTrace();
 				}
 			}
 			p.write("\n\n");
 		}
 		catch (Throwable t) {
-			t.printStackTrace();
+			//t.printStackTrace();
 		}
 	}
 
@@ -461,10 +461,10 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class ASM!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		finally {
-		try {if (p != null) p.close();}catch (IOException e) {e.printStackTrace();}
+		try {if (p != null) p.close();}catch (IOException e) {/*e.printStackTrace();*/}
 		}
 	}
 
@@ -511,10 +511,10 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 		}
 		catch (IOException e) {
 			pConsole("DRAGONAPI: Error printing class!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		finally {
-		try {if (fos != null) fos.close();}catch (IOException e) {e.printStackTrace();}
+		try {if (fos != null) fos.close();}catch (IOException e) {/*e.printStackTrace();*/}
 		}
 	}
 
@@ -652,7 +652,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			return arr;
 		}
 		catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 	}
@@ -662,7 +662,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			return getConstructedCollection(inputs, co.getConstructor(ci));
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return null;
 	}
@@ -676,7 +676,7 @@ public final class ReikaJavaLibrary extends DragonAPICore {
 			}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return outputs;
 	}

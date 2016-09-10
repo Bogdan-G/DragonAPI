@@ -402,7 +402,7 @@ public class DragonAPIInit extends DragonAPIMod {
 				//ComputerCraftAPI.registerPeripheralProvider(new PeripheralHandler()); Nonreflective code crashes
 			}
 			catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 
@@ -741,11 +741,11 @@ public class DragonAPIInit extends DragonAPIMod {
 			}
 			catch (Exception e) {
 				logger.logError("Could not load handler for "+mod.name());
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			catch (LinkageError e) {
 				logger.logError("Class version mismatch error! Could not load handler for "+mod.name());
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		else {

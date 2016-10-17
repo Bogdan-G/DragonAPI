@@ -342,7 +342,7 @@ public class DragonAPIInit extends DragonAPIMod {
 
 	private void increasePotionCount() {
 		int count = Potion.potionTypes.length;
-		int newsize = 256;
+		int newsize = 4096;//256
 		if (count > newsize) {
 			logger.log("Did not increase potion size array, as some other mod already did.");
 			return;

@@ -57,6 +57,7 @@ public final class BlockSheetTexRenderer implements ISimpleBlockRenderingHandler
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
+		org.lwjgl.opengl.GL11.glPushMatrix();
 		SidedTextureIndex s = (SidedTextureIndex)block;
 		int[] indices = new int[6];
 		for (int i = 0; i < 6; i++)
@@ -64,14 +65,17 @@ public final class BlockSheetTexRenderer implements ISimpleBlockRenderingHandler
 		ReikaTextureHelper.bindTexture(modClass, textureSheet);
 		ReikaBlockRenderer.instance.renderBlockInInventory(block, 0, 0F, indices);
 		ReikaTextureHelper.bindTerrainTexture();
+		org.lwjgl.opengl.GL11.glPopMatrix();
 	}
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderblocks) {
+		org.lwjgl.opengl.GL11.glPushMatrix();
 		int metadata = world.getBlockMetadata(x, y, z);
 		//ReikaBlockRenderer.instance.renderCube(block, x, y, z, 1F, 1F, 1F, metadata, world, textureSheet, modClass);
 		//if (!Loader.isModLoaded("Optifine"))
 		ReikaTextureHelper.bindTerrainTexture();
+		org.lwjgl.opengl.GL11.glPopMatrix();
 		return true;
 	}
 

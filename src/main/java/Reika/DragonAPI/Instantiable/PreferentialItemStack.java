@@ -20,7 +20,7 @@ import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
 
 public class PreferentialItemStack {
 
-	private ArrayList<String> oreNames = new ArrayList();
+	private ArrayList<byte[]> oreNames = new ArrayList();
 	private Collection<ItemStack> blacklist = new ArrayList();
 	private Collection<Item> itemblacklist = new ArrayList();
 	private final ItemStack fallbackItem;
@@ -38,7 +38,7 @@ public class PreferentialItemStack {
 			throw new IllegalArgumentException("Invalid (nonexistent) fallback item!");
 		fallbackItem = backup;
 		for (int i = 0; i < items.length; i++) {
-			oreNames.add(items[i]);
+			try{oreNames.add(items[i].getBytes("UTF-8"));}catch(java.io.IOException e){}
 		}
 	}
 
@@ -58,7 +58,9 @@ public class PreferentialItemStack {
 	}
 
 	private String getStringToUse() {
-		for (String ore : oreNames) {
+		for (byte[] ore0 : oreNames) {
+			String ore = null;
+			try{ore = new String(ore0, "UTF-8");}catch(java.io.IOException e){ore = new String(ore0);}
 			Collection<ItemStack> items = OreDictionary.getOres(ore);
 			if (items != null) {
 				for (ItemStack is : items) {

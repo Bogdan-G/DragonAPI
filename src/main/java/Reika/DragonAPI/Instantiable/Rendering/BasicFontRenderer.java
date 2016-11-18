@@ -9,7 +9,7 @@
  ******************************************************************************/
 package Reika.DragonAPI.Instantiable.Rendering;
 
-import gnu.trove.map.hash.TCharIntHashMap;
+//import gnu.trove.map.hash.TCharIntHashMap;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,12 +40,14 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import org.eclipse.collections.impl.map.mutable.primitive.CharIntHashMap;
+
 /** Cloned from the vanilla FontRenderer to allow for rewrites and to avoid Optifine compat issues */
 @SideOnly(Side.CLIENT)
 public abstract class BasicFontRenderer extends FontRenderer implements IResourceManagerReloadListener {
 
-	private static final TCharIntHashMap charMap = new TCharIntHashMap(256);
-	private static final TCharIntHashMap formatMap = new TCharIntHashMap(32);
+	private static final CharIntHashMap charMap = new CharIntHashMap(256);
+	private static final CharIntHashMap formatMap = new CharIntHashMap(32);
 
 	private static final ResourceLocation[] unicodePageLocations = new ResourceLocation[256];
 	/** Array of width of all the characters in default.png */
@@ -182,6 +184,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 	 * Render a single character with the default.png font at current (posX,posY) location...
 	 */
 	protected float renderCharFraction(int charIndex, boolean italic, float fraction) {
+		GL11.glPushMatrix();
 		float columnPos = charIndex%16*8;
 		float rowPos = charIndex/16*8;
 
@@ -204,6 +207,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 		GL11.glTexCoord2f((columnPos+f4-1F)/128F, (rowPos+7.99F)/128F);
 		GL11.glVertex3f(posX+f4-1F-f2, posY+7.99F, 0F);
 		GL11.glEnd();
+		GL11.glPopMatrix();
 
 		return charWidth[charIndex]+kerning.spaceModifier;
 	}
@@ -236,6 +240,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 			return 0.0F;
 		}
 		else {
+			GL11.glPushMatrix();
 			int i = c / 256;
 			this.loadGlyphTexture(i);
 			int j = glyphWidth[c] >>> 4;
@@ -256,6 +261,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 			GL11.glTexCoord2f((f2+f4) / 256.0F, (f3+15.98F) / 256.0F);
 			GL11.glVertex3f(posX+f4 / 2.0F-f5, posY+7.99F, 0.0F);
 			GL11.glEnd();
+			GL11.glPopMatrix();
 			return (f1-f) / 2.0F+1.0F;
 		}
 	}
@@ -421,6 +427,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 			return true;
 		}
 		else {
+			GL11.glPushMatrix();
 			j = this.getCharGridIndex(c0);
 
 			if (randomStyle && j != -1) {
@@ -492,6 +499,7 @@ public abstract class BasicFontRenderer extends FontRenderer implements IResourc
 			}
 
 			posX += ((int)f);
+			GL11.glPopMatrix();
 			return false;
 		}
 	}

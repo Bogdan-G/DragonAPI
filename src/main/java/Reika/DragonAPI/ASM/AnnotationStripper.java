@@ -9,7 +9,7 @@
  ******************************************************************************/
 package Reika.DragonAPI.ASM;
 
-import gnu.trove.set.hash.THashSet;
+//import gnu.trove.set.hash.THashSet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,10 +36,12 @@ import cpw.mods.fml.common.ModAPIManager;
 import cpw.mods.fml.common.discovery.ASMDataTable;
 import cpw.mods.fml.common.discovery.ASMDataTable.ASMData;
 
+import org.eclipse.collections.impl.set.mutable.UnifiedSet;
+
 /** Credit to KingLemming and Co. for this @Strippable annotation reader and ASM handler. */
 class AnnotationStripper {
 
-	static THashSet<String> strippables;
+	static UnifiedSet<byte[]> strippables;
 	static final String strippableDesc;
 	static String side;
 
@@ -48,7 +50,7 @@ class AnnotationStripper {
 
 	static {
 		strippableDesc = Type.getDescriptor(Strippable.class);
-		strippables = new THashSet<String>(10);
+		strippables = new UnifiedSet<byte[]>(10);
 	}
 
 	static final ArrayList<String> workingPath = new ArrayList<String>();
@@ -79,10 +81,10 @@ class AnnotationStripper {
 	}
 
 	private static boolean doStrip(String name) {
-		if (strippables.contains(name))
-			return true;
+		try{if (strippables.contains(name.getBytes("UTF-8")))
+			return true;}catch(java.io.IOException e){}
 		int idx = name.indexOf('$');
-		return idx >= 0 && strippables.contains(name.substring(0, idx));
+		try{return idx >= 0 && strippables.contains((name.substring(0, idx)).getBytes("UTF-8"));}catch(java.io.IOException e){return idx >= 0 && strippables.contains((name.substring(0, idx)).getBytes());}
 	}
 
 	static synchronized void HACK(String name, byte[] bytes) {
@@ -243,8 +245,8 @@ class AnnotationStripper {
 		side = FMLCommonHandler.instance().getSide().toString().toUpperCase(java.util.Locale.ENGLISH).intern();
 		for (ASMData data : table.getAll(Strippable.class.getName())) {
 			String name = data.getClassName();
-			strippables.add(name);
-			strippables.add(name + "$class");
+			try{strippables.add(name.getBytes("UTF-8"));
+			strippables.add((name + "$class").getBytes("UTF-8"));}catch(java.io.IOException e){}
 		}
 	}
 }

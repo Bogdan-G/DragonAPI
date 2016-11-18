@@ -21,7 +21,7 @@ public final class ReikaCSVReader {
 	private final BufferedReader bf;
 	
 	public ReikaCSVReader(Class root, String path) {
-		InputStream input = new java.io.BufferedInputStream(root.getResourceAsStream(path));
+		InputStream input = new java.io.BufferedInputStream(root.getResourceAsStream(path), 16384);
 		FileReader fr = null;
 		if (input == null) {
 			try{input.close();} catch (java.io.IOException e) {e.printStackTrace();}
@@ -37,7 +37,7 @@ public final class ReikaCSVReader {
 			bf = null;
 			return;
 		}
-		bf = new BufferedReader(fr);
+		bf = new BufferedReader(fr, 16384);
 		try{input.close();} catch (java.io.IOException e) {e.printStackTrace();}
 	}
 	

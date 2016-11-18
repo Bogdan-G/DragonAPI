@@ -64,11 +64,10 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 		f17 = f5;
 		f18 = f6;
 		if (b instanceof WireBlock) {
+			org.lwjgl.opengl.GL11.glPushMatrix();
 			WireBlock w = (WireBlock)b;
 			boolean alone = true;
-			for (int i = 2; i < 6; i++)
-				if (w.isDirectlyConnectedTo(world, x, y, z, i))
-					alone = false;
+			for (int i = 2; i < 6; i++) if (w.isDirectlyConnectedTo(world, x, y, z, i)) { alone = false; break; }//not need more 1 set boolean in 'alone'? -> no continue cycle
 			int power = w.getPowerState(world, x, y, z);
 			IIcon ico = rb.getIconSafe(w.getBaseTexture());
 			IIcon over = rb.getIconSafe(w.getConnectedSideOverlay());
@@ -104,6 +103,7 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 					boolean up = w.drawWireUp(world, x, y, z, i);
 					switch(dir) {
 						case EAST:
+							org.lwjgl.opengl.GL11.glPushMatrix();
 							v5.addVertexWithUV(1, d, 1, over.getMinU(), over.getMaxV());
 							v5.addVertexWithUV(1, d, 0, over.getMaxU(), over.getMaxV());
 							v5.addVertexWithUV(0, d, 0, over.getMaxU(), over.getMinV());
@@ -125,8 +125,10 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 								v5.addVertexWithUV(1-d2, 0, 0, ico.getMaxU(), ico.getMaxV());
 								v5.addVertexWithUV(1-d2, 0, 1, ico.getMinU(), ico.getMaxV());
 							}
+							org.lwjgl.opengl.GL11.glPopMatrix();
 							break;
 						case NORTH: //done
+							org.lwjgl.opengl.GL11.glPushMatrix();
 							v5.addVertexWithUV(0, d, 1, over.getMinU(), over.getMinV());
 							v5.addVertexWithUV(1, d, 1, over.getMaxU(), over.getMinV());
 							v5.addVertexWithUV(1, d, 0, over.getMaxU(), over.getMaxV());
@@ -148,8 +150,10 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 								v5.addVertexWithUV(0, 0, d2, ico.getMaxU(), ico.getMaxV());
 								v5.addVertexWithUV(1, 0, d2, ico.getMinU(), ico.getMaxV());
 							}
+							org.lwjgl.opengl.GL11.glPopMatrix();
 							break;
 						case SOUTH: //done
+							org.lwjgl.opengl.GL11.glPushMatrix();
 							v5.addVertexWithUV(0, d, 1, over.getMinU(), over.getMaxV());
 							v5.addVertexWithUV(1, d, 1, over.getMaxU(), over.getMaxV());
 							v5.addVertexWithUV(1, d, 0, over.getMaxU(), over.getMinV());
@@ -171,8 +175,10 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 								v5.addVertexWithUV(0, 1, 1-d2, ico.getMaxU(), ico.getMinV());
 								v5.addVertexWithUV(1, 1, 1-d2, ico.getMinU(), ico.getMinV());
 							}
+							org.lwjgl.opengl.GL11.glPopMatrix();
 							break;
 						case WEST:
+							org.lwjgl.opengl.GL11.glPushMatrix();
 							v5.addVertexWithUV(1, d, 1, over.getMinU(), over.getMinV());
 							v5.addVertexWithUV(1, d, 0, over.getMaxU(), over.getMinV());
 							v5.addVertexWithUV(0, d, 0, over.getMaxU(), over.getMaxV());
@@ -194,6 +200,7 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 								v5.addVertexWithUV(d2, 1, 0, ico.getMaxU(), ico.getMinV());
 								v5.addVertexWithUV(d2, 1, 1, ico.getMinU(), ico.getMinV());
 							}
+							org.lwjgl.opengl.GL11.glPopMatrix();
 							break;
 						default:
 							break;
@@ -202,6 +209,7 @@ public class CustomWireRenderer implements ISimpleBlockRenderingHandler {
 			}
 
 			v5.addTranslation(-x, -y, -z);
+			org.lwjgl.opengl.GL11.glPopMatrix();
 			return true;
 		}
 		return false;

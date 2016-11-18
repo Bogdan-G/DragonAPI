@@ -19,9 +19,11 @@ import Reika.DragonAPI.Instantiable.Worldgen.ChunkSplicedGenerationCache.SetBloc
 import Reika.DragonAPI.Instantiable.Worldgen.ChunkSplicedGenerationCache.TileCallback;
 import Reika.DragonAPI.Instantiable.Worldgen.ChunkSplicedGenerationCache.TileSet;
 
+import org.eclipse.collections.impl.set.mutable.UnifiedSet;
+
 public class OriginBlockCache {
 
-	private final Collection<PositionedBlock> data = new HashSet();
+	private final Collection<PositionedBlock> data = new UnifiedSet();
 
 	public final int originX;
 	public final int originY;

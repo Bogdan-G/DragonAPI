@@ -25,15 +25,15 @@ public final class ModOreCompat {
 
 	public static final ModOreCompat instance = new ModOreCompat();
 
-	private final MultiMap<OreType, String> modOres = new MultiMap();
+	private final MultiMap<OreType, byte[]> modOres = new MultiMap();
 	private final Collection<OreVariant> variants = new ArrayList();
 
 	private ModOreCompat() {
 		if (DragonOptions.GREGORES.getState()) {
-			modOres.addValue(ReikaOreHelper.IRON, "oreBandedIron");
-			modOres.addValue(ReikaOreHelper.IRON, "oreBrownLimonite");
-			modOres.addValue(ReikaOreHelper.IRON, "oreYellowLimonite");
-			modOres.addValue(ReikaOreHelper.QUARTZ, "oreNetherQuartz");
+			modOres.addValue(ReikaOreHelper.IRON, "oreBandedIron".getBytes());
+			modOres.addValue(ReikaOreHelper.IRON, "oreBrownLimonite".getBytes());
+			modOres.addValue(ReikaOreHelper.IRON, "oreYellowLimonite".getBytes());
+			modOres.addValue(ReikaOreHelper.QUARTZ, "oreNetherQuartz".getBytes());
 
 			this.addVariant("Netherrack", "ore*", ModList.GREGTECH);
 			this.addVariant("Endstone", "ore*", ModList.GREGTECH);
@@ -47,7 +47,8 @@ public final class ModOreCompat {
 		for (OreVariant v : variants) {
 			v.addOreBlocks(type, c);
 		}
-		for (String s : modOres.get(type)) {
+		for (byte[] s0 : modOres.get(type)) {
+			String s = new String(s0);
 			c.addAll(OreDictionary.getOres(s));
 			for (OreVariant v : variants) {
 				v.addOreBlocks(s, c);

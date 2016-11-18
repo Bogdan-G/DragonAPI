@@ -132,7 +132,7 @@ public enum ModOreList implements OreType {
 	private String[] oreLabel;
 	public final int dropCount;
 	public final int oreColor;
-	private String product;
+	private byte[] product;
 	private boolean init;
 	public final OreRarity rarity;
 	private MultiMap<String, ItemStack> perName = new MultiMap();
@@ -142,7 +142,7 @@ public enum ModOreList implements OreType {
 	public static final ModOreList[] oreList = values();
 
 	private static final ItemHashMap<ModOreList> oreMappings = new ItemHashMap();
-	private static final HashSet<String> oreNames = new HashSet();
+	private static final HashSet<byte[]> oreNames = new HashSet();
 
 	private ModOreList(String n, int color, OreRarity r, String prod, int count, String... ore) {
 		//if (!DragonAPIInit.canLoadHandlers())
@@ -150,7 +150,7 @@ public enum ModOreList implements OreType {
 		dropCount = count;
 		oreColor = color;
 		displayName = n;
-		product = prod;
+		product = prod.getBytes();
 		oreLabel = new String[ore.length];
 		/*for (int i = 0; i < ore.length; i++) {
 			oreLabel[i] = ore[i];
@@ -193,7 +193,7 @@ public enum ModOreList implements OreType {
 		ores.clear();
 		for (int i = 0; i < oreLabel.length; i++) {
 			String label = oreLabel[i];
-			oreNames.add(label);
+			try{oreNames.add(label.getBytes("UTF-8"));}catch(java.io.IOException e){}
 			ArrayList<ItemStack> toadd = OreDictionary.getOres(label);
 			if (!toadd.isEmpty()) {
 				Iterator<ItemStack> it = toadd.iterator();
@@ -314,7 +314,7 @@ public enum ModOreList implements OreType {
 	}
 
 	public String getProductOreDictName() {
-		return product;
+		return (new String(product));
 	}
 
 	public int getDropCount() {
@@ -322,15 +322,15 @@ public enum ModOreList implements OreType {
 	}
 
 	public boolean isIngotType() {
-		return product.contains("ingot");
+		return (new String(product)).contains("ingot");
 	}
 
 	public boolean isDustType() {
-		return product.contains("dust");
+		return (new String(product)).contains("dust");
 	}
 
 	public boolean isGemType() {
-		return product.contains("gem") || product.contains("crystal");
+		return (new String(product)).contains("gem") || (new String(product)).contains("crystal");
 	}
 
 	public String getTypeName() {
@@ -460,6 +460,6 @@ public enum ModOreList implements OreType {
 	}
 
 	public static boolean isModOreType(String s) {
-		return oreNames.contains(s);
+		try{return oreNames.contains(s.getBytes("UTF-8"));}catch(java.io.IOException e){return oreNames.contains(s.getBytes());}
 	}
 }

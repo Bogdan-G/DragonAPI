@@ -29,7 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public final class DelegateFontRenderer extends FontRenderer {
 
 	private final FontRenderer fallback;
-	private final HashBiMap<String, BasicFontRenderer> renderers = HashBiMap.create();
+	private final HashBiMap<byte[], BasicFontRenderer> renderers = HashBiMap.create();
 	private static int currentID = 512; //char 512; everything from here is a foreign-language char or diacritic
 	private static final int maxID = 0xFFFF;
 	private static final char keyChar = '\uFFFC';
@@ -59,7 +59,7 @@ public final class DelegateFontRenderer extends FontRenderer {
 			cpw.mods.fml.common.FMLLog.warning("Delegate Font Renderer has run out of IDs! All "+maxID+" IDs occupied!");
 		}
 		String id = keyChar+String.valueOf((char)currentID);
-		renderers.put(id, f);
+		try{renderers.put(id.getBytes("UTF-8"), f);}catch(java.io.IOException e){}
 		((IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(f);
 		MinecraftForge.EVENT_BUS.register(f);
 		currentID++;
@@ -90,7 +90,8 @@ public final class DelegateFontRenderer extends FontRenderer {
 			//ReikaJavaLibrary.pConsole(index+"/"+sg.length()+"@"+sg, index >= 0);
 			if (index >= 0 && index < sg.length()-1) {
 				String key = sg.substring(index, index+2);
-				BasicFontRenderer f = renderers.get(key);
+				BasicFontRenderer f = null;
+				try{f = renderers.get(key.getBytes("UTF-8"));}catch(java.io.IOException e){}
 				if (f != null) {
 					return new FontKey(f, sg.substring(0, index)+sg.substring(index+2, sg.length()));
 				}

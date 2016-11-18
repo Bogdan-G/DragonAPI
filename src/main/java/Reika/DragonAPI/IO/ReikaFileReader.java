@@ -41,7 +41,7 @@ public class ReikaFileReader extends DragonAPICore {
 		int len;
 		LineNumberReader lnr = null;
 		try {
-			lnr = new LineNumberReader(new FileReader(f));
+			lnr = new LineNumberReader(new FileReader(f), 16384);
 			lnr.skip(Long.MAX_VALUE);
 			len = lnr.getLineNumber()+1+1;
 			lnr.close();
@@ -58,7 +58,7 @@ public class ReikaFileReader extends DragonAPICore {
 
 	public static BufferedReader getReader(File f) {
 		try {
-			return new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			return new BufferedReader(new InputStreamReader(new FileInputStream(f)), 16384);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class ReikaFileReader extends DragonAPICore {
 
 	public static BufferedReader getReader(String path) {
 		try {
-			return new BufferedReader(new InputStreamReader(new FileInputStream(path)));
+			return new BufferedReader(new InputStreamReader(new FileInputStream(path)), 16384);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -163,7 +163,7 @@ public class ReikaFileReader extends DragonAPICore {
 		StringBuilder sb = new StringBuilder();
 		BufferedReader p = null;
 		try {
-			p = new BufferedReader(new InputStreamReader(in));
+			p = new BufferedReader(new InputStreamReader(in), 16384);
 		}
 		catch (NullPointerException e) {
 			DragonAPICore.logError("File "+path+" does not exist!");

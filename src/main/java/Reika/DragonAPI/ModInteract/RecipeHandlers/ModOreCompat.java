@@ -30,10 +30,18 @@ public final class ModOreCompat {
 
 	private ModOreCompat() {
 		if (DragonOptions.GREGORES.getState()) {
+			try {
+			modOres.addValue(ReikaOreHelper.IRON, "oreBandedIron".getBytes("UTF-8"));
+			modOres.addValue(ReikaOreHelper.IRON, "oreBrownLimonite".getBytes("UTF-8"));
+			modOres.addValue(ReikaOreHelper.IRON, "oreYellowLimonite".getBytes("UTF-8"));
+			modOres.addValue(ReikaOreHelper.QUARTZ, "oreNetherQuartz".getBytes("UTF-8"));
+			} catch (Throwable t) {
+			cpw.mods.fml.common.FMLLog.log(org.apache.logging.log4j.Level.WARN, t, "DragonAPI stacktrace: %s", t);
 			modOres.addValue(ReikaOreHelper.IRON, "oreBandedIron".getBytes());
 			modOres.addValue(ReikaOreHelper.IRON, "oreBrownLimonite".getBytes());
 			modOres.addValue(ReikaOreHelper.IRON, "oreYellowLimonite".getBytes());
 			modOres.addValue(ReikaOreHelper.QUARTZ, "oreNetherQuartz".getBytes());
+			}
 
 			this.addVariant("Netherrack", "ore*", ModList.GREGTECH);
 			this.addVariant("Endstone", "ore*", ModList.GREGTECH);

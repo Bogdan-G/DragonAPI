@@ -10,10 +10,10 @@
 package Reika.DragonAPI.ModInteract;
 
 import net.minecraft.item.ItemStack;
-/*import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.research.ResearchItem;*/
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.research.ResearchItem;
 
-/*public class CustomThaumResearch extends ResearchItem {
+public class CustomThaumResearch extends ResearchItem {
 
 	private String name = "";
 	private String desc = "";
@@ -45,4 +45,4 @@ import thaumcraft.api.research.ResearchItem;*/
 		desc = str;
 		return this;
 	}
-}*/
+}

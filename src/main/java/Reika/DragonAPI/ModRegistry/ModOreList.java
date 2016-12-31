@@ -150,12 +150,14 @@ public enum ModOreList implements OreType {
 		dropCount = count;
 		oreColor = color;
 		displayName = n;
-		product = prod.getBytes();
+		try {product = prod.getBytes("UTF-8");} catch (Throwable t) {
+		cpw.mods.fml.common.FMLLog.log(org.apache.logging.log4j.Level.WARN, t, "DragonAPI stacktrace: %s", t);
+		product = prod.getBytes();}
 		oreLabel = new String[ore.length];
-		/*for (int i = 0; i < ore.length; i++) {
+		for (int i = 0; i < ore.length; i++) {
 			oreLabel[i] = ore[i];
-		}*/
-		System.arraycopy(ore, 0, oreLabel, 0, ore.length);
+		}
+		//System.arraycopy(ore, 0, oreLabel, 0, ore.length);
 		rarity = r;
 
 		DragonAPICore.log("Adding ore entries for "+this.toString()+" (Ore Names: "+Arrays.toString(ore)+")");

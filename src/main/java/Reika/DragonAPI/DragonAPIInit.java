@@ -111,20 +111,20 @@ import Reika.DragonAPI.ModInteract.WailaTechnicalOverride;
 //import Reika.DragonAPI.ModInteract.DeepInteract.FrameBlacklist;
 //import Reika.DragonAPI.ModInteract.DeepInteract.MTInteractionManager;
 import Reika.DragonAPI.ModInteract.DeepInteract.NEIIntercept;
-//import Reika.DragonAPI.ModInteract.DeepInteract.ReikaMystcraftHelper;
-//import Reika.DragonAPI.ModInteract.DeepInteract.ReikaThaumHelper;
+import Reika.DragonAPI.ModInteract.DeepInteract.ReikaMystcraftHelper;
+import Reika.DragonAPI.ModInteract.DeepInteract.ReikaThaumHelper;
 import Reika.DragonAPI.ModInteract.DeepInteract.TwilightForestLootHooks;
 import Reika.DragonAPI.ModInteract.ItemHandlers.AppEngHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.BCMachineHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.BCPipeHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.BerryBushHandler;
-//import Reika.DragonAPI.ModInteract.ItemHandlers.BloodMagicHandler;
+import Reika.DragonAPI.ModInteract.ItemHandlers.BloodMagicHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.BoPBlockHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.DartItemHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.DartOreHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.ExtraUtilsHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.FactorizationHandler;
-import Reika.DragonAPI.ModInteract.ItemHandlers.ForestryHandler;
+//import Reika.DragonAPI.ModInteract.ItemHandlers.ForestryHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.GalacticCraftHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.HarvestCraftHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.HungerOverhaulHandler;
@@ -136,7 +136,7 @@ import Reika.DragonAPI.ModInteract.ItemHandlers.MagicaOreHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.MekToolHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.MekanismHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.MimicryHandler;
-//import Reika.DragonAPI.ModInteract.ItemHandlers.MystCraftHandler;
+import Reika.DragonAPI.ModInteract.ItemHandlers.MystCraftHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.OpenBlockHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.OreBerryBushHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.PneumaticPlantHandler;
@@ -388,10 +388,10 @@ public class DragonAPIInit extends DragonAPIMod {
 		FMLInterModComms.sendMessage("Waila", "register", "Reika.DragonAPI.ModInteract.LegacyWailaHelper.registerObjects");
 		FMLInterModComms.sendMessage("Waila", "register", "Reika.DragonAPI.ModInteract.WailaTechnicalOverride.registerOverride");
 
-		if (DragonOptions.UNNERFOBSIDIAN.getState())
+		//if (DragonOptions.UNNERFOBSIDIAN.getState())
 			//Blocks.obsidian.setResistance(2000);
 
-		if (ModList.COMPUTERCRAFT.isLoaded()) {
+		/*if (ModList.COMPUTERCRAFT.isLoaded()) {
 			try {
 				Class interf = Class.forName("dan200.computercraft.api.peripheral.IPeripheralProvider");
 				Class handler = Class.forName("Reika.DragonAPI.ModInteract.PeripheralHandler");
@@ -404,7 +404,7 @@ public class DragonAPIInit extends DragonAPIMod {
 			catch (Exception e) {
 				//e.printStackTrace();
 			}
-		}
+		}*/
 
 		/*PatreonController.instance.addPatron(this, "Dale Mahalko / Plawerth", 1);
 		PatreonController.instance.addPatron(this, "Lasse Knudsen", 40);
@@ -686,7 +686,7 @@ public class DragonAPIInit extends DragonAPIMod {
 		this.registerHandler(ModList.IC2, IC2Handler.class, "Handler");
 		this.registerHandler(ModList.ARSMAGICA, MagicaOreHandler.class, "Ore Handler");
 		this.registerHandler(ModList.APPENG, AppEngHandler.class, "Handler");
-		this.registerHandler(ModList.FORESTRY, ForestryHandler.class, "Item Handler");
+		//this.registerHandler(ModList.FORESTRY, ForestryHandler.class, "Item Handler");
 		//this.registerHandler(ModList.FORESTRY, ForestryRecipeHelper.class, "Recipe Handler");
 		this.registerHandler(ModList.THERMALFOUNDATION, ThermalHandler.class, "Handler");
 		this.registerHandler(ModList.MIMICRY, MimicryHandler.class, "Handler");
@@ -704,8 +704,8 @@ public class DragonAPIInit extends DragonAPIMod {
 		this.registerHandler(ModList.MINEFACTORY, MFRHandler.class, "Handler");
 		this.registerHandler(ModList.GALACTICRAFT, GalacticCraftHandler.class, "Handler");
 		this.registerHandler(ModList.EXTRAUTILS, ExtraUtilsHandler.class, "Handler");
-		//this.registerHandler(ModList.MYSTCRAFT, MystCraftHandler.class, "Block Handler");
-		//this.registerHandler(ModList.BLOODMAGIC, BloodMagicHandler.class, "Handler");
+		this.registerHandler(ModList.MYSTCRAFT, MystCraftHandler.class, "Block Handler");
+		this.registerHandler(ModList.BLOODMAGIC, BloodMagicHandler.class, "Handler");
 		this.registerHandler(ModList.PNEUMATICRAFT, PneumaticPlantHandler.class, "Handler");
 		this.registerHandler(ModList.BOP, BoPBlockHandler.class, "Handler");
 		this.registerHandler(ModList.HUNGEROVERHAUL, HungerOverhaulHandler.class, "Handler");

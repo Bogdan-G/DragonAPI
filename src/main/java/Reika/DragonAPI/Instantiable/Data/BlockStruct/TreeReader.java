@@ -13,7 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-//import Reika.ChromatiCraft.API.TreeGetter;
+import Reika.ChromatiCraft.API.TreeGetter;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
 //import Reika.DragonAPI.Exception.MisuseException;
@@ -42,14 +42,14 @@ public final class TreeReader extends BlockArray {
 
 	public TreeReader() {
 		super();
-		/*if (ModList.CHROMATICRAFT.isLoaded()) {
+		if (ModList.CHROMATICRAFT.isLoaded()) {
 			dyeLeafID = TreeGetter.getNaturalDyeLeafID();
 			rainbowLeafID = TreeGetter.getRainbowLeafID();
 		}
-		else {*/
+		else {
 			dyeLeafID = null;
 			rainbowLeafID = null;
-		//}
+		}
 	}
 
 	private void checkAndAddDyeTree(World world, int x, int y, int z, int ox, int oy, int oz, int depth) {

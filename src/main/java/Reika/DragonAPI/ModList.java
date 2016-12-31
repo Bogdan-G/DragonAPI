@@ -49,7 +49,7 @@ public enum ModList implements ModEntry {
 	THAUMCRAFT("Thaumcraft", "thaumcraft.common.config.ConfigBlocks", "thaumcraft.common.config.ConfigItems"),
 	IC2("IC2", "ic2.core.Ic2Items"), //ensure still here
 	GREGTECH("gregtech"),
-	FORESTRY("Forestry", "forestry.core.config.ForestryBlock", "forestry.core.config.ForestryItem"),
+	//FORESTRY("Forestry", "forestry.core.config.ForestryBlock", "forestry.core.config.ForestryItem"),
 	APPENG("appliedenergistics2"), //appeng.api.definitions
 	MFFS("MFFS", "mffs.ModularForceFieldSystem"), //ensure still here
 	REDPOWER("RedPower"),
@@ -94,13 +94,13 @@ public enum ModList implements ModEntry {
 	BLUEPOWER("bluepower", "com.bluepowermod.init.BPBlocks", "com.bluepowermod.init.BPItems"),
 	COLORLIGHT("easycoloredlights"),
 	ENDERIO("EnderIO", "crazypants.enderio.EnderIO"),
-	COMPUTERCRAFT("ComputerCraft", "dan200.ComputerCraft"),
+	//COMPUTERCRAFT("ComputerCraft", "dan200.ComputerCraft"),
 	ROUTER("RouterReborn", "router.reborn.RouterReborn"),
 	PNEUMATICRAFT("PneumaticCraft", "pneumaticCraft.common.block.Blockss", "pneumaticCraft.common.item.Itemss"),
 	PROJECTE("ProjectE", "moze_intel.projecte.gameObjs.ObjHandler"),
 	BLOODMAGIC("AWWayofTime", "WayofTime.alchemicalWizardry.ModBlocks", "WayofTime.alchemicalWizardry.ModItems"),
 	LYCANITE("lycanitesmobs"),
-	CRAFTMANAGER("zcraftingmanager"),
+	//CRAFTMANAGER("zcraftingmanager"),
 	MINECHEM("minechem"),
 	TFC("terrafirmacraft"),
 	BOTANIA("Botania"),

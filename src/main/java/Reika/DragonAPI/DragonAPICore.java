@@ -32,7 +32,7 @@ public class DragonAPICore {
 
 	public static final Random rand = new org.bogdang.modifications.random.XSTR();
 
-	private static final boolean reika = calculateReikasComputer();
+	//private static final boolean reika = calculateReikasComputer();
 
 	public static final String last_API_Version = "@MAJOR_VERSION@"+"@MINOR_VERSION@";
 
@@ -47,7 +47,7 @@ public class DragonAPICore {
 			"after:ComputerCraft;after:ThermalFoundation";
 
 	public static final String FORUM_PAGE = "http://www.minecraftforum.net/topic/1969694-";
-	public static final UUID Reika_UUID = UUID.fromString("e5248026-6874-4954-9a02-aa8910d08f31");
+	//public static final UUID Reika_UUID = UUID.fromString("e5248026-6874-4954-9a02-aa8910d08f31");
 
 	public static URL getReikaForumPage() {
 		try {
@@ -77,7 +77,7 @@ public class DragonAPICore {
 		return s;
 	}
 
-	private static boolean calculateReikasComputer() {
+	/*private static boolean calculateReikasComputer() {
 		try {
 			String username = System.getProperty("user.name");
 			boolean win = System.getProperty("os.name").equals("Windows 7");
@@ -96,11 +96,11 @@ public class DragonAPICore {
 		catch (Throwable e) {
 			return false;
 		}
-	}
+	}*/
 
-	public static boolean isReikasComputer() {
+	/*public static boolean isReikasComputer() {
 		return reika;
-	}
+	}*/
 
 	/*static {
 		if (isReikasComputer())//FB: Superclass uses subclass during initialization
@@ -114,7 +114,7 @@ public class DragonAPICore {
 		return FMLCommonHandler.instance().getEffectiveSide();
 	}
 
-	private static void validateForgeVersions() {
+	/*private static void validateForgeVersions() {
 		int major = ForgeVersion.majorVersion;
 		int minor = ForgeVersion.minorVersion;
 		int rev = ForgeVersion.revisionVersion;
@@ -125,7 +125,7 @@ public class DragonAPICore {
 			log("The version of Forge you are using is compatible but not recommended.");
 			log(String.format("Consider updating to at least %d.%d.%d.%d.", major, minor, rev, recbuild));
 		}
-	}
+	}*/
 
 	public static boolean isOnActualServer() {
 		return getSide() == Side.SERVER && FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer();

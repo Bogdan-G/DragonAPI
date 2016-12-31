@@ -30,7 +30,7 @@ import Reika.DragonAPI.Interfaces.Registry.ModCrop;
 import Reika.DragonAPI.Interfaces.Registry.ModEntry;
 import Reika.DragonAPI.Libraries.Java.ReikaReflectionHelper;
 import Reika.DragonAPI.Libraries.MathSci.ReikaMathLibrary;
-//import Reika.DragonAPI.ModInteract.ItemHandlers.AgriCraftHandler;
+import Reika.DragonAPI.ModInteract.ItemHandlers.AgriCraftHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.BerryBushHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.FluxedCrystalHandler;
 import Reika.DragonAPI.ModInteract.ItemHandlers.HarvestCraftHandler;

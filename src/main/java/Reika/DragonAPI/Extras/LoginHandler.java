@@ -31,13 +31,13 @@ public final class LoginHandler implements PlayerTracker {
 
 	public static final LoginHandler instance = new LoginHandler();
 
-	private static final String reikaMessage = getReikaWelcome();
+	//private static final String reikaMessage = getReikaWelcome();
 
 	private LoginHandler() {
 
 	}
 
-	private static String getReikaWelcome() {
+	/*private static String getReikaWelcome() {
 		StringBuilder sb = new StringBuilder(86);
 		sb.append("Welcome ").append(EnumChatFormatting.LIGHT_PURPLE.toString()+"Reika").append(EnumChatFormatting.WHITE.toString()+", Developer of:\n").append(EnumChatFormatting.GOLD.toString()+"   DragonAPI\n");
 		List<ModList> li = ModList.getReikasMods();
@@ -54,17 +54,17 @@ public final class LoginHandler implements PlayerTracker {
 		}
 		sb.append("to the server!");
 		return sb.toString();
-	}
+	}*/
 
 	@Override
 	public void onPlayerLogin(EntityPlayer ep) {
-		boolean flag = ReikaObfuscationHelper.isDeObfEnvironment();
+		/*boolean flag = ReikaObfuscationHelper.isDeObfEnvironment();
 		if (ReikaPlayerAPI.isReika(ep)) {
 			ReikaChatHelper.sendChatToAllOnServer(reikaMessage);
 		}
 		else {
 
-		}
+		}*/
 
 		PlayerFirstTimeTracker.checkPlayer(ep);
 		//CommandableUpdateChecker.instance.notifyPlayer(ep);

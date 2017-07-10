@@ -46,11 +46,11 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 	private static final MultiMap<String, ClassPatch> classes = new MultiMap().setNullEmpty();
 
 	private static enum ClassPatch {
-		CREEPERBOMBEVENT("net.minecraft.entity.monster.EntityCreeper", "xz"),
+		//CREEPERBOMBEVENT("net.minecraft.entity.monster.EntityCreeper", "xz"),
 		ITEMRENDEREVENT("net.minecraft.client.gui.inventory.GuiContainer", "bex"),
 		SLOTCLICKEVENT("net.minecraft.inventory.Slot", "aay"),
 		ICECANCEL("net.minecraft.world.World", "ahb"),
-		HELDRENDEREVENT("net.minecraft.client.renderer.EntityRenderer", "blt"),
+		//HELDRENDEREVENT("net.minecraft.client.renderer.EntityRenderer", "blt"),
 		POTIONEFFECTID("net.minecraft.potion.PotionEffect", "rw"),
 		POTIONPACKETID("net.minecraft.network.play.server.S1DPacketEntityEffect", "in"),
 		POTIONPACKETID2("net.minecraft.client.network.NetHandlerPlayClient", "bjb"),
@@ -59,9 +59,9 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 		GUIEVENT("net.minecraft.entity.player.EntityPlayer", "yz"),
 		ITEMUPDATE("net.minecraft.entity.item.EntityItem", "xk"),
 		TILERENDER("net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher", "bmk"),
-		WORLDRENDER("net.minecraft.client.renderer.RenderGlobal", "bma"),
+		//WORLDRENDER("net.minecraft.client.renderer.RenderGlobal", "bma"),
 		NIGHTVISEVENT("net.minecraft.client.renderer.EntityRenderer", "blt"),
-		FARCLIPEVENT("net.minecraft.client.renderer.EntityRenderer", "blt"),
+		//FARCLIPEVENT("net.minecraft.client.renderer.EntityRenderer", "blt"),
 		PUSHENTITYOUT("net.minecraft.entity.Entity", "sa"),
 		CREATIVETAB("net.minecraft.client.gui.inventory.GuiContainerCreative", "bfl"),
 		BURNBLOCK("net.minecraft.block.BlockFire", "alb"),
@@ -74,8 +74,8 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 		FURNACEUPDATE("net.minecraft.tileentity.TileEntityFurnace", "apg"),
 		MUSICEVENT("net.minecraft.client.audio.MusicTicker", "btg"),
 		SOUNDEVENTS("net.minecraft.client.audio.SoundManager", "btj"),
-		CLOUDRENDEREVENT1("net.minecraft.client.settings.GameSettings", "bbj"),
-		CLOUDRENDEREVENT2("net.minecraft.client.renderer.EntityRenderer", "blt"),
+		//CLOUDRENDEREVENT1("net.minecraft.client.settings.GameSettings", "bbj"),
+		//CLOUDRENDEREVENT2("net.minecraft.client.renderer.EntityRenderer", "blt"),
 		PROFILER("net.minecraft.profiler.Profiler", "qi"),
 		SPRINTEVENT("net.minecraft.network.NetHandlerPlayServer", "nh"),
 		//JUMPCHECKEVENTSERVER("net.minecraft.network.NetHandlerPlayServer", "nh"),
@@ -97,7 +97,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 			ClassReader classReader = new ClassReader(data);
 			classReader.accept(cn, 0);
 			switch(this) {
-				case CREEPERBOMBEVENT: {
+				/*case CREEPERBOMBEVENT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_146077_cc", "func_146077_cc", "()V");
 					AbstractInsnNode pos = null;
 					for (int i = 0; i < m.instructions.size(); i++) {
@@ -119,7 +119,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 					m.instructions.insert(pos, new FieldInsnNode(Opcodes.GETSTATIC, "net/minecraftforge/common/MinecraftForge", "EVENT_BUS", "Lcpw/mods/fml/common/eventhandler/EventBus;"));
 					ReikaASMHelper.log("Successfully applied "+this+" ASM handler!");
 				}
-				break;
+				break;*/
 				case ITEMRENDEREVENT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_146977_a", "func_146977_a", "(Lnet/minecraft/inventory/Slot;)V");
 					AbstractInsnNode pos = m.instructions.getFirst();
@@ -205,7 +205,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 					ReikaASMHelper.log("Successfully applied "+this+" ASM handler!");
 					break;
 				}
-				case HELDRENDEREVENT: {
+				/*case HELDRENDEREVENT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_78476_b", "renderHand", "(FI)V");
 					for (int i = 0; i < m.instructions.size(); i++) {
 						AbstractInsnNode ain = m.instructions.get(i);
@@ -225,7 +225,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 						}
 					}
 					break;
-				}
+				}*/
 				case POTIONEFFECTID: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_82719_a", "writeCustomPotionEffectToNBT", "(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;");
 					for (int i = 0; i < m.instructions.size(); i++) {
@@ -523,7 +523,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 					}
 					break;
 				}
-				case WORLDRENDER: {
+				/*case WORLDRENDER: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_147589_a", "renderEntities", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/client/renderer/culling/ICamera;F)V");
 					InsnList fire = new InsnList();
 					fire.add(new FieldInsnNode(Opcodes.GETSTATIC, "net/minecraftforge/common/MinecraftForge", "EVENT_BUS", "Lcpw/mods/fml/common/eventhandler/EventBus;"));
@@ -551,7 +551,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 						}
 					}
 					break;
-				}
+				}*/
 				case NIGHTVISEVENT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_82830_a", "getNightVisionBrightness", "(Lnet/minecraft/entity/player/EntityPlayer;F)F");
 					m.instructions.clear();
@@ -583,7 +583,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 				//
 				//	break;
 				//}
-				case FARCLIPEVENT: {
+				/*case FARCLIPEVENT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_78479_a", "setupCameraTransform", "(FI)V");
 					String fd = FMLForgePlugin.RUNTIME_DEOBF ? "field_78530_s" : "farPlaneDistance";
 					InsnList add = new InsnList();
@@ -612,7 +612,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 						}
 					}
 					break;
-				}
+				}*/
 				case PUSHENTITYOUT: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_145771_j", "func_145771_j", "(DDD)Z");
 					InsnList add = new InsnList();
@@ -950,7 +950,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 
 					break;
 				}
-				case CLOUDRENDEREVENT1: {
+				/*case CLOUDRENDEREVENT1: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_74309_c", "shouldRenderClouds", "()Z");
 					m.instructions.clear();
 					m.instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "Reika/DragonAPI/Instantiable/Event/Client/CloudRenderEvent", "fire", "()Z", false));
@@ -967,7 +967,7 @@ public class DragonAPIClassTransfomer implements IClassTransformer {
 					m.instructions.insertBefore(loc, new MethodInsnNode(Opcodes.INVOKESTATIC, "Reika/DragonAPI/Instantiable/Event/Client/CloudRenderEvent", "fire", "()Z", false));
 					ReikaASMHelper.log("Successfully applied "+this+" ASM handler!");
 					break;
-				}
+				}*/
 				case PROFILER: {
 					MethodNode m = ReikaASMHelper.getMethodByName(cn, "func_76320_a", "startSection", "(Ljava/lang/String;)V");
 					m.instructions.insert(new MethodInsnNode(Opcodes.INVOKESTATIC, "Reika/DragonAPI/Instantiable/Event/ProfileEvent", "fire", "(Ljava/lang/String;)V", false));

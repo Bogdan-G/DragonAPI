@@ -322,9 +322,9 @@ public final class ReikaPlayerAPI extends DragonAPICore {
 		return false;
 	}
 
-	public static boolean isReika(EntityPlayer ep) {
+	/*public static boolean isReika(EntityPlayer ep) {
 		return ep.getUniqueID().equals(DragonAPICore.Reika_UUID);
-	}
+	}*/
 	/*
 	public static UUID getUUIDByUsername(String name) {
 		UUID id = uuidMap.get(name);

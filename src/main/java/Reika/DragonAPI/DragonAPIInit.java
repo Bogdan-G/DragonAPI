@@ -594,7 +594,7 @@ public class DragonAPIInit extends DragonAPIMod {
 		ReflectiveFailureTracker.instance.print();
 	}
 
-	private void checkRemoteAssetDownload() throws InterruptedException {
+	/*private void checkRemoteAssetDownload() throws InterruptedException {
 		long time = 0;
 		long d = 100;
 		while (!RemoteAssetLoader.instance.isDownloadComplete()) {
@@ -606,7 +606,7 @@ public class DragonAPIInit extends DragonAPIMod {
 			Thread.sleep(d);
 			time += d;
 		}
-	}
+	}*/
 
 	@SubscribeEvent
 	public void clearItems(ItemUpdateEvent evt) {
